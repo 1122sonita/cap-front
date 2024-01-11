@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function Safe() {
+export default function Home() {
   return (
     <main>
       <div className='bg-white'>Hello Capstone</div>

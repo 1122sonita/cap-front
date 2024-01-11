@@ -9,7 +9,7 @@ const container = {
   fluid: 'w-full max-w-[1440px] mx-auto',
 };
 
-export default function Safe() {
+export default function About() {
   return (
     <main>
       <section className='bg-[url(/assets/unsafe/bg-1.png)] bg-cover bg-no-repeat xl:bg-contain xl:bg-repeat'>

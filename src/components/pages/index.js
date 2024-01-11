@@ -1,4 +1,4 @@
-import Safe from './Safe';
-import Unsafe from './Unsafe';
+import Home from './Home';
+import About from './About';
 
-export { Safe, Unsafe };
+export { Home, About };

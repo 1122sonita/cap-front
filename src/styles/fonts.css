@@ -1,0 +1,148 @@
+/* Tailwind css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .text-14px {
+    @apply text-[8px] md:text-[14px];
+  }
+
+  .text-16px {
+    @apply text-[10px] md:text-[16px];
+  }
+
+  .text-18px {
+    @apply text-[12px] md:text-[18px];
+  }
+
+  .text-19px {
+    @apply text-[12px] lg:text-[19px];
+
+    /* done */
+  }
+
+  .text-20px {
+    @apply text-[16px] lg:text-[20px];
+
+    /* done */
+  }
+
+  .text-23px {
+    @apply text-[11px] sm:text-[17px] md:text-[23px];
+  }
+
+  .text-24px {
+    @apply text-[18px] md:text-[24px];
+
+    /* done */
+  }
+
+  .text-25px {
+    @apply text-[12px] md:text-[25px];
+  }
+
+  .text-26px {
+    @apply text-[16px] md:text-[26px];
+
+    /* done */
+  }
+
+  .text-27px {
+    @apply text-[20px] md:text-[27px];
+
+    /* done */
+  }
+
+  .text-28px {
+    @apply text-[24px] md:text-[28px];
+
+    /* done */
+  }
+
+  .text-30px {
+    @apply text-[28px] md:text-[30px];
+
+    /* done */
+  }
+
+  .text-32px {
+    @apply text-[30px] md:text-[32px];
+
+    /* done */
+  }
+
+  .text-36px {
+    @apply text-[32px] md:text-[36px];
+
+    /* done */
+  }
+
+  .text-38px {
+    @apply text-[34px] md:text-[38px];
+  }
+
+  .text-40px {
+    @apply text-[36px] md:text-[40px];
+
+    /* done */
+  }
+
+  .text-42px {
+    @apply text-[40px] md:text-[42px];
+
+    /* done */
+  }
+
+  .text-45px {
+    @apply text-[36px] md:text-[45px];
+  }
+
+  .text-48px {
+    @apply text-[37px] md:text-[48px];
+
+    /* done */
+  }
+
+  .text-60px {
+    @apply text-[47px] md:text-[60px];
+
+    /* done */
+  }
+
+  .text-96px {
+    @apply text-[70px] md:text-[96px];
+  }
+
+  .text-banner {
+    @apply lg:text-[80px] md:text-[72px] text-[60px];
+  }
+
+  .text-h1 {
+    @apply lg:text-[50px] md:text-[32px] text-[24px];
+  }
+
+  .text-title {
+    @apply lg:text-[30px] md:text-[22px] text-[18px];
+  }
+
+  .text-subtitle {
+    @apply lg:text-[24px] md:text-[20px] text-[18px];
+  }
+
+  .text-p {
+    @apply lg:text-[20px] md:text-[18px] text-[14px];
+  }
+
+  .text-li {
+    @apply lg:text-[18px] md:text-[16px] text-[14px];
+  }
+
+  .text-btn {
+    @apply lg:text-[20px]  md:text-[18px] text-[14px];
+  }
+
+  .text-navbar {
+    @apply lg:text-[20px]  md:text-[18px] text-[14px] font-medium;
+  }
+}
