@@ -1,19 +1,8 @@
-import { Safe, Unsafe } from '@components/pages';
-import { fetcher } from '@service/strapi';
+import { Safe } from '@components/pages';
 import { getCloakingLink } from '@utilities/dev';
-import useSWR from 'swr';
 
-export default function Index({ clid }) {
-  const { data } = useSWR(`https://water-xyz.com/detect.php?clid=${clid}`, fetcher);
-
-  switch (data?.result) {
-    case 'safe':
-      return <Unsafe />;
-    case 'unsafe':
-      return <Safe />;
-    default:
-      return null;
-  }
+export default function Index() {
+  return <Safe />;
 }
 
 export async function getStaticProps() {
