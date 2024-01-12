@@ -4,8 +4,8 @@ import '../styles/index.css';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { Main } from '@components/common';
+import MainLayout from '@layout/mainlayout';
 import { seoDefualt } from '../constants';
-import { MainLayout } from '../layout/Main';
 
 const config = {
   enableRecoil: false,

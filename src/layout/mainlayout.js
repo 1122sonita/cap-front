@@ -1,7 +1,7 @@
-import { Main } from '@components/common';
+import { Layout, Main } from '@components/common';
 import { useState, useEffect } from 'react';
 
-export const MainLayout = ({ children }) => {
+export default function MainLayout({ children }) {
   // State
   const [scrollBtn, setScrollBtn] = useState(false);
 
@@ -16,9 +16,12 @@ export const MainLayout = ({ children }) => {
   }, []);
 
   return (
-    <div>
+    <div className='w-full relative'>
       <Main.ScrollToTop scrollBtn={scrollBtn} />
-      <div className='w-full h-full'>{children}</div>
+
+      <Layout.Navbar />
+      <div>{children}</div>
+      <Layout.Footer />
     </div>
   );
-};
+}

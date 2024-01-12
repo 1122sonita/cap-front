@@ -7,22 +7,25 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        main: 'url(/assets/main/bg-1.png)',
+        'home-bg': 'url(/assets/main/banner.jpg)',
       },
       colors: {
-        footer: '#343434',
-        primary: '#6539B8', // purple
-        secondary: '#FFC916', // golden
-        purple_1: '#BA68C8', // hover purple
-        green: '#00DF76', // hover purple
-        red: '#FF3E3E', // hover purple
-        purple: '#E9DDFF',
+        secondary: '#BF242F', // red 2
+        gray1: '#A6A6A6', // gray
+        gray2: '#F2F2F2', // light gray 1
+        golden1: '#EF9D0E', // golden
+        golden2: '#D99A26', // golden
+        footer: '#1E1E1E',
+        primary: '#3284B3',
       },
       height: {
         inherit: 'inherit',
       },
       width: {
         inherit: 'inherit',
+      },
+      screens: {
+        '3xl': '1920px',
       },
     },
   },
@@ -31,8 +34,9 @@ module.exports = {
     plugin(function newCom({ addComponents }) {
       const components = {
         '.container-full': {},
-        '.container-full-px': {},
         '.container-fluid': {},
+        '.text-border': {},
+        '.font-inter': {},
       };
 
       addComponents(components);
