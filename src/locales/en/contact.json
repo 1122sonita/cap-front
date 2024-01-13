@@ -1,0 +1,30 @@
+{
+  "leftPanel": {
+    "title": "Contact Us",
+    "whatsapp": "Whatsapp",
+    "telegram": "Telegram",
+    "wechat": "WeChat"
+  },
+  "rightPanel": {
+    "title": "Contact Form",
+    "name": "Name",
+    "contact": {
+      "title": "Telegram Username",
+      "ex": "Telegram"
+    },
+    "message": "Message",
+    "btn": "Submit"
+  },
+  "cont": {
+  "btnProcc":"Processing...",
+  "btnTo":"Return home",
+  "btnCon": "Continue Message",
+  "title":"Thank you!",
+  "dsp": "Your submission has been sent."
+  },
+  "form":{
+      "name":" John Doe",
+      "username": "@GoGo_marketing",
+      "message":" I want to build a website for my company..."
+  }
+}

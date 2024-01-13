@@ -13,11 +13,11 @@ export default function Banner() {
         className='space-y-[20px] py-[20px]'
       >
         <h1 className='text-h1 font-bold text-white text-center md:text-left'>
-          Boost Your Business Traffic Through Google, LINE, TikTok, and Facebook
+          Hosting your Applicaiton through our Cloud Service
         </h1>
         <p className='text-subtitle text-white text-center md:text-left'>
           Ignite Brand Influence, Master Digital Trends. Our Professional Team Will Propel Your
-          Business to Online Success Peaks
+          Application hosting
         </p>
         <div className='flex justify-center md:justify-start'>
           <Link href='/service'>
@@ -34,7 +34,7 @@ export default function Banner() {
       </motion.div>
       <div className='pb-[40px]'>
         <Image
-          src='/assets/home/banner-1.png'
+          src='/assets/home/banner.png'
           alt='banner-1'
           layout='responsive'
           width={1317}

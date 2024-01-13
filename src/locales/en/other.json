@@ -1,0 +1,66 @@
+{
+  "title": "Other Service",
+  "main": {
+    "title": "We also offer a variety of additional marketing services.",
+    "dsp": "Partner with us to expand a comprehensive marketing strategy, leading your brand to stand out in a competitive market, and achieve more opportunities and success.",
+    "btn": "Start Now",
+    "cards": {
+      "card1": {
+        "title": "TikTok Advertisement",
+        "lists": {
+          "list1": "TikTok Content Marketing",
+          "list2": "TikTok Advertisement",
+          "list3": "Influencer Marketing"
+        }
+      },
+      "card2": {
+        "title": "YouTube Advertisement",
+        "lists": {
+          "list1": "YouTube Short",
+          "list2": "YouTube SEO",
+          "list3": "YouTube Sponsored Card",
+          "list4": "Website Recommendation"
+        }
+      },
+      "card3": {
+        "title": "B2B Website Development",
+        "lists": {
+          "list1": "HTTPS Website Encryption",
+          "list2": "Responsive Website",
+          "list3": "Skilled Developer, VIP Services",
+          "list4": "Over 200 Different Language"
+        }
+      },
+      "card4": {
+        "title": "APP Advertisement",
+        "lists": {
+          "list1": "Appstore or Google Play Ad",
+          "list2": "Social Media Advertisement",
+          "list3": "In-App Promotion"
+        }
+      },
+      "card5": {
+        "title": "Facebook / Instagram",
+        "lists": {
+          "list1": "Brand Public Page",
+          "list2": "Facebook /Instagram Ad",
+          "list3": "Instagram Account Management",
+          "list4": "Create Brand Engagement"
+        }
+      },
+      "card6": {
+        "title": "More",
+        "lists": {
+          "list1": "Telegram / Whatsapp",
+          "list2": "WeChat",
+          "list3": "Twitter / Xiaohongshu / Weibo",
+          "list4": "LINE"
+        }
+      }
+    }
+  },
+  "provider": {
+    "title": "Connect with us instantly for all your needs with just one click.",
+    "btn": "Contact"
+  }
+}

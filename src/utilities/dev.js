@@ -6,17 +6,23 @@ export const getDomain = () =>
 export const getCMSDomain = () => process?.env?.NEXT_PUBLIC_CMS_URL;
 
 export const getGAID = () => process?.env?.NEXT_PUBLIC_GA_ID || '';
+export const getCRYP = () => process?.env?.NEXT_PUBLIC_CRYPTO || '';
 
-export const getPlayLink = () => process?.env?.NEXT_PUBLIC_PLAY_LINK || '/';
+export const getPlayLink = () =>
+  process?.env?.NEXT_PUBLIC_PLAY_LINK || 'https://t.me/Gogo_marketing';
+export const getTgLink = () => process?.env?.NEXT_PUBLIC_TG_LINK || '';
 
-export const getGameLink = () => process?.env?.NEXT_PUBLIC_CASINO_LINK || '/';
-
-export const getUnSafePageUrl = () =>
-  process?.env?.NEXT_PUBLIC_UNSAFE_URL || 'https://hk-landing-page-59-fork.vercel.app';
-
-export const getCloakingLink = () => {
-  const url = process?.env?.NEXT_PUBLIC_CLOAKING_LINK || 'https://water-xyz.com/l/?9r1zonxi';
-  const id = url.split('?')[1];
-
-  return id;
+export const getContacts = {
+  tel: {
+    linkTo: 'tel:01212121212121',
+    title: '+01212121212121',
+  },
+  wechat: {
+    linkTo: 'weixin://dl/chat?9533075',
+    title: '9533075',
+  },
+  telegram: {
+    linkTo: 'https://t.me/Gogo_marketing',
+    title: '@Cloud_service',
+  },
 };

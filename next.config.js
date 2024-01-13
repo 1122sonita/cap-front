@@ -9,7 +9,7 @@ const cmsPath =
 
 module.exports = withPWA({
   i18n: {
-    locales: ['en'],
+    locales: ['en', 'kh'],
     defaultLocale: 'en',
   },
   experimental: { esmExternals: true },

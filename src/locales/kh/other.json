@@ -1,0 +1,66 @@
+{
+  "title": "其他独特服务",
+  "main": {
+    "title": "我们还提供更多的营销服务",
+    "dsp": "携手我们，拓展全面营销战略，引领您的品牌在竞争激烈的市场中独树一帜，获得更多的机会与成就。",
+    "btn": "立即咨询",
+    "cards": {
+      "card1": {
+        "title": "TIKTOK短视频广告",
+        "lists": {
+          "list1": "TikTok内容营销",
+          "list2": "TikTok广告",
+          "list3": "网红营销"
+        }
+      },
+      "card2": {
+        "title": "Youtube视频推广",
+        "lists": {
+          "list1": "YouTube 短视频",
+          "list2": "YouTube SEO",
+          "list3": "YouTube 卡片广告",
+          "list4": "网站推荐"
+        }
+      },
+      "card3": {
+        "title": "B2B业务建站",
+        "lists": {
+          "list1": "HTTPS网站加密",
+          "list2": "响应式网站",
+          "list3": "优秀的开发团队，提供个性化的VIP服务",
+          "list4": "200多种语言"
+        }
+      },
+      "card4": {
+        "title": "手机APP推广",
+        "lists": {
+          "list1": "Appstore 或 Google Play 推广",
+          "list2": "网络线上下预装",
+          "list3": "应用内推广"
+        }
+      },
+      "card5": {
+        "title": "Facebook / Instagram",
+        "lists": {
+          "list1": "品牌公共主页",
+          "list2": "Facebook 广告",
+          "list3": "Instagram 账号运营",
+          "list4": "添加好友 & 分享按钮"
+        }
+      },
+      "card6": {
+        "title": "更多渠道",
+        "lists": {
+          "list1": "Telegram / Whatsapp",
+          "list2": "微信 (WeChat)",
+          "list3": "Twitter / 小红书 / 微博",
+          "list4": "LINE"
+        }
+      }
+    }
+  },
+  "provider": {
+    "title": "我们还提供更多服务，您们的需求我们都能满足。一键立马跟我们沟通",
+    "btn": "联络我们"
+  }
+}

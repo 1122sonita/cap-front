@@ -1,0 +1,30 @@
+{
+  "leftPanel": {
+    "title": "联络我们",
+    "whatsapp": "Whatsapp",
+    "telegram": "Telegram",
+    "wechat": "微信"
+  },
+  "rightPanel": {
+    "title": "给我们留言",
+    "name": "姓名",
+    "contact": {
+      "title": "飞机户名",
+      "ex": "Telegram"
+    },
+    "message": "需求",
+    "btn": "提交"
+  },
+  "cont": {
+    "bbtnProcc":"等待中...",
+  "btnTo":"返回 ",
+  "btnCon":" 继续申请",
+  "title":"谢谢您!",
+  "dsp": "您的申请已提交"
+  },
+  "form":{
+      "name":" 小白",
+      "username": "@GoGo_marketing",
+      "message":"我想为我的公司建立一个网站..."
+  }
+}

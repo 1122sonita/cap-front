@@ -12,7 +12,7 @@ export const faqDefault = [
 export const seoDefualt = {
   linkTo: '/',
   seo: {
-    title: '',
+    title: 'CapStone Project',
     description: '',
     keywords: '',
     images: [],

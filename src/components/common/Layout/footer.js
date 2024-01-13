@@ -1,15 +1,81 @@
-import { getPlayLink } from '@utilities/dev';
+import { navbarBtnsData } from '@constants';
+import { getContacts } from '@utilities/dev';
+import { tran } from '@utilities/i18n';
+import Image from 'next/image';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
 import React from 'react';
+import { FaTelegram } from 'react-icons/fa6';
 
 export default function Footer() {
+  const { locale } = useRouter();
+  const { locale: trans } = tran(locale);
+
   return (
-    <footer className='bg-footer'>
-      <div className='container-full'>
-        <div className='flex items-center justify-center gap-2 flex-wrap text-white py-4'>
-          <p className='text-center text-white'>©2023 - All Rights Reserved. Website Design : </p>
-          <a href={getPlayLink()} className='font-bold'>
-            WG滙遊會
-          </a>
+    <footer className='bg-black'>
+      <div className='container-fluid bg-footer-bg bg-cover bg-no-repeat bg-right'>
+        <div className='container-full-px pt-[50px] lg:pt-[75px] pb-[50px]'>
+          <div className='flex justify-center lg:justify-start py-[20px] '>
+            <Link href='/'>
+              <a>
+                <div className='w-[250px] lg:w-[318px]'>
+                  <Image
+                    src='/assets/main/logo.png'
+                    alt='logo'
+                    layout='responsive'
+                    width={2400}
+                    height={912}
+                  />
+                </div>
+              </a>
+            </Link>
+          </div>
+
+          <div className=' flex justify-between pb-[40px] items-center'>
+            <div className=' space-y-[20px]'>
+              <ul className='flex flex-col lg:flex-row items-center gap-[20px]'>
+                {navbarBtnsData.map((load) => (
+                  <li
+                    key={load.title}
+                    className='text-white lg:border-r-[2px] border-white pr-[20px] last:border-0'
+                  >
+                    <Link href={load.linkTo} locale={locale}>
+                      <a className='text-navbar'>{trans.navbar[load.trans]}</a>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+              <div>
+                <ul className='flex flex-wrap justify-center lg:justify-start gap-[20px]'>
+                  <li className='text-secondary flex items-center gap-[5px]'>
+                    <div>
+                      <FaTelegram size={30} />
+                    </div>
+                    <p className='text-li'>{getContacts.telegram.title}</p>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div className=' md:w-[200px] w-[150px]'>
+              <Image
+                src='/assets/main/telegram.png'
+                alt='telegram'
+                layout='responsive'
+                width={303}
+                height={303}
+              />
+            </div>
+          </div>
+        </div>
+        <div className='border-t-[1px] border-gray-600'>
+          <div className='container-full-px py-[20px]'>
+            <div className=' flex justify-between items-center'>
+              <p className='text-gray-600 text-16px text-center'>
+                2024 Cambodia Academy of Digital Technology
+              </p>
+              <p className='text-gray-600 text-16px text-center'>Contact：+8616793674330</p>
+            </div>
+          </div>
         </div>
       </div>
     </footer>

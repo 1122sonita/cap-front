@@ -1,0 +1,73 @@
+{
+  "title": "Website",
+  "dsp": "Building",
+  "optimize": {
+    "title": "You need a website, we can help you build it.",
+    "dsp": "Gogo Marketing offers the perfect website solutions for your business or personal brand. Whether you need to create a new website or upgrade an existing one, we can provide customized design and functionality to meet your needs. Our team has extensive experience and will create unique website to help you achieve your online goals."
+  },
+  "benefit": {
+    "title": "How Can a Website Boost Your Business Growth?",
+    "dsp": "In the digital age, having a carefully crafted website is one of the keys to business success. Having a website can bring your business countless advantages.",
+    "cards": {
+      "card1": {
+        "title": "Increase Visibility",
+        "dsp": "A website can takes your business global, making your brand more discoverable anytime, anywhere, attracting more  customers."
+      },
+      "card2": {
+        "title": "Business Online Showcase",
+        "dsp": "Your website is online 24/7, providing customers with information and services, allowing interaction with customers at any time, offering product information, and online purchase options."
+      },
+      "card3": {
+        "title": "Improve Brand Professionalism",
+        "dsp": "Having a well designed website can help build customer trust, convey a professional image, and showcase your expertise in the business field."
+      },
+      "card4": {
+        "title": "Low-Cost Advertising",
+        "dsp": "Website operation and maintenance costs are relatively low, and with the use of SEO and social media to attract more potential customers"
+      }
+    }
+  },
+  "available": {
+    "title": "The website building plans we offer",
+    "dsp": "We offer a variety of website packages to ensure your website is in its best condition both in terms of appearance and performance.",
+    "btn": "Start Now",
+    "cards": {
+      "card1": {
+        "title": "Template Website",
+        "subTitle": "Pay By Page",
+        "lists": {
+          "list1": "Choose from curated website templates.",
+          "list2": "Easy template-based customization",
+          "list3": "Assistance with domain registration",
+          "list4": "Free overseas server hosting",
+          "list5": "Complimentary SSL certificate",
+          "list6": "Seamless data migration",
+          "list7": "Google SEO compliance",
+          "list8": "Includes corporate email"
+        }
+      },
+      "card2": {
+        "title": "Custom Website",
+        "subTitle": "Pay By Page",
+        "lists": {
+          "list1": "Custom-built website from scratch",
+          "list2": "Responsive design for all devices.",
+          "list3": "Assistance with domain registration",
+          "list4": "Free overseas server hosting",
+          "list5": "Complimentary SSL certificate",
+          "list6": "Seamless data migration",
+          "list7": "Google SEO compliance",
+          "list8": "Includes corporate email"
+        }
+      }
+    }
+  },
+  "provider": {
+    "title": "Connect with us instantly for all your needs with just one click.",
+    "btn": "Contact"
+  },
+  "monitor":{
+    "title":"Enjoy Your Website Anytime, Anywhere",
+    "dsp":"We meticulously craft websites for you, attracting more potential customers, showcasing your brand charm, and accelerating business growth."
+  }
+}

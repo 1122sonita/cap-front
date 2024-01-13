@@ -1,0 +1,27 @@
+{
+  "title": "Our Offerings",
+  "btn": "View Pricing",
+  "cards": {
+    "card1": {
+      "title": "SEO",
+      "dsp": "Optimization"
+    },
+    "card2": {
+      "title": "SEM",
+      "dsp": "Marketing"
+    },
+    "card3": {
+      "title": "Website",
+      "dsp": ""
+    }
+    ,
+    "card4": {
+      "title": "Other Service",
+      "dsp": ""
+    }
+  },
+  "provider": {
+    "title": "Connect with us instantly for all your needs with just one click.",
+    "btn": "Contact"
+  }
+}

@@ -1,11 +1,10 @@
-import { Home } from '@components/pages';
+import { Service } from '@components/pages';
 import { seoDefualt } from '@constants';
 import { tran } from '@utilities/i18n';
 
 export default function Index({ locale }) {
   const { locale: trans } = tran(locale);
-
-  return <Home locale={locale} trans={trans} />;
+  return <Service locale={locale} trans={trans} />;
 }
 
 export async function getServerSideProps(ctx) {
@@ -14,7 +13,7 @@ export async function getServerSideProps(ctx) {
       locale: ctx.locale,
       seo: {
         ...seoDefualt,
-        linkTo: '/',
+        linkTo: '/service',
       },
     },
   };

@@ -1,0 +1,88 @@
+{
+  "banner": {
+    "title": "Boost Your Business Traffic Through Google, LINE, TikTok, and Facebook",
+    "dsp": "Ignite Brand Influence, Master Digital Trends. Our Professional Team Will Propel Your Business to Online Success Peaks",
+    "btn": "Start Now"
+  },
+  "service": {
+    "title": "Why Choose Our Services?",
+    "dsp": "By choosing us, you will gain access to a highly experienced SEM/SEO team dedicated to tailoring the best digital marketing strategies for your specific needs. We continuously optimize these strategies to achieve optimal results. Our transparent communication and data-driven approach ensure that you have a clear understanding of your return on investment, allowing you to stand out in the competitive market.\nPast success stories demonstrate that our services can deliver tangible and significant results for your brand.",
+    "btn": "View Pricing",
+    "count-1": {
+      "num": "980",
+      "symbol": "+",
+      "title": "Completed Project"
+    },
+    "count-2": {
+      "num": "4000",
+      "symbol": "+",
+      "title": "Successful Collaboration"
+    },
+    "count-3": {
+      "num": "78.27",
+      "symbol": "",
+      "title": "Customer Satisfaction Rate"
+    },
+    "count-4": {
+      "num": "10",
+      "symbol": "+",
+      "title": "Advertising Experience"
+    }
+  },
+  "strategy": {
+    "title": "Our SEO Strategy Helps Your Website Breakthrough Rapidly",
+    "dsp": "Craft a Distinct Online Presence for Your Brand, Catapult Your Website to the Forefront of Search Engines. Aid You in Swiftly Rising Above the Competition in a Fierce Market.",
+    "click": {
+      "num": "45902",
+      "title": "Total Click",
+      "title2": "Clicks"
+    },
+    "impression": {
+      "num": "914025",
+      "title": "Total Impression",
+      "title2": "Impressions"
+    },
+    "rate": {
+      "num": "5.11%",
+      "title": "Click Rate",
+      "title2": "CTR"
+    },
+    "avg": {
+      "num": "0.45$",
+      "title": "Average Click Cost",
+      "title2": "Avg. CPC"
+    }
+  },
+  "provider": {
+    "title": "What We Offer",
+    "dsp": "Comprehensive Media Traffic Ecosystem, Encompassing Premium Overseas Traffic Resources, Professional Advertisement Placement Empowers You to Easily Acquire Global Customers, Rapidly Expanding Your Overseas Target Markets",
+    "btn": "Learn More",
+    "seo": {
+      "title": "SEO Optimization"
+    },
+    "sem": {
+      "title": "SEM Marketing"
+    },
+    "b2b": {
+      "title": "B2B Business Website Development"
+    },
+    "account": {
+      "title": "Online Event Planning, Increase Fan Engagement"
+    },
+    "app": {
+      "title": "Mobile APP Advertisement"
+    },
+    "social": {
+      "title": "Social Media Campaign Advertisement"
+    }
+  },
+  "support": {
+    "title": "Searching for the Industry-Leading Marketing Company? Let Us Improves Your Business Traffic",
+    "list1": "Whether it's online event planning, focused fan engagement, or professional support for account opening, we provide you with a one-stop solution, excel your business in the overseas markets.",
+    "list2": "We help promote your mobile app, spreading awareness of your products and services. Through interactive engagement on your Facebook page, enabling users to quickly grasp your value proposition.",
+    "list3": "With our Google keyword bidding strategies, we position your brand at the forefront of search engines, giving you a competitive edge.",
+    "list4": "In terms of SEO optimization, we elevate keywords to the top ranks, enhancing your brand's visibility in search results.",
+    "list5": "By choosing us, you'll gain a passionate and creative team dedicated to delivering ongoing success and growth in the realm of digital marketing!",
+    "btn": "Contact us"
+  }
+}

@@ -2,6 +2,7 @@ export const navbarBtnsData = [
   // Element(show) is show element on button or not
   {
     title: 'Home',
+    trans: 'home',
     linkTo: '/',
     show: true,
     sitemap: true,
@@ -9,6 +10,7 @@ export const navbarBtnsData = [
   },
   {
     title: 'About',
+    trans: 'about',
     linkTo: '/about-us',
     show: true,
     sitemap: true,
@@ -16,14 +18,16 @@ export const navbarBtnsData = [
   },
   {
     title: 'Service',
-    linkTo: '/contact-us',
+    trans: 'service',
+    linkTo: '/service',
     show: true,
     sitemap: true,
     children: [],
   },
   {
     title: 'Contact',
-    linkTo: '/our-app',
+    trans: 'contact',
+    linkTo: '/contact-us',
     show: true,
     sitemap: true,
     children: [],
