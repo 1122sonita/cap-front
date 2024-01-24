@@ -2,17 +2,13 @@ export const mainData = [
   {
     id: '1',
     trans: 'card1',
-    image: {
-      url: '/assets/other/card-1.png',
-      alt: 'card-1',
-      width: 600,
-      height: 450,
-    },
+    price: '2$',
     subTrans: ['list1', 'list2', 'list3'],
   },
   {
     id: '2',
     trans: 'card2',
+    price: '4$',
     image: {
       url: '/assets/other/card-2.png',
       alt: 'card-2',
@@ -24,6 +20,7 @@ export const mainData = [
   {
     id: '3',
     trans: 'card3',
+    price: '6$',
     image: {
       url: '/assets/other/card-3.png',
       alt: 'card-3',
@@ -35,6 +32,7 @@ export const mainData = [
   {
     id: '4',
     trans: 'card4',
+    price: '8$',
     image: {
       url: '/assets/other/card-4.png',
       alt: 'card-4',
@@ -46,6 +44,7 @@ export const mainData = [
   {
     id: '5',
     trans: 'card5',
+    price: '10$',
     image: {
       url: '/assets/other/card-5.png',
       alt: 'card-5',
@@ -57,6 +56,7 @@ export const mainData = [
   {
     id: '6',
     trans: 'card6',
+    price: '12$',
     image: {
       url: '/assets/other/card-6.png',
       alt: 'card-6',

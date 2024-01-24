@@ -1,30 +1,30 @@
 {
   "leftPanel": {
-    "title": "联络我们",
+    "title": "Contact Us",
     "whatsapp": "Whatsapp",
     "telegram": "Telegram",
-    "wechat": "微信"
+    "wechat": "WeChat"
   },
   "rightPanel": {
-    "title": "给我们留言",
-    "name": "姓名",
+    "title": "Contact Form",
+    "name": "Name",
     "contact": {
-      "title": "飞机户名",
+      "title": "Telegram Username",
       "ex": "Telegram"
     },
-    "message": "需求",
-    "btn": "提交"
+    "message": "Message",
+    "btn": "Submit"
   },
   "cont": {
-    "bbtnProcc":"等待中...",
-  "btnTo":"返回 ",
-  "btnCon":" 继续申请",
-  "title":"谢谢您!",
-  "dsp": "您的申请已提交"
+  "btnProcc":"Processing...",
+  "btnTo":"Return home",
+  "btnCon": "Continue Message",
+  "title":"Thank you!",
+  "dsp": "Your submission has been sent."
   },
   "form":{
-      "name":" 小白",
-      "username": "@GoGo_marketing",
-      "message":"我想为我的公司建立一个网站..."
+      "name":" username",
+      "username": "@cloud service",
+      "message":" I want to host an applicaiton for my own usage..."
   }
 }

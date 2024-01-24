@@ -8,6 +8,7 @@ import { useRouter } from 'next/router';
 import React, { useState } from 'react';
 import { FaCheck, FaEarthAsia } from 'react-icons/fa6';
 import { HiOutlineMenu } from 'react-icons/hi';
+import Support from '../Main/Support';
 
 export default function Navbar() {
   const { asPath, locale } = useRouter();
@@ -20,7 +21,7 @@ export default function Navbar() {
   const BlogBtn = () => {
     return (
       <div>
-        <Link href='/blogs'>
+        <Link href='/login'>
           <a>
             <button
               type='button'
@@ -36,6 +37,7 @@ export default function Navbar() {
   return (
     <>
       <nav className='sticky top-0 z-30 bg-white'>
+        <Support />
         <div className='container-full-px'>
           <div className='flex items-center justify-center lg:justify-between gap-x-[25px] py-2 md:py-0'>
             <div className='py-[10px] lg:py-[16px]'>

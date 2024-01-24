@@ -24,7 +24,7 @@ export default function Banner() {
             <a>
               <button
                 type='button'
-                className='bg-golden1 text-subtitle py-[10px] px-[40px] hover:bg-primary hover:text-secondary hover:scale-110 transition-all text-primary font-semibold rounded-full'
+                className='bg-button text-subtitle py-[10px] px-[40px] hover:bg-primary hover:text-secondary hover:scale-110 transition-all text-black font-semibold rounded-full'
               >
                 Buy Now
               </button>
@@ -34,7 +34,7 @@ export default function Banner() {
       </motion.div>
       <div className='pb-[40px]'>
         <Image
-          src='/assets/home/banner.png'
+          src='/assets/home/banner-1.png'
           alt='banner-1'
           layout='responsive'
           width={1317}

@@ -1,12 +1,12 @@
 {
-  "title": "Other Service",
+  "title": "Our Service",
   "main": {
     "title": "We also offer a variety of additional marketing services.",
     "dsp": "Partner with us to expand a comprehensive marketing strategy, leading your brand to stand out in a competitive market, and achieve more opportunities and success.",
-    "btn": "Start Now",
+    "btn": "Buy Now",
     "cards": {
       "card1": {
-        "title": "TikTok Advertisement",
+        "title": "2$ / month",
         "lists": {
           "list1": "TikTok Content Marketing",
           "list2": "TikTok Advertisement",
@@ -14,7 +14,7 @@
         }
       },
       "card2": {
-        "title": "YouTube Advertisement",
+        "title": "4$ / month",
         "lists": {
           "list1": "YouTube Short",
           "list2": "YouTube SEO",
@@ -23,7 +23,7 @@
         }
       },
       "card3": {
-        "title": "B2B Website Development",
+        "title": "6$ / month",
         "lists": {
           "list1": "HTTPS Website Encryption",
           "list2": "Responsive Website",
@@ -32,7 +32,7 @@
         }
       },
       "card4": {
-        "title": "APP Advertisement",
+        "title": "8$ / month",
         "lists": {
           "list1": "Appstore or Google Play Ad",
           "list2": "Social Media Advertisement",
@@ -40,7 +40,7 @@
         }
       },
       "card5": {
-        "title": "Facebook / Instagram",
+        "title": "10$ / month",
         "lists": {
           "list1": "Brand Public Page",
           "list2": "Facebook /Instagram Ad",
@@ -49,7 +49,7 @@
         }
       },
       "card6": {
-        "title": "More",
+        "title": "12$ / month",
         "lists": {
           "list1": "Telegram / Whatsapp",
           "list2": "WeChat",

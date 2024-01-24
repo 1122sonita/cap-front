@@ -20,7 +20,7 @@ export default function Banner({ trans }) {
       </motion.div>
       <div className='py-[40px]'>
         <Image
-          src='/assets/other/banner-1.png'
+          src='/assets/service/banner-1.png'
           alt='banner-1'
           layout='responsive'
           width={1305}

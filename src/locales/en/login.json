@@ -1,0 +1,24 @@
+{
+  "rightPanel": {
+    "title": "Login Form",
+    "name": "Email",
+    "contact": {
+      "title": "Password",
+      "ex": "Telegram"
+    },
+    "message": "Message",
+    "btn": "Submit"
+  },
+  "cont": {
+  "btnProcc":"Processing...",
+  "btnTo":"Return home",
+  "btnCon": "Continue Message",
+  "title":"Thank you!",
+  "dsp": "Your submission has been sent."
+  },
+  "form":{
+      "name":"email",
+      "username": "password",
+      "message":" I want to host an applicaiton for my own usage..."
+  }
+}

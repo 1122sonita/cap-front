@@ -11,12 +11,11 @@ module.exports = {
         gradient: 'linear-gradient(0deg, #7fcdff 0%, #FFF 96.25%)',
       },
       colors: {
-        secondary: '#BF242F', // red 2
-        gray1: '#A6A6A6', // gray
-        gray2: '#F2F2F2', // light gray 1
+        secondary: '#F9C34D', // red 2
+        button: '#F08C18',
         golden1: '#EF9D0E', // golden
         golden2: '#D99A26', // golden
-        footer: '#1E1E1E',
+        footer: '	#188a8d',
         primary: '#3284B3',
       },
       height: {

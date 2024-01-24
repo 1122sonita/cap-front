@@ -11,7 +11,7 @@ export const navbarBtnsData = [
   {
     title: 'About',
     trans: 'about',
-    linkTo: '/about-us',
+    linkTo: '/about',
     show: true,
     sitemap: true,
     children: [],
@@ -27,7 +27,7 @@ export const navbarBtnsData = [
   {
     title: 'Contact',
     trans: 'contact',
-    linkTo: '/contact-us',
+    linkTo: '/contact',
     show: true,
     sitemap: true,
     children: [],

@@ -1,11 +1,10 @@
 /* eslint-disable jsx-a11y/mouse-events-have-key-events */
 import { mainData } from '@constants/mocks/others';
-import Image from 'next/image';
+// import Image from 'next/image';
 import React, { useState } from 'react';
 import { AiFillCheckCircle } from 'react-icons/ai';
 import cx from 'classnames';
 import Link from 'next/link';
-import { getPlayLink } from '@utilities/dev';
 import { motion } from 'framer-motion';
 import { containerVariants, childVariants } from '@constants/mocks/motion';
 
@@ -37,10 +36,10 @@ export default function Available({ trans }) {
             key={load.id}
             onMouseOver={() => setHoverId(load.id)}
             onMouseLeave={() => setHoverId(null)}
-            className='bg-gradient hover:text-black  rounded-[20px] gap-[10px] flex flex-col justify-between drop-shadow-md'
+            className='bg-gradient border-[2px] border-secondary hover:text-black  rounded-[20px] gap-[10px] flex flex-col justify-between drop-shadow-md'
           >
             <div className='px-[20px] rounded-t-[16px] bg-purple '>
-              <div className='w-full max-w-[300px] mx-auto'>
+              {/* <div className='w-full max-w-[300px] mx-auto'>
                 <Image
                   src={load.image.url}
                   alt={load.image.alt}
@@ -48,7 +47,7 @@ export default function Available({ trans }) {
                   width={load.image.width}
                   height={load.image.height}
                 />
-              </div>
+              </div> */}
 
               <div className='md:h-[70px] h-[100px] flex items-center justify-center'>
                 <h3
@@ -83,7 +82,7 @@ export default function Available({ trans }) {
             </div>
 
             <div className='bg-secondary  rounded-b-[16px] hover:bg-primary text-primary hover:text-secondary flex justify-center '>
-              <Link href={getPlayLink()}>
+              <Link href='/login'>
                 <button
                   type='button'
                   className=' text-btn  hover:scale-110 transition-all  px-[40px] py-[10px] rounded-full font-semibold'
