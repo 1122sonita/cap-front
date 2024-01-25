@@ -1,0 +1,42 @@
+export const socialData = [
+  {
+    id: '1',
+    linkTo: 'https://www.facebook.com/profile.php?id=100093199608482',
+    icon: 'facebook',
+    icon_color: 'facebook_color',
+    navbar: true,
+    footer: true,
+  },
+  {
+    id: '2',
+    linkTo: 'https://twitter.com/ShengShiJinRong',
+    icon: 'twitter',
+    icon_color: 'twitter_color',
+    navbar: true,
+    footer: true,
+  },
+  {
+    id: '3',
+    linkTo: 'https://www.instagram.com/ssjr_jt/',
+    icon: 'instagram',
+    icon_color: 'instagram_color',
+    navbar: true,
+    footer: true,
+  },
+  {
+    id: '4',
+    linkTo: 'https://www.youtube.com/channel/UCQMblk7i3VpFuvcQgleZbMQ',
+    icon: 'youtube',
+    icon_color: 'youtube_color',
+    navbar: false,
+    footer: true,
+  },
+  // {
+  //   id: '5',
+  //   linkTo: '/',
+  //   icon: 'linkedin',
+  //   icon_color: 'linkedin_color',
+  //   navbar: true,
+  //   footer: false,
+  // },
+];

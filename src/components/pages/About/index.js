@@ -15,7 +15,7 @@ export default function About({ trans }) {
         </div>
       </section>
 
-      <section className=' bg-section-bg-3 bg-cover bg-no-repeat'>
+      <section className=' bg-gradient bg-cover bg-no-repeat'>
         <div className='container-full-px py-[50px]'>
           <Why trans={trans} />
         </div>

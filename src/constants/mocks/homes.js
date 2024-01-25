@@ -21,26 +21,22 @@ export const strategyData = [
   {
     id: '1',
     trans: 'click',
-    color: '#fff',
-    num: '2 $',
+    color: '#FFC916',
   },
   {
     id: '2',
     trans: 'impression',
     color: '#fff',
-    num: '4 $',
   },
   {
     id: '3',
     trans: 'rate',
-    color: '#fff',
-    num: '6 $',
+    color: '#00B498',
   },
   {
     id: '4',
     trans: 'avg',
-    color: '#fff',
-    num: '8 $',
+    color: '#00E3D6',
   },
 ];
 

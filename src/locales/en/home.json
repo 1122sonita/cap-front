@@ -1,6 +1,6 @@
 {
   "banner": {
-    "title": "Boost Your Business Traffic Through Google, LINE, TikTok, and Facebook",
+    "title": "Host Your Applicaiton with Our Cloud",
     "dsp": "Ignite Brand Influence, Master Digital Trends. Our Professional Team Will Propel Your Business to Online Success Peaks",
     "btn": "Start Now"
   },
@@ -34,22 +34,22 @@
     "dsp": "Craft a Distinct Online Presence for Your Brand, Catapult Your Website to the Forefront of Search Engines. Aid You in Swiftly Rising Above the Competition in a Fierce Market.",
     "click": {
       "num": "45902",
-      "title": "Total Click",
+      "title": "Price",
       "title2": "Clicks"
     },
     "impression": {
       "num": "914025",
-      "title": "Total Impression",
+      "title": "Price",
       "title2": "Impressions"
     },
     "rate": {
       "num": "5.11%",
-      "title": "Click Rate",
+      "title": "Price",
       "title2": "CTR"
     },
     "avg": {
       "num": "0.45$",
-      "title": "Average Click Cost",
+      "title": "Price",
       "title2": "Avg. CPC"
     }
   },

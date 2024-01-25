@@ -2,7 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
-export default function Service() {
+export default function Service({ trans }) {
   return (
     <div>
       <div className='grid grid-cols-1 md:grid-cols-2 gap-[40px] items-center py-[50px]'>
@@ -19,9 +19,11 @@ export default function Service() {
         </div>
         <div className='space-y-[20px] py-[20px]'>
           <h2 className='text-title font-bold text-primary text-center md:text-left'>
-            Why choose our service ?
+            {trans.home.service.title}
           </h2>
-          <p className='text-p text-black text-center md:text-left whitespace-pre-wrap'>default</p>
+          <p className='text-p text-black text-center md:text-left whitespace-pre-wrap'>
+            {trans.home.service.dsp}
+          </p>
           <div className='flex justify-center md:justify-start'>
             <Link href='/service'>
               <a>
@@ -29,7 +31,7 @@ export default function Service() {
                   type='button'
                   className='bg-secondary text-btn py-[10px] px-[40px] hover:bg-primary hover:text-secondary hover:scale-110 transition-all text-primary rounded-full font-semibold'
                 >
-                  View Pricing
+                  {trans.home.service.btn}
                 </button>
               </a>
             </Link>

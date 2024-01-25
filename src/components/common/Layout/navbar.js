@@ -9,6 +9,7 @@ import React, { useState } from 'react';
 import { FaCheck, FaEarthAsia } from 'react-icons/fa6';
 import { HiOutlineMenu } from 'react-icons/hi';
 import Support from '../Main/Support';
+import Social from './social';
 
 export default function Navbar() {
   const { asPath, locale } = useRouter();
@@ -37,6 +38,7 @@ export default function Navbar() {
   return (
     <>
       <nav className='sticky top-0 z-30 bg-white'>
+        <Social />
         <Support />
         <div className='container-full-px'>
           <div className='flex items-center justify-center lg:justify-between gap-x-[25px] py-2 md:py-0'>
@@ -61,16 +63,22 @@ export default function Navbar() {
                 {navbarBtnsData?.map(
                   (load) =>
                     load.show && (
-                      <li key={load.title}>
-                        <Link href={load.linkTo}>
-                          <a
-                            className={`text-navbar ${
-                              load.linkTo === active && 'text-primary font-bold'
-                            }`}
-                          >
-                            {trans.navbar[load.trans]}
-                          </a>
-                        </Link>
+                      <li key={load.title} className='pt-[3px]'>
+                        <div
+                          className={`border-b-2 hover:border-primary ${
+                            load.linkTo === asPath ? 'border-primary' : 'border-transparent'
+                          }`}
+                        >
+                          <Link href={load.linkTo}>
+                            <a
+                              className={`text-20px hover:text-primary ${
+                                load.linkTo === asPath ? 'text-primary font-bold' : 'text-gray1'
+                              }`}
+                            >
+                              {load.title}
+                            </a>
+                          </Link>
+                        </div>
                       </li>
                     )
                 )}

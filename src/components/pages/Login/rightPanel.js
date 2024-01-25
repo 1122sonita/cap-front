@@ -1,9 +1,7 @@
 import { useState } from 'react';
-import { MdOutlineCancel } from 'react-icons/md';
-import Link from 'next/link';
-import Image from 'next/image';
 
 export default function RightPanel({ trans }) {
+  // eslint-disable-next-line no-unused-vars
   const [isSubmit, setSubmit] = useState(false);
   const [isLoading, setLoading] = useState(false);
   const [input, setInput] = useState({
@@ -57,57 +55,7 @@ export default function RightPanel({ trans }) {
 
   return (
     <>
-      {isSubmit && (
-        <div className='  w-screen h-screen z-50 bg-black/80 flex justify-center items-center '>
-          <div className=' flex justify-center items-center bg-white w-[100px] h-[500px] rounded-lg relative'>
-            <MdOutlineCancel
-              onClick={() => setSubmit(false)}
-              className=' absolute right-2 top-2 cursor-pointer text-30px hover:text-red-600 hover:scale-105 transition-all text-slate-500'
-            />
-            <div className=' space-y-[25px]'>
-              <div className='flex justify-center items-center'>
-                <div className=' w-[100px] '>
-                  <Image
-                    src='/assets/home/pop.png'
-                    alt='logo'
-                    layout='responsive'
-                    width={185}
-                    height={185}
-                  />
-                </div>
-              </div>
-              <div className=' text-center space-y-[15px]'>
-                <h5 className=' text-purple-800 text-45px font-semibold'>
-                  {trans.login.cont.title}
-                </h5>
-                <p className=' text-20px'>{trans.contact.cont.dsp}</p>
-              </div>
-
-              <div className=' flex justify-center  items-center space-x-[40px]'>
-                <Link href='/'>
-                  <a>
-                    <button
-                      type='button'
-                      className=' bg-purple-200 rounded-xl px-[15px] py-[9px] text-16px text-purple-800 font-bold hover:scale-105 transition-all'
-                    >
-                      {trans.contact.cont.btnTo}
-                    </button>
-                  </a>
-                </Link>
-                <button
-                  type='button'
-                  onClick={() => setSubmit(false)}
-                  className='rounded-xl bg-amber-500 px-[15px] py-[9px] text-16px font-bold text-purple-800  hover:scale-105 transition-all '
-                >
-                  {trans.contact.cont.btnCon}
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
-
-      <div className='h-full bg-white/90 rounded-[20px] px-[20px] md:px-[40px] py-[20px] space-y-[16px]'>
+      <div className='h-full bg-white/90 rounded-[20px] px-[20px] md:px-[100px] py-[20px] space-y-[16px]'>
         <h1 className='text-title font-bold text-primary'>{trans.login.rightPanel.title}</h1>
 
         <div className='space-y-[22px]'>
@@ -122,7 +70,7 @@ export default function RightPanel({ trans }) {
                 type='text'
                 placeholder={trans.login.form.name}
                 className='w-full border-[1px] border-purple-300 rounded-md px-[10px] text-li placeholder:italic placeholder:font-extralight py-[9px]'
-                id='name'
+                id='email'
                 value={input.name}
                 onChange={(e) => onHandleChange(e)}
               />
@@ -146,12 +94,12 @@ export default function RightPanel({ trans }) {
             </label>
           </div>
 
-          <div>
+          <div className='flex justify-center items-center gap-4'>
             {!isLoading ? (
               <button
                 type='button'
                 onClick={() => sendMessage()}
-                className='bg-secondary text-primary text-p font-semibold rounded-full hover:bg-primary hover:scale-110 transition-all hover:text-secondary px-[80px] py-[10px]'
+                className='bg-secondary text-primary text-p font-semibold rounded-full hover:bg-primary hover:scale-110 transition-all hover:text-secondary px-[80px] py-[10px] justify-center items-center'
               >
                 {trans.contact.rightPanel.btn}
               </button>
@@ -181,9 +129,12 @@ export default function RightPanel({ trans }) {
                     d='M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z'
                   />
                 </svg>
-                {trans.contact.cont.btnProcc}
+                {trans.login.cont.btnProcc}
               </button>
             )}
+            <div className=' cursor-pointer underline text-primary font-bold'>
+              <p> Sign Up</p>
+            </div>
           </div>
         </div>
       </div>

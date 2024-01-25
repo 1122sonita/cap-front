@@ -3,9 +3,9 @@ import Link from 'next/link';
 import React from 'react';
 import { motion } from 'framer-motion';
 
-export default function Banner() {
+export default function Banner({ trans }) {
   return (
-    <div className=' grid grid-cols-1 md:grid-cols-2 md:gap-[40px] gap-[5px] items-center'>
+    <div className='grid grid-cols-1 md:grid-cols-2 md:gap-[40px] gap-[5px] items-center'>
       <motion.div
         initial={{ opacity: 0, x: -200 }}
         animate={{ opacity: 1, x: 0 }}
@@ -13,20 +13,17 @@ export default function Banner() {
         className='space-y-[20px] py-[20px]'
       >
         <h1 className='text-h1 font-bold text-white text-center md:text-left'>
-          Hosting your Applicaiton through our Cloud Service
+          {trans.home.banner.title}
         </h1>
-        <p className='text-subtitle text-white text-center md:text-left'>
-          Ignite Brand Influence, Master Digital Trends. Our Professional Team Will Propel Your
-          Application hosting
-        </p>
+        <p className='text-subtitle text-white text-center md:text-left'>{trans.home.banner.dsp}</p>
         <div className='flex justify-center md:justify-start'>
           <Link href='/service'>
             <a>
               <button
                 type='button'
-                className='bg-button text-subtitle py-[10px] px-[40px] hover:bg-primary hover:text-secondary hover:scale-110 transition-all text-black font-semibold rounded-full'
+                className='bg-secondary text-subtitle py-[10px] px-[40px] hover:bg-primary hover:text-secondary hover:scale-110 transition-all text-primary font-semibold rounded-full'
               >
-                Buy Now
+                {trans.home.banner.btn}
               </button>
             </a>
           </Link>
