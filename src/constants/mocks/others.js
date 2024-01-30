@@ -66,3 +66,75 @@ export const mainData = [
     subTrans: ['list1', 'list2', 'list3', 'list4'],
   },
 ];
+
+export const ImageData = [
+  {
+    id: '1',
+    trans: 'card1',
+    title: 'Ubuntu',
+  },
+  {
+    id: '1',
+    trans: 'card1',
+    title: 'Ubuntu',
+  },
+  {
+    id: '1',
+    trans: 'card1',
+    title: 'Ubuntu',
+  },
+  {
+    id: '1',
+    trans: 'card1',
+    title: 'Ubuntu',
+  },
+  {
+    id: '1',
+    trans: 'card1',
+    title: 'Ubuntu',
+  },
+  {
+    id: '1',
+    trans: 'card1',
+    title: 'Ubuntu',
+  },
+];
+
+export const SummaryData = [
+  {
+    id: '1',
+    trans: 'card1',
+    title: 'Processor',
+    dsp: '1 vCore',
+  },
+  {
+    id: '1',
+    trans: 'card1',
+    title: 'Processor',
+    dsp: '1 vCore',
+  },
+  {
+    id: '1',
+    trans: 'card1',
+    title: 'Ubuntu',
+    dsp: '1 vCore',
+  },
+  {
+    id: '1',
+    trans: 'card1',
+    title: 'Processor',
+    dsp: '1 vCore',
+  },
+  {
+    id: '1',
+    trans: 'card1',
+    title: 'Processor',
+    dsp: '1 vCore',
+  },
+  {
+    id: '1',
+    trans: 'card1',
+    title: 'Processor',
+    dsp: '1 vCore',
+  },
+];

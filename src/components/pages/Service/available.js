@@ -39,16 +39,6 @@ export default function Available({ trans }) {
             className='bg-gradient border-[2px] border-secondary hover:text-black  rounded-[20px] gap-[10px] flex flex-col justify-between drop-shadow-md'
           >
             <div className='px-[20px] rounded-t-[16px] bg-purple '>
-              {/* <div className='w-full max-w-[300px] mx-auto'>
-                <Image
-                  src={load.image.url}
-                  alt={load.image.alt}
-                  layout='responsive'
-                  width={load.image.width}
-                  height={load.image.height}
-                />
-              </div> */}
-
               <div className='md:h-[70px] h-[100px] flex items-center justify-center'>
                 <h3
                   className={cx(
@@ -82,7 +72,7 @@ export default function Available({ trans }) {
             </div>
 
             <div className='bg-secondary  rounded-b-[16px] hover:bg-primary text-primary hover:text-secondary flex justify-center '>
-              <Link href='/login'>
+              <Link href='/detail'>
                 <button
                   type='button'
                   className=' text-btn  hover:scale-110 transition-all  px-[40px] py-[10px] rounded-full font-semibold'

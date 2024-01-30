@@ -1,0 +1,30 @@
+{
+  "leftPanel": {
+    "title": "Config your Web Hosting Plan",
+    "whatsapp": "Whatsapp",
+    "telegram": "Telegram",
+    "wechat": "WeChat"
+  },
+  "rightPanel": {
+    "title": "Contact Form",
+    "name": "Name",
+    "contact": {
+      "title": "Telegram Username",
+      "ex": "Telegram"
+    },
+    "message": "Message",
+    "btn": "Submit"
+  },
+  "cont": {
+  "btnProcc":"Processing...",
+  "btnTo":"Return home",
+  "btnCon": "Continue Message",
+  "title":"Thank you!",
+  "dsp": "Your submission has been sent."
+  },
+  "form":{
+      "name":" username",
+      "username": "@cloud service",
+      "message":" I want to host an applicaiton for my own usage..."
+  }
+}

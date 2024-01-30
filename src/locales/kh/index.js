@@ -7,6 +7,7 @@ import contact from './contact.json';
 import website from './website.json';
 import ads from './ads.json';
 import login from './login.json';
+import order from './order.json';
 
 export default {
   ...main,
@@ -18,4 +19,5 @@ export default {
   website,
   ads,
   login,
+  order,
 };
