@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
-import { AiOutlineArrowRight, AiOutlineArrowLeft } from 'react-icons/ai';
+import { AiOutlineArrowLeft, AiOutlineArrowRight } from 'react-icons/ai';
 import RightPanel from './rightPanel';
 import Summary from './summary';
 
 export default function Stepper({ trans }) {
   const [activeStep, setActiveStep] = useState(1);
-  // eslint-disable-next-line no-unused-vars
   const handleNext = () => {
     setActiveStep((prevStep) => prevStep + 1);
   };
@@ -99,18 +98,18 @@ export default function Stepper({ trans }) {
           type='button'
           onClick={handlePrev}
           disabled={activeStep === 1}
-          className='px-4 py-2 bg-white rounded-full flex items-center space-x-2'
+          className='px-4 py-2 bg-gray-300 rounded-full mr-2 flex justify-center items-center gap-2 cursor-pointer'
         >
           <AiOutlineArrowLeft />
-          <span>Previous</span>
+          Previous
         </button>
         <button
           type='button'
-          onClick={handlePrev}
-          disabled={activeStep === 1}
-          className='px-4 py-2 bg-primary rounded-full flex items-center space-x-2'
+          onClick={handleNext}
+          disabled={activeStep === 4}
+          className='px-4 py-2 bg-blue-500 text-white rounded-full flex justify-center items-center gap-2 cursor-pointer'
         >
-          <span>Next</span>
+          Next
           <AiOutlineArrowRight />
         </button>
       </div>
