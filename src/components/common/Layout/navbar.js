@@ -36,6 +36,7 @@ export default function Navbar() {
   useEffect(() => {
     const cookies = cookie.parse(document.cookie);
     const userToken = cookies.token;
+    console.log('===== trgiger ====', userToken); // it's not trgigger here
     if (userToken) {
       setToken(userToken);
       try {
@@ -44,7 +45,7 @@ export default function Navbar() {
         const currentTime = new Date().getTime();
         if (currentTime < expirationTime) {
           setIsLoggedIn(true);
-          reload();
+          reload(); // here
         }
       } catch (error) {
         console.error('Error decoding token:', error.message);
@@ -129,13 +130,13 @@ export default function Navbar() {
             <div className='py-[10px] lg:py-[16px]'>
               <Link href='/'>
                 <a>
-                  <div className='w-[140px] md:w-[160px]'>
+                  <div className='w-[140px] md:w-[100px]'>
                     <Image
                       src='/assets/main/logo.png'
                       alt='logo'
                       layout='responsive'
-                      width={1000}
-                      height={512}
+                      width={100}
+                      height={100}
                     />
                   </div>
                 </a>

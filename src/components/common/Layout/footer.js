@@ -18,13 +18,13 @@ export default function Footer() {
           <div className='flex justify-center lg:justify-start py-[20px] '>
             <Link href='/'>
               <a>
-                <div className='w-[250px] lg:w-[318px]'>
+                <div className='w-[250px] lg:w-[300px]'>
                   <Image
                     src='/assets/main/logo.png'
                     alt='logo'
                     layout='responsive'
-                    width={2400}
-                    height={912}
+                    width={500}
+                    height={500}
                   />
                 </div>
               </a>

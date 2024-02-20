@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useState } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
@@ -44,8 +45,10 @@ export default function LoginForm({ trans }) {
         });
         alert('Login successful!');
         console.log(cookie.parse(document.cookie).token); // Get token from cookie
-        router.push('/');
+        // router.push('/');
         setIsLoggedIn(true);
+        // router.reload();
+        window.location.href = '/';
       } else {
         setErrorMessage(responseData.message || 'An error occurred during login.');
       }
