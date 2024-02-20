@@ -1,6 +1,3 @@
-/* eslint-disable jsx-a11y/mouse-events-have-key-events */
-import { mainData } from '@constants/mocks/others';
-// import Image from 'next/image';
 import React, { useState } from 'react';
 import { AiFillCheckCircle } from 'react-icons/ai';
 import cx from 'classnames';
@@ -8,7 +5,9 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { containerVariants, childVariants } from '@constants/mocks/motion';
 
-export default function Available({ trans }) {
+export default function Available({ trans, apiData }) {
+  const packages = apiData?.result.packages || [];
+
   const [hoverId, setHoverId] = useState();
 
   return (
@@ -28,15 +27,15 @@ export default function Available({ trans }) {
         initial='hidden'
         viewport={{ once: true }}
         whileInView='show'
-        className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 justify-center gap-[20px] '
+        className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 justify-center gap-[20px] '
       >
-        {mainData.map((load) => (
+        {packages.map((load) => (
           <motion.div
             variants={childVariants}
             key={load.id}
             onMouseOver={() => setHoverId(load.id)}
             onMouseLeave={() => setHoverId(null)}
-            className='bg-gradient border-[2px] border-secondary hover:text-black  rounded-[20px] gap-[10px] flex flex-col justify-between drop-shadow-md'
+            className='bg-gray-100 border-[2px] border-secondary hover:text-black  rounded-[20px] gap-[10px] flex flex-col justify-between drop-shadow-md'
           >
             <div className='px-[20px] rounded-t-[16px] bg-purple '>
               <div className='md:h-[70px] h-[100px] flex items-center justify-center'>
@@ -46,28 +45,77 @@ export default function Available({ trans }) {
                     hoverId === load?.id ? 'text-primary' : 'text-primary'
                   )}
                 >
-                  {trans.other.main.cards[load.trans].title}
+                  {load.name}
+                </h3>
+              </div>
+            </div>
+            <div className='px-[20px] rounded-t-[16px] bg-purple '>
+              <div className='md:h-[70px] h-[100px] flex items-center justify-center'>
+                <h3
+                  className={cx(
+                    'font-bold text-[50px] text-center line-clamp-2',
+                    hoverId === load?.id ? 'text-primary' : 'text-primary'
+                  )}
+                >
+                  {load.price} $
                 </h3>
               </div>
             </div>
 
             <div className='px-[20px] py-[10px] h-full'>
               <ul className='space-y-[10px]'>
-                {load.subTrans.map((load1) => (
-                  <li key={load} className='flex gap-[10px]'>
-                    <div className='flex-none pt-[6px]'>
-                      <AiFillCheckCircle
-                        className={cx(
-                          'text-20px',
-                          hoverId === load?.id ? 'text-primary' : 'text-primary'
-                        )}
-                      />
-                    </div>
-                    <div>
-                      <p className='text-li'>{trans.other.main.cards[load.trans].lists[load1]}</p>
-                    </div>
-                  </li>
-                ))}
+                <li className='flex gap-[10px]'>
+                  <div className='flex-none pt-[6px]'>
+                    <AiFillCheckCircle
+                      className={cx(
+                        'text-20px',
+                        hoverId === load?.id ? 'text-primary' : 'text-primary'
+                      )}
+                    />
+                  </div>
+                  <div>
+                    <p className='text-li'>{load.cpu} vCPU </p>
+                  </div>
+                </li>
+                <li className='flex gap-[10px]'>
+                  <div className='flex-none pt-[6px]'>
+                    <AiFillCheckCircle
+                      className={cx(
+                        'text-20px',
+                        hoverId === load?.id ? 'text-primary' : 'text-primary'
+                      )}
+                    />
+                  </div>
+                  <div>
+                    <p className='text-li'>{load.memory} GB RAM</p>
+                  </div>
+                </li>
+                <li className='flex gap-[10px]'>
+                  <div className='flex-none pt-[6px]'>
+                    <AiFillCheckCircle
+                      className={cx(
+                        'text-20px',
+                        hoverId === load?.id ? 'text-primary' : 'text-primary'
+                      )}
+                    />
+                  </div>
+                  <div>
+                    <p className='text-li'>{load.storage} GB SSD</p>
+                  </div>
+                </li>
+                <li className='flex gap-[10px]'>
+                  <div className='flex-none pt-[6px]'>
+                    <AiFillCheckCircle
+                      className={cx(
+                        'text-20px',
+                        hoverId === load?.id ? 'text-primary' : 'text-primary'
+                      )}
+                    />
+                  </div>
+                  <div>
+                    <p className='text-li'>{load.description}</p>
+                  </div>
+                </li>
               </ul>
             </div>
 

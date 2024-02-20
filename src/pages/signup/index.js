@@ -1,15 +1,15 @@
-import { Login } from '@components/pages';
+import { SignUp } from '@components/pages';
 import { seoDefualt } from '@constants';
 import { tran } from '@utilities/i18n';
 
 export default function Index({ locale, apiData }) {
   const { locale: trans } = tran(locale);
-  return <Login locale={locale} trans={trans} apiData={apiData} />;
+  return <SignUp locale={locale} trans={trans} apiData={apiData} />;
 }
 
 export async function getServerSideProps(ctx) {
   try {
-    const apiEndpoint = process.env.NEXT_PUBLIC_LOGIN_URL; // API endpoint for login
+    const apiEndpoint = process.env.NEXT_PUBLIC_SIGNUP_URL; // API endpoint for sign-up
     const response = await fetch(apiEndpoint);
     const apiData = await response.json();
 
@@ -18,19 +18,19 @@ export async function getServerSideProps(ctx) {
         locale: ctx.locale,
         seo: {
           ...seoDefualt,
-          linkTo: '/login',
+          linkTo: '/signup',
         },
         apiData,
       },
     };
   } catch (error) {
-    console.error('Error fetching data from login API:', error);
+    console.error('Error fetching data from sign-up API:', error);
     return {
       props: {
         locale: ctx.locale,
         seo: {
           ...seoDefualt,
-          linkTo: '/login',
+          linkTo: '/signup',
         },
         apiData: null,
       },

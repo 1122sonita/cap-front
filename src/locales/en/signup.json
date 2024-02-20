@@ -1,0 +1,18 @@
+{
+  "rightPanel": {
+    "title": "SignUp Form",
+    "name": "Email",
+    "contact": {
+      "title": "Password"
+    },
+    "confirm": "Confirm Password",
+    "btn": "Submit"
+  },
+  "form":{
+      "name":"name",
+       "email":"email",
+      "password": "password",
+      "confirm": "confirm password",
+      "message":" I want to host an applicaiton for my own usage..."
+  }
+}

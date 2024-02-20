@@ -1,7 +1,7 @@
 import React from 'react';
 import RightPanel from './rightPanel';
 
-export default function Login({ trans, apiData }) {
+export default function SignUp({ trans, apiData }) {
   return (
     <main>
       <section className='container-fluid bg-gradient bg-cover bg-no-repeat'>

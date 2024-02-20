@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { navbarBtnsData } from '@constants';
 import { localesData } from '@constants/mocks/locales';
 import { tran } from '@utilities/i18n';
@@ -5,21 +6,104 @@ import Hamburger from 'hamburger-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FaCheck, FaEarthAsia } from 'react-icons/fa6';
 import { HiOutlineMenu } from 'react-icons/hi';
+import cookie from 'cookie';
+import jwt from 'jsonwebtoken';
+import { CgProfile } from 'react-icons/cg';
+import { useAtom } from 'jotai';
+import { loginState } from '@constants/jotai';
 import Support from '../Main/Support';
 import Social from './social';
 
 export default function Navbar() {
-  const { asPath, locale } = useRouter();
+  const { asPath, locale, reload } = useRouter();
+  const [selectedImage, setSelectedImage] = useState('');
   const { locale: trans } = tran(locale);
+  const [login, setLogin] = useAtom(loginState);
 
   // eslint-disable-next-line no-unused-vars
   const [active, setActive] = useState('');
-  const [showLocale, setShowLocale] = useState(false);
+  const [showLocale, setShowLocale] = useState(true);
   const [showMenu, setShowMenu] = useState(null);
+
+  // eslint-disable-next-line no-unused-vars
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  // eslint-disable-next-line no-unused-vars
+  const [token, setToken] = useState(null);
+
+  useEffect(() => {
+    const cookies = cookie.parse(document.cookie);
+    const userToken = cookies.token;
+    if (userToken) {
+      setToken(userToken);
+      try {
+        const decodedToken = jwt.decode(userToken);
+        const expirationTime = decodedToken.exp * 1000;
+        const currentTime = new Date().getTime();
+        if (currentTime < expirationTime) {
+          setIsLoggedIn(true);
+          reload();
+        }
+      } catch (error) {
+        console.error('Error decoding token:', error.message);
+        // Handle error decoding token
+      }
+    }
+  }, []);
+
+  const handleUpload = (file) => {};
+
+  const handleLogout = () => {
+    document.cookie = 'token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+    setIsLoggedIn(false);
+    setToken(null);
+    window.location.href = '/';
+  };
+
   const BlogBtn = () => {
+    if (token != null) {
+      return (
+        <div className='flex items-center gap-2'>
+          <div className='relative'>
+            <div className='rounded-full w-20 h-20 relative overflow-hidden flex justify-center items-center'>
+              <CgProfile style={{ color: '#3b82f6', width: '40px', height: '40px' }} />
+            </div>
+            {/* <label htmlFor='upload' className='absolute bottom-0 right-0 cursor-pointer'>
+              <input
+                type='file'
+                id='upload'
+                className='hidden'
+                onChange={(e) => handleUpload(e.target.files[0])}
+              />
+              <svg
+                xmlns='http://www.w3.org/2000/svg'
+                className='h-5 w-5 text-white bg-gray-600 rounded-full p-1'
+                viewBox='0 0 20 20'
+                fill='currentColor'
+              >
+                <path
+                  fillRule='evenodd'
+                  d='M10 2C5.03 2 1 6.03 1 11s4.03 9 9 9 9-4.03 9-9-4.03-9-9-9zm0 15c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7zm3-8H7v1h6V9z'
+                  clipRule='evenodd'
+                />
+              </svg>
+            </label> */}
+            <ul className=' drop-menu hover:bg-slate-100 hover:text-primary hover:font-bold mt-4 '>
+              <li>
+                <button type='button'>Profile</button>
+              </li>
+              <li>
+                <button type='button' onClick={handleLogout}>
+                  Logout
+                </button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      );
+    }
     return (
       <div>
         <Link href='/login'>

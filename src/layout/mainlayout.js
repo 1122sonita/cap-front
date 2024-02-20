@@ -1,4 +1,5 @@
 import { Layout, Main } from '@components/common';
+import Cookies from 'js-cookie';
 import { useState, useEffect } from 'react';
 
 export default function MainLayout({ children }) {
@@ -19,7 +20,7 @@ export default function MainLayout({ children }) {
     <div className='w-full relative'>
       <Main.ScrollToTop scrollBtn={scrollBtn} />
 
-      <Layout.Navbar />
+      <Layout.Navbar Cookies={Cookies} />
       <div>{children}</div>
       <Layout.Footer />
     </div>

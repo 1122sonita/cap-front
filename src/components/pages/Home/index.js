@@ -5,12 +5,12 @@ import Strategy from './strategy';
 import Provider from './provider';
 import Support from './support';
 
-export default function Home({ trans }) {
+export default function Home({ trans, apiData, apiData1 }) {
   return (
     <main>
       <section className='container-fluid bg-primary bg-cover bg-no-repeat'>
         <div className='container-full-px'>
-          <Banner trans={trans} />
+          <Banner trans={trans} apiData={apiData} />
         </div>
       </section>
 
@@ -22,7 +22,7 @@ export default function Home({ trans }) {
 
       <section className='container-fluid bg-gradient bg-cover bg-no-repeat'>
         <div className='container-full-px'>
-          <Strategy trans={trans} />
+          <Strategy trans={trans} apiData1={apiData1} />
         </div>
       </section>
 
