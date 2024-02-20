@@ -74,29 +74,24 @@ export const ImageData = [
     title: 'Ubuntu',
   },
   {
-    id: '1',
+    id: '2',
     trans: 'card1',
-    title: 'Ubuntu',
+    title: 'Debian',
   },
   {
-    id: '1',
+    id: '3',
     trans: 'card1',
-    title: 'Ubuntu',
+    title: 'CentOS',
   },
   {
-    id: '1',
+    id: '4',
     trans: 'card1',
-    title: 'Ubuntu',
+    title: 'Linux',
   },
   {
-    id: '1',
+    id: '5',
     trans: 'card1',
-    title: 'Ubuntu',
-  },
-  {
-    id: '1',
-    trans: 'card1',
-    title: 'Ubuntu',
+    title: 'Window',
   },
 ];
 
