@@ -2,7 +2,6 @@ import { Layout, Main } from '@components/common';
 import Cookies from 'js-cookie';
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
-import CustomLayout from '@components/pages/Account/layout';
 
 export default function MainLayout({ children }) {
   // State
@@ -10,10 +9,7 @@ export default function MainLayout({ children }) {
 
   const router = useRouter();
   // console.log(router.asPath);
-  const pageWithoutNav = [
-    '/account',
-    '/account/order_history'
-  ]
+  const pageWithoutNav = ['/account', '/account/order_history'];
 
   const hideNav = pageWithoutNav.includes(router.asPath);
 
@@ -31,7 +27,7 @@ export default function MainLayout({ children }) {
     <div className='w-full relative'>
       <Main.ScrollToTop scrollBtn={scrollBtn} />
 
-      {!hideNav && <Layout.Navbar Cookies={Cookies} /> }
+      {!hideNav && <Layout.Navbar Cookies={Cookies} />}
       {/* <Layout.Navbar Cookies={Cookies} /> */}
       <div>{children}</div>
       <Layout.Footer />
