@@ -93,7 +93,9 @@ export default function Navbar() {
             </label> */}
             <ul className=' drop-menu hover:bg-slate-100 hover:text-primary hover:font-bold mt-4 '>
               <li>
-                <button type='button'>Profile</button>
+                <Link href='/account'>
+                  <button type='button'>Profile</button>
+                </Link>
               </li>
               <li>
                 <button type='button' onClick={handleLogout}>
