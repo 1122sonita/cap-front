@@ -154,13 +154,13 @@ export default function Navbar() {
                             load.linkTo === asPath ? 'border-primary' : 'border-transparent'
                           }`}
                         >
-                          <Link href={load.linkTo}>
+                          <Link href={load.linkTo} locale={locale}>
                             <a
                               className={`text-20px hover:text-primary ${
                                 load.linkTo === asPath ? 'text-primary font-bold' : 'text-gray1'
                               }`}
                             >
-                              {load.title}
+                              {trans.navbar[load.trans]}
                             </a>
                           </Link>
                         </div>

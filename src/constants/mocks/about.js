@@ -84,14 +84,6 @@ export const providerData = [
       alt: 'provider-5',
     },
   },
-  {
-    id: '6',
-    trans: 'social',
-    image: {
-      url: '/assets/home/provider-6.png',
-      alt: 'provider-6',
-    },
-  },
 ];
 
 export const socailDataIcon = [

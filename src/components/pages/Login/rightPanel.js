@@ -43,11 +43,9 @@ export default function LoginForm({ trans }) {
           maxAge: responseData.result.expiresIn, // Set expiration time
           path: '/', // Set cookie path
         });
-        alert('Login successful!');
         console.log(cookie.parse(document.cookie).token); // Get token from cookie
         // router.push('/');
         setIsLoggedIn(true);
-        // router.reload();
         window.location.href = '/';
       } else {
         setErrorMessage(responseData.message || 'An error occurred during login.');

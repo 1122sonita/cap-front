@@ -14,9 +14,7 @@ export default function Banner({ trans }) {
         <h1 className='text-banner font-bold text-secondary text-center md:text-left  '>
           {trans.other.title}
         </h1>
-        <p className='text-title text-white text-center md:text-left leading-8 font-bold '>
-          {trans.other.dsp}
-        </p>
+        <p className='text-li text-white text-center md:text-left leading-8  '>{trans.other.dsp}</p>
       </motion.div>
       <div className='py-[40px]'>
         <Image

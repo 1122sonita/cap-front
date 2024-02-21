@@ -1,8 +1,9 @@
 {
   "title": "Our Service",
+  "dsp" : "Welcome to CloudBloc, where we offer innovative and affordable web hosting solutions tailored specifically for undergraduate students. Our services are designed to provide you with everything you need to host and manage your websites efficiently and cost-effectively. ",
   "main": {
     "title": "We also offer a variety of additional marketing services.",
-    "dsp": "Partner with us to expand a comprehensive marketing strategy, leading your brand to stand out in a competitive market, and achieve more opportunities and success.",
+    "dsp": "Experience the power and flexibility of Virtual Private Servers with CloudBloc. Our VPS solutions allow you to have your own dedicated environment, giving you full control over your hosting setup. Enjoy enhanced performance, security, and scalability without the high costs associated with dedicated servers.",
     "btn": "Buy Now",
     "cards": {
       "card1": {

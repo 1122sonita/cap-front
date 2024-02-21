@@ -53,10 +53,10 @@ export default function Banner({ trans, apiData }) {
               <div className='flex flex-col lg:flex-row gap-[50px] md:gap-[30px] items-center'>
                 <div className='w-full space-y-[19px]'>
                   <h3 className='text-title font-bold text-secondary text-center md:text-left'>
-                    {banner.title}
+                    {banner.title || trans.home.banner.title}
                   </h3>
                   <p className='whitespace-pre-wrap text-li text-white text-p'>
-                    {banner.description}
+                    {banner.description || trans.home.banner.dsp}
                   </p>
                   <div className='flex justify-center md:justify-start'>
                     <Link href='/service'>

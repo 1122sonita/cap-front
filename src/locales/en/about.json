@@ -1,6 +1,6 @@
 {
-  "title": "Cloud Service™ ",
-  "dsp": "Cloud Service™ backed by over 10 years of industry experience, emerging as a leader in the field. We offer comprehensive services across multiple countries, including but not limited to Taiwan, Hong Kong, Mainland China, Dubai, India, the Philippines, Thailand...etc.\n\nWe take pride in delivering complete online marketing solutions for you, encompassing a range of strategies including SEO, SEM, and social media marketing. Our commitment is to help your brand stand out in a fiercely competitive market and achieve business growth.",
+  "title": "Cloud Bloc™ ",
+  "dsp": "Cloud Bloc™  is an innovative initiative tailored for undergraduate students seeking an affordable and efficient solution to host their websites. Our project offers a comprehensive package that transforms a physical server into a Virtual Private Server (VPS) environment. CloudBloc enables them to access affordable resources, preventing unnecessary expenditure on costly hosting services.",
   "service": {
     "title": "Why Choose Our Services?",
     "lists": {
@@ -39,24 +39,21 @@
     "dsp": "Comprehensive Media Traffic Ecosystem, Encompassing Premium Overseas Traffic Resources, Professional Advertisement Placement Empowers You to Easily Acquire Global Customers, Rapidly Expanding Your Overseas Target Markets",
     "btn": "Learn More",
     "seo": {
-      "title": "SEO Optimization"
+      "title": "Affordable Hosting Packages"
     },
     "sem": {
-      "title": "SEM Marketing"
+      "title": "Educational Resources"
     },
     "b2b": {
-      "title": "B2B Business Website Development"
+      "title": "User-Friendly Interface"
     },
     "account": {
-      "title": "Online Event Planning, Increase Fan Engagement"
+      "title": "Reliable Performance"
     },
     "app": {
-      "title": "Mobile APP Advertisement"
+      "title": "Customer Support"
     },
-    "social": {
-      "title": "Social Media Campaign Advertisement"
-    },
-    "subTitle": "We look forward to meeting your needs. If you wish to expand your business, please reach out to us right away.",
+    "subTitle": "We look forward to meeting your needs. If you wish to hosting your application, please reach out to us right away.",
     "subBtn": "Contact Us"
   }
 }
