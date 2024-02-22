@@ -43,7 +43,6 @@ export default function LoginForm({ trans }) {
           maxAge: responseData.result.expiresIn, // Set expiration time
           path: '/', // Set cookie path
         });
-        console.log(cookie.parse(document.cookie).token); // Get token from cookie
         // router.push('/');
         setIsLoggedIn(true);
         window.location.href = '/';

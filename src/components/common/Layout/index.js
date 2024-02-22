@@ -9,5 +9,5 @@ export default {
   Navbar,
   Social,
   NavbarLogin,
-  Sidebar
+  Sidebar,
 };

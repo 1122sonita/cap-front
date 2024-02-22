@@ -1,7 +1,7 @@
 import React from 'react';
-import CustomLayout from './layout';
 import Image from 'next/image';
 import Link from 'next/link';
+import CustomLayout from './layout';
 
 export default function OrderHistory() {
   return (
@@ -16,38 +16,38 @@ export default function OrderHistory() {
             >
               <div className='flex items-center justify-between'>
                 <div>
-                  <div className='h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-24 mb-2.5'></div>
-                  <div className='w-32 h-2 bg-gray-200 rounded-full dark:bg-gray-700'></div>
+                  <div className='h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-24 mb-2.5' />
+                  <div className='w-32 h-2 bg-gray-200 rounded-full dark:bg-gray-700' />
                 </div>
-                <div className='h-2.5 bg-gray-300 rounded-full dark:bg-gray-700 w-12'></div>
+                <div className='h-2.5 bg-gray-300 rounded-full dark:bg-gray-700 w-12' />
               </div>
               <div className='flex items-center justify-between pt-4'>
                 <div>
-                  <div className='h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-24 mb-2.5'></div>
-                  <div className='w-32 h-2 bg-gray-200 rounded-full dark:bg-gray-700'></div>
+                  <div className='h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-24 mb-2.5' />
+                  <div className='w-32 h-2 bg-gray-200 rounded-full dark:bg-gray-700' />
                 </div>
-                <div className='h-2.5 bg-gray-300 rounded-full dark:bg-gray-700 w-12'></div>
+                <div className='h-2.5 bg-gray-300 rounded-full dark:bg-gray-700 w-12' />
               </div>
               <div className='flex items-center justify-between pt-4'>
                 <div>
-                  <div className='h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-24 mb-2.5'></div>
-                  <div className='w-32 h-2 bg-gray-200 rounded-full dark:bg-gray-700'></div>
+                  <div className='h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-24 mb-2.5' />
+                  <div className='w-32 h-2 bg-gray-200 rounded-full dark:bg-gray-700' />
                 </div>
-                <div className='h-2.5 bg-gray-300 rounded-full dark:bg-gray-700 w-12'></div>
+                <div className='h-2.5 bg-gray-300 rounded-full dark:bg-gray-700 w-12' />
               </div>
               <div className='flex items-center justify-between pt-4'>
                 <div>
-                  <div className='h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-24 mb-2.5'></div>
-                  <div className='w-32 h-2 bg-gray-200 rounded-full dark:bg-gray-700'></div>
+                  <div className='h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-24 mb-2.5' />
+                  <div className='w-32 h-2 bg-gray-200 rounded-full dark:bg-gray-700' />
                 </div>
-                <div className='h-2.5 bg-gray-300 rounded-full dark:bg-gray-700 w-12'></div>
+                <div className='h-2.5 bg-gray-300 rounded-full dark:bg-gray-700 w-12' />
               </div>
               <div className='flex items-center justify-between pt-4'>
                 <div>
-                  <div className='h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-24 mb-2.5'></div>
-                  <div className='w-32 h-2 bg-gray-200 rounded-full dark:bg-gray-700'></div>
+                  <div className='h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-24 mb-2.5' />
+                  <div className='w-32 h-2 bg-gray-200 rounded-full dark:bg-gray-700' />
                 </div>
-                <div className='h-2.5 bg-gray-300 rounded-full dark:bg-gray-700 w-12'></div>
+                <div className='h-2.5 bg-gray-300 rounded-full dark:bg-gray-700 w-12' />
               </div>
               <span className='sr-only'>Loading...</span>
             </div>
@@ -64,9 +64,12 @@ export default function OrderHistory() {
                   />
                 </div>
                 <h2 className='text-xl font-bold mb-2'>You do not have any products yet.</h2>
-                <Link href='/'>
+                <Link href='/service'>
                   <a>
-                    <button className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-2'>
+                    <button
+                      type='button'
+                      className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-2'
+                    >
                       Go to Purchase
                     </button>
                   </a>

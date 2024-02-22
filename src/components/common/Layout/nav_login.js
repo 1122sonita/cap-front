@@ -24,9 +24,7 @@ export default function NavbarLogin() {
             <div className='hidden sm:block'>
               <div className='ml-1 flex items-baseline space-x-4'>
                 <Link href='/about'>
-                  <a className='px-3 py-2 rounded-md text-xl font-medium text-primary'>
-                  CloudBloc
-                  </a>
+                  <a className='px-3 py-2 rounded-md text-xl font-medium text-primary'>CloudBloc</a>
                 </Link>
               </div>
             </div>
@@ -43,9 +41,7 @@ export default function NavbarLogin() {
           <div className='hidden sm:block'>
             <div className='ml-4 flex items-center space-x-4'>
               <Link href='/account'>
-                <a className=' px-3 py-2 rounded-md text-sm font-medium'>
-                  Thida
-                </a>
+                <a className=' px-3 py-2 rounded-md text-sm font-medium'>Thida</a>
               </Link>
               <Link href='/'>
                 <button
