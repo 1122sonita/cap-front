@@ -95,6 +95,34 @@ export const ImageData = [
   },
 ];
 
+export const MonthlyData = [
+  {
+    id: '1',
+    trans: 'card1',
+    title: '1 ',
+  },
+  {
+    id: '2',
+    trans: 'card1',
+    title: '2 ',
+  },
+  {
+    id: '3',
+    trans: 'card1',
+    title: '3 ',
+  },
+  {
+    id: '4',
+    trans: 'card1',
+    title: '4 ',
+  },
+  {
+    id: '5',
+    trans: 'card1',
+    title: '5 ',
+  },
+];
+
 export const SummaryData = [
   {
     id: '1',
@@ -103,33 +131,33 @@ export const SummaryData = [
     dsp: '1 vCore',
   },
   {
-    id: '1',
+    id: '2',
     trans: 'card1',
-    title: 'Processor',
+    title: 'Ram',
     dsp: '1 vCore',
   },
   {
-    id: '1',
+    id: '3',
     trans: 'card1',
     title: 'Ubuntu',
     dsp: '1 vCore',
   },
   {
-    id: '1',
+    id: '4',
     trans: 'card1',
-    title: 'Processor',
+    title: 'CPU',
     dsp: '1 vCore',
   },
   {
-    id: '1',
+    id: '5',
     trans: 'card1',
-    title: 'Processor',
+    title: 'Memory',
     dsp: '1 vCore',
   },
   {
-    id: '1',
+    id: '6',
     trans: 'card1',
-    title: 'Processor',
+    title: 'Storage',
     dsp: '1 vCore',
   },
 ];

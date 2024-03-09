@@ -2,14 +2,15 @@
 // import { MdOutlineCancel } from 'react-icons/md';
 // import Link from 'next/link';
 // import Image from 'next/image';
-import React, { useState } from 'react';
-import { SummaryData } from '@constants/mocks/others';
+import React from 'react';
 import cx from 'classnames';
 import { motion } from 'framer-motion';
 import { containerVariants, childVariants } from '@constants/mocks/motion';
+// import { SummaryData } from '@constants/mocks/others';
 
-export default function Summary() {
-  const [hoverId, setHoverId] = useState();
+export default function Summary({ selectedPackage, selectImage, selectMonth }) {
+  // const [hoverId, setHoverId] = useState();
+  const totalPrice = selectedPackage.price * selectMonth.title;
   return (
     <>
       <div className='dark:bg-gray-900 gap-10'>
@@ -47,7 +48,7 @@ export default function Summary() {
                   <div className='flex flex-col'>
                     <p className='text-[13px]  line-through'>US$ 4.20</p>
                     <p className='text-[13px] text-red-600'>US$ 0.97</p>
-                    <p className='text-[13px] ml-2'>/month</p>
+                    <p className='text-[13px] ml-2'>{selectMonth.title}/month</p>
                   </div>
                 </div>
                 <hr className='border-b border-gray-400 my-4' />
@@ -69,37 +70,70 @@ export default function Summary() {
               whileInView='show'
               className='grid grid-cols-1  justify-start gap-[10px] '
             >
-              {SummaryData.map((load) => (
-                <motion.div
-                  variants={childVariants}
-                  key={load.id}
-                  onMouseOver={() => setHoverId(load.id)}
-                  onMouseLeave={() => setHoverId(null)}
-                  className=''
-                >
-                  <div className='px-[20px] rounded-t-[16px] bg-purple '>
-                    <div className='md:h-[70px] h-[100px] flex flex-col items-start justify-start'>
+              <motion.div variants={childVariants} className=''>
+                <div className='px-[20px] rounded-t-[16px] bg-purple '>
+                  <div className='md:h-[70px] h-[100px] flex flex-col items-start justify-start'>
+                    <div>
                       <h3
-                        className={cx(
-                          'font-bold text-[12px] text-start line-clamp-2',
-                          hoverId === load?.id ? 'text-primary' : 'text-primary'
-                        )}
+                        className={cx('font-bold text-[12px] text-start line-clamp-2 text-primary')}
                       >
-                        {load.title}
+                        CPU
                       </h3>
-                      <h3
-                        className={cx(
-                          ' text-[12px] text-start line-clamp-2',
-                          hoverId === load?.id ? 'text-primary' : 'text-primary'
-                        )}
+                      <p
+                        className={cx('font-bold text-[12px] text-start line-clamp-2 text-primary')}
                       >
-                        {load.dsp}
-                      </h3>
+                        {selectedPackage.cpu} vCPU
+                      </p>
                     </div>
-                    <hr className='border-b border-gray-400  w-4/5' />
                   </div>
-                </motion.div>
-              ))}
+                  <hr className='border-b border-gray-400  w-4/5' />
+                </div>
+              </motion.div>
+              <div className='px-[20px] rounded-t-[16px] bg-purple '>
+                <div className='md:h-[70px] h-[100px] flex flex-col items-start justify-start'>
+                  <div>
+                    <h3
+                      className={cx('font-bold text-[12px] text-start line-clamp-2 text-primary')}
+                    >
+                      Memory
+                    </h3>
+                    <p className={cx('font-bold text-[12px] text-start line-clamp-2 text-primary')}>
+                      {selectedPackage.memory} GB RAM
+                    </p>
+                  </div>
+                </div>
+                <hr className='border-b border-gray-400  w-4/5' />
+              </div>
+              <div className='px-[20px] rounded-t-[16px] bg-purple '>
+                <div className='md:h-[70px] h-[100px] flex flex-col items-start justify-start'>
+                  <div>
+                    <h3
+                      className={cx('font-bold text-[12px] text-start line-clamp-2 text-primary')}
+                    >
+                      Package
+                    </h3>
+                    <p className={cx('font-bold text-[12px] text-start line-clamp-2 text-primary')}>
+                      {selectImage.title}
+                    </p>
+                  </div>
+                </div>
+                <hr className='border-b border-gray-400  w-4/5' />
+              </div>
+              <div className='px-[20px] rounded-t-[16px] bg-purple '>
+                <div className='md:h-[70px] h-[100px] flex flex-col items-start justify-start'>
+                  <div>
+                    <h3
+                      className={cx('font-bold text-[12px] text-start line-clamp-2 text-primary')}
+                    >
+                      Storage
+                    </h3>
+                    <p className={cx('font-bold text-[12px] text-start line-clamp-2 text-primary')}>
+                      {selectedPackage.storage} GB SSD
+                    </p>
+                  </div>
+                </div>
+                <hr className='border-b border-gray-400  w-4/5' />
+              </div>
             </motion.div>
           </div>
           <div className='p-4 py-[50px] '>
@@ -120,7 +154,7 @@ export default function Summary() {
                   <p>Including the first month of use</p>
                 </div>
                 <div className=' bg-primary w-[150px] flex items-center justify-center '>
-                  US$ 0.97
+                  US$ {selectedPackage.price}
                 </div>
               </div>
             </div>
@@ -132,7 +166,7 @@ export default function Summary() {
                 <div className='flex flex-col justify-end'>
                   <h1>Total ex. GST</h1>
                 </div>
-                <div className='  w-[100px] text-center '>US$ 0.97</div>
+                <div className='  w-[100px] text-center '>US$ {totalPrice}</div>
               </div>
             </div>
           </div>
@@ -145,7 +179,7 @@ export default function Summary() {
                   <p>Including the first month of use</p>
                 </div>
                 <div className=' bg-red-600 w-[150px] flex items-center justify-center '>
-                  US$ 0.97
+                  US$ {selectedPackage.price}
                 </div>
               </div>
             </div>

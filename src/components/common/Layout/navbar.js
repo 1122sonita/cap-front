@@ -113,7 +113,7 @@ export default function Navbar() {
           <a>
             <button
               type='button'
-              className='bg-gradient-to-t bg-primary rounded-full text-button px-[20px] py-[2px] border-[3px] border-golden2 flex items-center gap-2'
+              className='bg-gradient-to-t bg-primary rounded-full text-button px-[20px] py-[2px] border-[3px] border-primary flex items-center gap-2'
             >
               <span className='uppercase text-white text-p font-bold pb-[3px]'>Log In</span>
             </button>

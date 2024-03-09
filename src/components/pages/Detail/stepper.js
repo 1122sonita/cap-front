@@ -2,9 +2,13 @@ import React, { useState } from 'react';
 import { AiOutlineArrowLeft, AiOutlineArrowRight } from 'react-icons/ai';
 import RightPanel from './rightPanel';
 import Summary from './summary';
+import Payment from './payment';
 
-export default function Stepper({ trans }) {
+export default function Stepper({ trans, apiData }) {
   const [activeStep, setActiveStep] = useState(1);
+  const [selectedPackag, setSelectedPackage] = useState({});
+  const [selectedImage, setSelectedImage] = useState({});
+  const [selectedMonth, setSelectedMonth] = useState({});
   const handleNext = () => {
     setActiveStep((prevStep) => prevStep + 1);
   };
@@ -12,6 +16,17 @@ export default function Stepper({ trans }) {
   const handlePrev = () => {
     setActiveStep((prevStep) => prevStep - 1);
   };
+
+  const pacakgeFun = (selectItem) => {
+    setSelectedPackage(selectItem);
+  };
+  const ImageFun = (selectImage) => {
+    setSelectedImage(selectImage);
+  };
+  const MonthFun = (selectMonth) => {
+    setSelectedMonth(selectMonth);
+  };
+
   return (
     <div className=''>
       <ul className='relative flex flex-row gap-x-2  '>
@@ -57,23 +72,6 @@ export default function Stepper({ trans }) {
             <div className='ms-2 w-full h-[2px] flex-1 bg-white group-last:hidden dark:bg-gray-700' />
           </div>
           <div className='mt-3'>
-            <span className='block text-sm text-primary font-bold dark:text-white'>
-              Confirmation
-            </span>
-          </div>
-        </li>
-        <li className='shrink basis-0 flex-1 group'>
-          <div className='min-w-[28px] min-h-[28px] w-full inline-flex items-center text-xs align-middle'>
-            <span
-              className={`${
-                activeStep > 4 ? 'text-white bg-primary' : 'bg-white font-medium text-gray-800'
-              } w-7 h-7 flex justify-center items-center flex-shrink-0 rounded-full dark:bg-gray-700 dark:text-white`}
-            >
-              4
-            </span>
-            <div className='ms-2 w-full h-[2px] flex-1 bg-white group-last:hidden dark:bg-gray-700' />
-          </div>
-          <div className='mt-3'>
             <span className='block text-sm text-primary font-bold dark:text-white'>Payment</span>
           </div>
         </li>
@@ -82,16 +80,43 @@ export default function Stepper({ trans }) {
         {/* Render content based on activeStep */}
         {activeStep === 1 && (
           <div className='grid grid-cols-1  gap-[40px]  md:py-[100px] '>
-            <RightPanel trans={trans} />
+            <RightPanel
+              trans={trans}
+              apiData={apiData}
+              pacakgeFun={pacakgeFun}
+              ImageFun={ImageFun}
+              MonthFun={MonthFun}
+            />
           </div>
         )}
         {activeStep === 2 && (
           <div className='grid grid-cols-1  gap-[40px]  md:py-[100px] '>
-            <Summary trans={trans} />
+            <Summary
+              trans={trans}
+              selectedPackage={selectedPackag}
+              selectImage={selectedImage}
+              selectMonth={selectedMonth}
+            />
           </div>
         )}
-        {activeStep === 3 && <div>Step 3 Content</div>}
-        {activeStep === 4 && <div>Step 4 Content</div>}
+        {activeStep === 3 && (
+          <div className='grid grid-cols-1  gap-[40px]  md:py-[100px] '>
+            <Payment trans={trans} selectedPackage={selectedPackag} selectMonth={selectedMonth} />
+          </div>
+        )}
+        {activeStep === 4 && (
+          <div className='flex justify-center items-center'>
+            {' '}
+            <div className='bg-primary mt-[30px] rounded-[16px] hover:bg-primary text-secondary hover:text-secondary flex justify-center'>
+              <button
+                type='button'
+                className='text-btn hover:scale-110 transition-all px-[40px] py-[10px] rounded-full font-semibold'
+              >
+                Check out
+              </button>
+            </div>
+          </div>
+        )}
       </div>
       <div className='mt-4 flex justify-between'>
         <button
@@ -103,15 +128,16 @@ export default function Stepper({ trans }) {
           <AiOutlineArrowLeft />
           Previous
         </button>
-        <button
-          type='button'
-          onClick={handleNext}
-          disabled={activeStep === 4}
-          className='px-4 py-2 bg-blue-500 text-white rounded-full flex justify-center items-center gap-2 cursor-pointer'
-        >
-          Next
-          <AiOutlineArrowRight />
-        </button>
+        {activeStep < 3 && (
+          <button
+            type='button'
+            onClick={handleNext}
+            className='px-4 py-2 bg-blue-500 text-white rounded-full flex justify-center items-center gap-2 cursor-pointer'
+          >
+            Next
+            <AiOutlineArrowRight />
+          </button>
+        )}
       </div>
     </div>
   );

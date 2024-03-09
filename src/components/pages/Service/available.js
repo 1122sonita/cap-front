@@ -7,7 +7,6 @@ import { containerVariants, childVariants } from '@constants/mocks/motion';
 
 export default function Available({ trans, apiData }) {
   const packages = apiData?.result.packages || [];
-
   const [hoverId, setHoverId] = useState();
 
   return (
@@ -35,7 +34,7 @@ export default function Available({ trans, apiData }) {
             key={load.id}
             onMouseOver={() => setHoverId(load.id)}
             onMouseLeave={() => setHoverId(null)}
-            className='bg-gray-100 border-[2px] border-secondary hover:text-black  rounded-[20px] gap-[10px] flex flex-col justify-between drop-shadow-md'
+            className='bg-gray-100 border-[2px] border-primary hover:text-black  rounded-[20px] gap-[10px] flex flex-col justify-between drop-shadow-md'
           >
             <div className='px-[20px] rounded-t-[16px] bg-purple '>
               <div className='md:h-[70px] h-[100px] flex items-center justify-center'>
@@ -119,7 +118,7 @@ export default function Available({ trans, apiData }) {
               </ul>
             </div>
 
-            <div className='bg-secondary  rounded-b-[16px] hover:bg-primary text-primary hover:text-secondary flex justify-center '>
+            <div className='bg-primary  rounded-b-[16px] hover:bg-primary text-secondary hover:text-secondary flex justify-center cursor-pointer '>
               <Link href='/detail'>
                 <button
                   type='button'
