@@ -5,6 +5,7 @@ import { useRouter } from 'next/router';
 
 export default function Payment({ selectedPackage, selectMonth }) {
   // const [selectedFile, setSelectedFile] = useState(null);
+  // eslint-disable-next-line no-unused-vars
   const [step, setStep] = useState(1);
   // eslint-disable-next-line no-unused-vars
   const [success, setSuccess] = useState(false);
@@ -37,7 +38,6 @@ export default function Payment({ selectedPackage, selectMonth }) {
         // If the invoice is uploaded successfully, show the alert message
         setSuccess(true);
         alert('Invoice uploaded successfully!');
-        router.push('/success');
       } else {
         throw new Error('Error uploading invoice: ', responseData.message);
       }
@@ -57,6 +57,10 @@ export default function Payment({ selectedPackage, selectMonth }) {
 
   const handleCheckout = async () => {
     try {
+      if (!fileName) {
+        alert('Please upload the invoice before checking out.');
+        return;
+      }
       const apiEndpoint = process.env.NEXT_PUBLIC_CHECKOUT_URL;
       const response = await fetch(apiEndpoint, {
         method: 'POST',
@@ -73,6 +77,7 @@ export default function Payment({ selectedPackage, selectMonth }) {
 
       if (responseData.code === 200 && responseData.message === 'Checkout order successfully!') {
         setStep(2);
+        router.push('/success');
 
         alert('Checkout successful!', responseData.message);
       } else {
@@ -109,25 +114,24 @@ export default function Payment({ selectedPackage, selectMonth }) {
                     />
                   </div>
                 </div>
-                {step > 1 && (
-                  <div className='space-y-[22px]'>
-                    <div>
-                      <label
-                        htmlFor='file-upload'
-                        className='cursor-pointer underline text-primary font-bold hover:scale-300 flex justify-center items-center'
-                      >
-                        {fileName || 'Upload Invoice'} {/* Display file name or default text */}
-                        <input
-                          id='file-upload'
-                          type='file'
-                          accept='image/*'
-                          onChange={handleFileChange}
-                          style={{ display: 'none' }}
-                        />
-                      </label>
-                    </div>
+                <div className='space-y-[22px]'>
+                  <div>
+                    <label
+                      htmlFor='file-upload'
+                      className='cursor-pointer underline text-primary font-bold hover:scale-300 flex justify-center items-center'
+                    >
+                      {fileName || 'Upload Invoice'} {/* Display file name or default text */}
+                      <input
+                        id='file-upload'
+                        type='file'
+                        accept='image/*'
+                        onChange={handleFileChange}
+                        style={{ display: 'none' }}
+                      />
+                    </label>
                   </div>
-                )}
+                </div>
+
                 <div className='flex justify-center items-center'>
                   {' '}
                   <div className='bg-primary mt-[30px] rounded-[16px] hover:bg-primary text-secondary hover:text-secondary flex justify-center'>

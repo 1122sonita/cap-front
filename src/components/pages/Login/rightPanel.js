@@ -37,13 +37,13 @@ export default function LoginForm({ trans }) {
       }
 
       const responseData = await response.json();
-
       if (responseData.code === 200 && responseData.result.token) {
         // Set cookie with token
         document.cookie = cookie.serialize('token', responseData.result.token, {
           maxAge: responseData.result.expiresIn, // Set expiration time
           path: '/', // Set cookie path
         });
+        document.cookie = cookie.serialize('token_exp', responseData.result.token_expired);
         // router.push('/');
         setIsLoggedIn(true);
         window.location.href = '/';

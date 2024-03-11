@@ -36,14 +36,12 @@ export default function Navbar() {
   useEffect(() => {
     const cookies = cookie.parse(document.cookie);
     const userToken = cookies.token;
-    console.log('===== trgiger ====', userToken); // it's not trgigger here
+    const expDate = new Date(cookies.token_expired);
     if (userToken) {
       setToken(userToken);
       try {
-        const decodedToken = jwt.decode(userToken);
-        const expirationTime = decodedToken.exp * 1000;
-        const currentTime = new Date().getTime();
-        if (currentTime < expirationTime) {
+        const currentTime = new Date();
+        if (currentTime < expDate) {
           setIsLoggedIn(true);
           reload(); // here
         }
@@ -56,11 +54,32 @@ export default function Navbar() {
 
   const handleUpload = (file) => {};
 
-  const handleLogout = () => {
-    document.cookie = 'token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
-    setIsLoggedIn(false);
-    setToken(null);
-    window.location.href = '/';
+  const handleLogout = async () => {
+    try {
+      const apiEndpoint = process.env.NEXT_PUBLIC_LOGOUT_URL;
+      const response = await fetch(apiEndpoint, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`, // Include the token in the authorization header
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error('Error logging out. Please try again later.');
+      }
+
+      // Clear the token and logged-in state
+      document.cookie = 'token=; token_exp=; path=/;';
+      setIsLoggedIn(false);
+      setToken(null);
+
+      // Redirect to home page after logout
+      window.location.href = '/';
+    } catch (error) {
+      console.error('Error during logout:', error.message);
+      alert(error.message); // Display an error message if logout fails
+    }
   };
 
   const BlogBtn = () => {
