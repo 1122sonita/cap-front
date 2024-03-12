@@ -104,22 +104,17 @@ export const MonthlyData = [
   {
     id: '2',
     trans: 'card1',
-    title: '2 ',
+    title: '3 ',
   },
   {
     id: '3',
     trans: 'card1',
-    title: '3 ',
+    title: '6',
   },
   {
     id: '4',
     trans: 'card1',
-    title: '4 ',
-  },
-  {
-    id: '5',
-    trans: 'card1',
-    title: '5 ',
+    title: '12',
   },
 ];
 

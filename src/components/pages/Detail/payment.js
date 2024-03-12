@@ -1,15 +1,13 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
-import cookie from 'cookie'; // Import cookie library
+import cookie from 'cookie';
 import { useRouter } from 'next/router';
 
 export default function Payment({ selectedPackage, selectMonth }) {
-  // const [selectedFile, setSelectedFile] = useState(null);
   // eslint-disable-next-line no-unused-vars
   const [step, setStep] = useState(1);
   // eslint-disable-next-line no-unused-vars
   const [success, setSuccess] = useState(false);
-  // eslint-disable-next-line no-unused-vars
   const [fileName, setFileName] = useState('');
   const router = useRouter();
 
@@ -35,7 +33,6 @@ export default function Payment({ selectedPackage, selectMonth }) {
       const responseData = await response.json();
 
       if (responseData.code === 200) {
-        // If the invoice is uploaded successfully, show the alert message
         setSuccess(true);
         alert('Invoice uploaded successfully!');
       } else {
@@ -49,7 +46,6 @@ export default function Payment({ selectedPackage, selectMonth }) {
 
   const handleFileChange = async (event) => {
     await handleUpload(event.target.files[0]);
-    // setSelectedFil(event.target.files[0]);
     setFileName(event.target.files?.[0]?.name);
   };
 
@@ -61,6 +57,7 @@ export default function Payment({ selectedPackage, selectMonth }) {
         alert('Please upload the invoice before checking out.');
         return;
       }
+
       const apiEndpoint = process.env.NEXT_PUBLIC_CHECKOUT_URL;
       const response = await fetch(apiEndpoint, {
         method: 'POST',
@@ -73,11 +70,19 @@ export default function Payment({ selectedPackage, selectMonth }) {
       if (!response.ok) {
         throw new Error('Error fetching data from checkout API');
       }
+
       const responseData = await response.json();
 
       if (responseData.code === 200 && responseData.message === 'Checkout order successfully!') {
         setStep(2);
         router.push('/success');
+        const orderId = responseData.result.order.id;
+        const notificationEndpoint = `${process.env.NEXT_PUBLIC_NOTIFICATION_URL}?order_id=${orderId}`;
+        const notificationResponse = await fetch(notificationEndpoint);
+
+        if (!notificationResponse.ok) {
+          throw new Error('Error sending push notification');
+        }
 
         alert('Checkout successful!', responseData.message);
       } else {
@@ -120,7 +125,7 @@ export default function Payment({ selectedPackage, selectMonth }) {
                       htmlFor='file-upload'
                       className='cursor-pointer underline text-primary font-bold hover:scale-300 flex justify-center items-center'
                     >
-                      {fileName || 'Upload Invoice'} {/* Display file name or default text */}
+                      {fileName || 'Upload Invoice'}
                       <input
                         id='file-upload'
                         type='file'
@@ -131,7 +136,6 @@ export default function Payment({ selectedPackage, selectMonth }) {
                     </label>
                   </div>
                 </div>
-
                 <div className='flex justify-center items-center'>
                   {' '}
                   <div className='bg-primary mt-[30px] rounded-[16px] hover:bg-primary text-secondary hover:text-secondary flex justify-center'>

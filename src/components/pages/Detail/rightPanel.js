@@ -1,3 +1,4 @@
+/* eslint-disable eqeqeq */
 // RightPanel.js
 import React, { useState } from 'react';
 import { ImageData, MonthlyData } from '@constants/mocks/others';
@@ -6,16 +7,18 @@ import cx from 'classnames';
 import { motion } from 'framer-motion';
 import { containerVariants, childVariants } from '@constants/mocks/motion';
 
-export default function RightPanel({ trans, apiData, pacakgeFun, ImageFun, MonthFun }) {
+export default function RightPanel({ apiData, pacakgeFun, ImageFun, MonthFun }) {
   const packages = apiData?.result.packages || [];
   const [hoverId, setHoverId] = useState();
-  const [selectedId, setSelectedId] = useState(1);
+  const [selectedId, setSelectedId] = useState(null);
+  const [selectedId1, setSelectedId1] = useState(null);
   const handleSelectPackage = (item) => {
     pacakgeFun(item);
     setSelectedId(item.id);
   };
   const handleSelectImage = (item1) => {
     ImageFun(item1);
+    setSelectedId1(item1.id);
   };
   const handleSelectMonth = (item2) => {
     MonthFun(item2);
@@ -100,8 +103,10 @@ export default function RightPanel({ trans, apiData, pacakgeFun, ImageFun, Month
                   variants={childVariants}
                   key={load.id}
                   className={`${
-                    selectedId > 2 ? 'text-white bg-primary' : 'bg-white font-medium text-gray-800'
-                  } bg-gradient border-[2px] border-primary rounded-[20px] gap-[10px] flex flex-col justify-between drop-shadow-md`}
+                    selectedId == load.id
+                      ? 'bg-white font-bold scale-100 text-gray-800 border-secondary rounded-[10px] '
+                      : 'text-black bg-primary border-primary rounded-[20px]'
+                  } bg-gradient border-[2px]  gap-[10px] flex flex-col justify-between drop-shadow-md`}
                 >
                   <div className='px-[20px] rounded-t-[16px] bg-purple'>
                     <div className='md:h-[70px] h-[100px] flex items-center justify-center'>
@@ -171,14 +176,6 @@ export default function RightPanel({ trans, apiData, pacakgeFun, ImageFun, Month
                       </li>
                     </ul>
                   </div>
-                  <div className='bg-primary rounded-b-[16px] hover:bg-primary text-secondary hover:text-secondary flex justify-center'>
-                    <button
-                      type='button'
-                      className='text-btn hover:scale-110 transition-all px-[40px] py-[10px] rounded-full font-semibold'
-                    >
-                      {trans.other.main.btn}
-                    </button>
-                  </div>
                 </motion.div>
               ))}
             </motion.div>
@@ -210,7 +207,11 @@ export default function RightPanel({ trans, apiData, pacakgeFun, ImageFun, Month
                   onClick={() => handleSelectImage(load)}
                   onMouseOver={() => setHoverId(load.id)}
                   onMouseLeave={() => setHoverId(null)}
-                  className='bg-gradient border-[2px] border-primary hover:text-black rounded-[20px] gap-[10px] flex flex-col justify-between drop-shadow-md cursor-pointer'
+                  className={`${
+                    selectedId1 == load.id
+                      ? 'bg-white font-bold scale-100 text-gray-800 border-secondary rounded-[10px] '
+                      : 'text-black bg-primary border-primary rounded-[20px]'
+                  } bg-gradient border-[2px] border-primary hover:text-black rounded-[20px] gap-[10px] flex flex-col justify-between drop-shadow-md cursor-pointer`}
                 >
                   <div className='px-[20px] rounded-t-[16px] bg-purple'>
                     <div className='md:h-[70px] h-[100px] flex items-center justify-center'>

@@ -118,7 +118,7 @@ export default function Available({ trans, apiData }) {
               </ul>
             </div>
 
-            <div className='bg-primary  rounded-b-[16px] hover:bg-primary text-secondary hover:text-secondary flex justify-center cursor-pointer '>
+            <div className='bg-primary hover:scale-100  rounded-b-[16px] hover:bg-primary text-secondary hover:text-secondary flex justify-center cursor-pointer '>
               <Link href='/detail'>
                 <button
                   type='button'
