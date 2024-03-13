@@ -9,9 +9,8 @@ export default function MainLayout({ children }) {
 
   const router = useRouter();
   // console.log(router.asPath);
-  const pageWithoutNav = ['/account', '/account/order_history'];
 
-  const hideNav = pageWithoutNav.includes(router.asPath);
+  const hideNav = router.asPath.startsWith('/account');
 
   useEffect(() => {
     window.addEventListener('scroll', () => {
@@ -30,7 +29,7 @@ export default function MainLayout({ children }) {
       {!hideNav && <Layout.Navbar Cookies={Cookies} />}
       {/* <Layout.Navbar Cookies={Cookies} /> */}
       <div>{children}</div>
-      <Layout.Footer />
+      {!hideNav && <Layout.Footer />}
     </div>
   );
 }

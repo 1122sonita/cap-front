@@ -23,6 +23,20 @@ const Sidebar = () => {
             </Link>
           </li>
           <li className='group'>
+            <Link href='/account/change_password'>
+              <a
+                className={`
+                  px-4 py-2 flex items-center text-sm font-medium rounded-md 
+                  group-hover:bg-blue-100 group-hover:text-primary ${
+                    router.pathname === '/account/change_password' ? 'bg-blue-600 text-white' : 'text-primary'
+                  }
+                `}
+              >
+                Change Password
+              </a>
+            </Link>
+          </li>
+          <li className='group'>
             <Link href='/account/order_history'>
               <a
                 className={`
