@@ -52,7 +52,7 @@ export default function LoginForm({ trans }) {
       }
     } catch (error) {
       console.error('Error during login:', error.message);
-      setErrorMessage('An error occurred during login. Please try again.');
+      setErrorMessage('Username or Password is incorrect. Please try again.');
     }
   };
 
@@ -108,15 +108,13 @@ export default function LoginForm({ trans }) {
                 />
               </div>
             ) : (
-              <Link href='/'>
-                <button
-                  type='button'
-                  onClick={handleSubmit}
-                  className='bg-secondary text-primary text-p font-semibold rounded-full hover:bg-primary hover:scale-110 transition-all hover:text-secondary px-[80px] py-[10px] justify-center items-center'
-                >
-                  {trans.contact.rightPanel.btn}
-                </button>
-              </Link>
+              <button
+                type='button'
+                onClick={handleSubmit}
+                className='bg-secondary text-primary text-p font-semibold rounded-full hover:bg-primary hover:scale-110 transition-all hover:text-secondary px-[80px] py-[10px] justify-center items-center'
+              >
+                {trans.contact.rightPanel.btn}
+              </button>
             )}
             <div className='cursor-pointer underline text-primary font-bold hover:scale-300'>
               <Link href='/signup'>
@@ -125,7 +123,7 @@ export default function LoginForm({ trans }) {
             </div>
           </div>
 
-          {errorMessage && <p className='text-green-600'>{errorMessage}</p>}
+          {errorMessage && <p className='text-red-600'>{errorMessage}</p>}
         </div>
       </div>
     </>

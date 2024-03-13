@@ -7,7 +7,11 @@ import { containerVariants, childVariants } from '@constants/mocks/motion';
 
 export default function Available({ trans, apiData }) {
   const packages = apiData?.result.packages || [];
+  const [selectedId, setSelectedId] = useState(null);
   const [hoverId, setHoverId] = useState();
+  const isPromotionEligible = (packageId) => {
+    return packageId === 1; // Example: Promote every second package
+  };
 
   return (
     <div className='md:py-[100px] py-[50px] md:space-y-[113px] space-y-[30px]'>
@@ -26,109 +30,123 @@ export default function Available({ trans, apiData }) {
         initial='hidden'
         viewport={{ once: true }}
         whileInView='show'
-        className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 justify-center gap-[20px] '
+        className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 justify-center gap-[20px] relative'
       >
         {packages.map((load) => (
-          <motion.div
-            variants={childVariants}
-            key={load.id}
-            onMouseOver={() => setHoverId(load.id)}
-            onMouseLeave={() => setHoverId(null)}
-            className='bg-gray-100 border-[2px] border-primary hover:text-black  rounded-[20px] gap-[10px] flex flex-col justify-between drop-shadow-md'
-          >
-            <div className='px-[20px] rounded-t-[16px] bg-purple '>
-              <div className='md:h-[70px] h-[100px] flex items-center justify-center'>
-                <h3
-                  className={cx(
-                    'font-bold text-subtitle text-center line-clamp-2',
-                    hoverId === load?.id ? 'text-primary' : 'text-primary'
-                  )}
-                >
-                  {load.name}
-                </h3>
+          <Link href='/detail' key={load.id}>
+            <motion.div
+              variants={childVariants}
+              key={load.id}
+              onMouseOver={() => setHoverId(load.id)}
+              onMouseLeave={() => setHoverId(null)}
+              onClick={() => setSelectedId(load.id)}
+              className={`${
+                selectedId === load.id
+                  ? 'bg-white font-bold scale-100 text-gray-800 border-secondary rounded-[10px] '
+                  : 'text-black bg-primary border-primary rounded-[20px]'
+              } bg-gradient border-[2px]  gap-[10px] flex flex-col justify-between drop-shadow-md`}
+            >
+              {isPromotionEligible(load.id) && (
+                <div className='absolute right-0 top-0 h-16 w-16'>
+                  <div className='absolute transform rotate-45 bg-secondary text-center text-white font-semibold py-1 right-[-35px] top-[32px] w-[170px]'>
+                    20% off
+                  </div>
+                </div>
+              )}
+              <div className='px-[20px] rounded-t-[16px] bg-purple '>
+                <div className='md:h-[70px] h-[100px] flex items-center justify-center'>
+                  <h3
+                    className={cx(
+                      'font-bold text-subtitle text-center line-clamp-2',
+                      hoverId === load?.id ? 'text-primary' : 'text-primary'
+                    )}
+                  >
+                    {load.name}
+                  </h3>
+                </div>
               </div>
-            </div>
-            <div className='px-[20px] rounded-t-[16px] bg-purple '>
-              <div className='md:h-[70px] h-[100px] flex items-center justify-center'>
-                <h3
-                  className={cx(
-                    'font-bold text-[50px] text-center line-clamp-2',
-                    hoverId === load?.id ? 'text-primary' : 'text-primary'
-                  )}
-                >
-                  {load.price} $
-                </h3>
+              <div className='px-[20px] rounded-t-[16px] bg-purple '>
+                <div className='md:h-[70px] h-[100px] flex items-center justify-center'>
+                  <h3
+                    className={cx(
+                      'font-bold text-[50px] text-center line-clamp-2',
+                      hoverId === load?.id ? 'text-primary' : 'text-primary'
+                    )}
+                  >
+                    {load.price} $
+                  </h3>
+                </div>
               </div>
-            </div>
 
-            <div className='px-[20px] py-[10px] h-full'>
-              <ul className='space-y-[10px]'>
-                <li className='flex gap-[10px]'>
-                  <div className='flex-none pt-[6px]'>
-                    <AiFillCheckCircle
-                      className={cx(
-                        'text-20px',
-                        hoverId === load?.id ? 'text-primary' : 'text-primary'
-                      )}
-                    />
-                  </div>
-                  <div>
-                    <p className='text-li'>{load.cpu} vCPU </p>
-                  </div>
-                </li>
-                <li className='flex gap-[10px]'>
-                  <div className='flex-none pt-[6px]'>
-                    <AiFillCheckCircle
-                      className={cx(
-                        'text-20px',
-                        hoverId === load?.id ? 'text-primary' : 'text-primary'
-                      )}
-                    />
-                  </div>
-                  <div>
-                    <p className='text-li'>{load.memory} GB RAM</p>
-                  </div>
-                </li>
-                <li className='flex gap-[10px]'>
-                  <div className='flex-none pt-[6px]'>
-                    <AiFillCheckCircle
-                      className={cx(
-                        'text-20px',
-                        hoverId === load?.id ? 'text-primary' : 'text-primary'
-                      )}
-                    />
-                  </div>
-                  <div>
-                    <p className='text-li'>{load.storage} GB SSD</p>
-                  </div>
-                </li>
-                <li className='flex gap-[10px]'>
-                  <div className='flex-none pt-[6px]'>
-                    <AiFillCheckCircle
-                      className={cx(
-                        'text-20px',
-                        hoverId === load?.id ? 'text-primary' : 'text-primary'
-                      )}
-                    />
-                  </div>
-                  <div>
-                    <p className='text-li'>{load.description}</p>
-                  </div>
-                </li>
-              </ul>
-            </div>
+              <div className='px-[20px] py-[10px] h-full'>
+                <ul className='space-y-[10px]'>
+                  <li className='flex gap-[10px]'>
+                    <div className='flex-none pt-[6px]'>
+                      <AiFillCheckCircle
+                        className={cx(
+                          'text-20px',
+                          hoverId === load?.id ? 'text-primary' : 'text-primary'
+                        )}
+                      />
+                    </div>
+                    <div>
+                      <p className='text-li'>{load.cpu} vCPU </p>
+                    </div>
+                  </li>
+                  <li className='flex gap-[10px]'>
+                    <div className='flex-none pt-[6px]'>
+                      <AiFillCheckCircle
+                        className={cx(
+                          'text-20px',
+                          hoverId === load?.id ? 'text-primary' : 'text-primary'
+                        )}
+                      />
+                    </div>
+                    <div>
+                      <p className='text-li'>{load.memory} GB RAM</p>
+                    </div>
+                  </li>
+                  <li className='flex gap-[10px]'>
+                    <div className='flex-none pt-[6px]'>
+                      <AiFillCheckCircle
+                        className={cx(
+                          'text-20px',
+                          hoverId === load?.id ? 'text-primary' : 'text-primary'
+                        )}
+                      />
+                    </div>
+                    <div>
+                      <p className='text-li'>{load.storage} GB SSD</p>
+                    </div>
+                  </li>
+                  <li className='flex gap-[10px]'>
+                    <div className='flex-none pt-[6px]'>
+                      <AiFillCheckCircle
+                        className={cx(
+                          'text-20px',
+                          hoverId === load?.id ? 'text-primary' : 'text-primary'
+                        )}
+                      />
+                    </div>
+                    <div>
+                      <p className='text-li'>{load.description}</p>
+                    </div>
+                  </li>
+                </ul>
+              </div>
 
-            <div className='bg-primary hover:scale-100  rounded-b-[16px] hover:bg-primary text-secondary hover:text-secondary flex justify-center cursor-pointer '>
-              <Link href='/detail'>
-                <button
-                  type='button'
-                  className=' text-btn  hover:scale-110 transition-all  px-[40px] py-[10px] rounded-full font-semibold'
-                >
-                  {trans.other.main.btn}
-                </button>
-              </Link>
-            </div>
-          </motion.div>
+              <div className='bg-primary hover:scale-100  rounded-b-[16px] hover:bg-primary text-secondary hover:text-secondary flex justify-center cursor-pointer '>
+                <Link href='/detail'>
+                  <button
+                    type='button'
+                    className=' text-btn  hover:scale-110 transition-all  px-[40px] py-[10px] rounded-full font-semibold'
+                  >
+                    {trans.other.main.btn}
+                  </button>
+                </Link>
+              </div>
+            </motion.div>
+          </Link>
         ))}
       </motion.div>
     </div>

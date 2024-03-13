@@ -1,54 +1,81 @@
-import { businessData } from '@constants/mocks/about';
 import Image from 'next/image';
 import React from 'react';
-import { FaArrowRightLong } from 'react-icons/fa6';
-import { motion } from 'framer-motion';
-import { containerVariants, childVariants } from '@constants/mocks/motion';
 
 export default function Business({ trans }) {
   return (
     <div className='md:space-y-[100px] space-y-[40px]'>
       <div className='text-center space-y-[10px]'>
-        <h2 className='text-title font-bold text-primary'>{trans.about.business.title}</h2>
+        <h2 className='mb-12 text-3xl font-bold'>
+          Meet the <u className='text-primary dark:text-primary-400'>team</u>
+        </h2>
         <p className='text-p'>{trans.about.business.dsp}</p>
       </div>
-
-      <motion.ul
-        variants={containerVariants}
-        initial='hidden'
-        viewport={{ once: true }}
-        whileInView='show'
-        className='grid grid-cols-1 lg:grid-cols-8 lg:px-0 md:px-[100px] px-[30px]'
-      >
-        {businessData.map((load) =>
-          !load.arrow ? (
-            <motion.li variants={childVariants} key={load.id} className='col-span-2 h-full'>
-              <div className='border-[1px] border-primary space-y-[20px] rounded-[10px] p-[20px] w-full h-full drop-shadow-md bg-gradient'>
-                <div className='w-[100px] mx-auto'>
-                  <Image
-                    src={load.image.url}
-                    alt={load.image.alt}
-                    layout='responsive'
-                    width={load.image.width}
-                    height={load.image.height}
-                  />
-                </div>
-
-                <div className='text-center space-y-[10px]'>
-                  <h3 className='text-suptitle font-bold text-primary'>
-                    {trans.about.business.cards[load.trans].title}
-                  </h3>
-                  <p className=' text-li'>{trans.about.business.cards[load.trans].dsp}</p>
-                </div>
-              </div>
-            </motion.li>
-          ) : (
-            <li className='h-full flex items-center justify-center py-[20px]'>
-              <FaArrowRightLong className='text-60px text-primary rotate-90 lg:rotate-0' />
-            </li>
-          )
-        )}
-      </motion.ul>
+      <div className='container my-24 mx-auto md:px-6'>
+        <section className='mb-32 text-center'>
+          <div className='lg:gap-xl-12 grid gap-x-6 md:grid-cols-2 lg:grid-cols-4'>
+            <div className='mb-12 lg:mb-0'>
+              <Image
+                className='mx-auto mb-6 rounded-lg shadow-lg dark:shadow-black/20 w-[150px]'
+                src='/assets/team/neath.jpg'
+                alt='banner-1'
+                layout='responsive'
+                width={0}
+                height={0}
+              />
+              <h5 className='mb-4 text-lg font-bold'>Pich PuthSreyNeath</h5>
+              <p className='mb-6'>Team Leader</p>
+            </div>
+            <div className='mb-12 lg:mb-0'>
+              <Image
+                className='mx-auto mb-6 rounded-lg shadow-lg dark:shadow-black/20 w-[100px]'
+                src='/assets/team/n.jpg'
+                alt='banner-1'
+                layout='responsive'
+                width={0}
+                height={0}
+              />
+              <h5 className='mb-4 text-lg font-bold'>Ren Sonita</h5>
+              <p className='mb-6'>Frontend Developer</p>
+            </div>
+            <div className='mb-12 md:mb-0'>
+              <Image
+                className='mx-auto mb-6 rounded-lg shadow-lg dark:shadow-black/20 w-[150px]'
+                src='/assets/team/satya.jpg'
+                alt='banner-1'
+                layout='responsive'
+                width={0}
+                height={0}
+              />
+              <h5 className='mb-4 text-lg font-bold'>Sieng Satya</h5>
+              <p className='mb-6'>API Deveoper</p>
+            </div>
+            <div className='mb-12 md:mb-0'>
+              <Image
+                className='mx-auto mb-6 rounded-lg shadow-lg dark:shadow-black/20 w-[150px]'
+                src='/assets/team/sreynit.jpg'
+                alt='banner-1'
+                layout='responsive'
+                width={0}
+                height={0}
+              />
+              <h5 className='mb-4 text-lg font-bold'>Theara Sreynit</h5>
+              <p className='mb-6'>Backend Developer</p>
+            </div>
+            <div className='mb-12 md:mb-0'>
+              <Image
+                className='mx-auto mb-6 rounded-lg shadow-lg dark:shadow-black/20 w-[150px]'
+                src='/assets/team/tinong.jpg'
+                alt='banner-1'
+                layout='responsive'
+                width={0}
+                height={0}
+              />
+              <h5 className='mb-4 text-lg font-bold'>Sot Tinong</h5>
+              <p className='mb-6'>Cloud Engineer</p>
+            </div>
+          </div>
+        </section>
+      </div>
     </div>
   );
 }

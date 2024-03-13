@@ -39,7 +39,7 @@ export default function Stepper({ trans, apiData }) {
             >
               1
             </span>
-            <div className='ms-2 w-full h-[2px] flex-1 bg-white group-last:hidden dark:bg-gray-700' />
+            <div className='ms-2 w-[40px] h-[2px] flex-1 bg-white group-last:hidden dark:bg-gray-700' />
           </div>
           <div className='mt-3'>
             <span className='block text-sm  text-primary font-bold dark:text-white'>Select</span>
@@ -54,7 +54,7 @@ export default function Stepper({ trans, apiData }) {
             >
               2
             </span>
-            <div className='ms-2 w-full h-[2px] flex-1 bg-white group-last:hidden dark:bg-gray-700' />
+            <div className='ms-4 w-full h-[2px] flex-1 bg-white group-last:hidden dark:bg-gray-700' />
           </div>
           <div className='mt-3'>
             <span className='block text-sm text-primary font-bold dark:text-white'>Summary</span>
@@ -69,7 +69,6 @@ export default function Stepper({ trans, apiData }) {
             >
               3
             </span>
-            <div className='ms-2 w-full h-[2px] flex-1 bg-white group-last:hidden dark:bg-gray-700' />
           </div>
           <div className='mt-3'>
             <span className='block text-sm text-primary font-bold dark:text-white'>Payment</span>
