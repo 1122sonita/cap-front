@@ -14,7 +14,7 @@ export default function Summary({ selectedPackage, selectImage, selectMonth }) {
   return (
     <>
       <div className='dark:bg-gray-900 gap-10'>
-        <h1 className='mt-4 text-subtitle'>Order Summary</h1>
+        <h1 className='mt-4 text-subtitle text-primary py-4 font-bold'>Order Summary</h1>
         <div className='rounded-[10px] bg-white gap-10 p-4 '>
           <div className='flex justify-end'>
             <div className='p-4'>
@@ -26,17 +26,9 @@ export default function Summary({ selectedPackage, selectImage, selectMonth }) {
               </div>
             </div>
           </div>
-          <div className='bg-primary rounded-[10px] p-4'>
-            <div>
-              <h1 className='text-p'>Datacentre location</h1>
-              <hr className='border-b border-gray-400 my-4' />
-              <h1 className='text-p'>Singapore, Singapore</h1>
-            </div>
-          </div>
           <div className='ml-4'>
             <div className='p-4'>
               <div className=' gap-2'>
-                <h1 className='text-title'>Starter</h1>
                 <div className='flex justify-between'>
                   <button
                     type='button'
@@ -144,21 +136,6 @@ export default function Summary({ selectedPackage, selectImage, selectMonth }) {
                 Special offer : 77% off on VPS Starter (for 12 months) for new customers only
               </h1>
             </div>
-          </div>
-          <div className='2xl:pl-[40px] py-4'>
-            <hr className='border-gray-300 border-[1px] w-full' />
-            <div className='flex justify-end '>
-              <div className='flex flex-row gap-4'>
-                <div className='flex flex-col justify-end p-4'>
-                  <h1>Total ex. GST</h1>
-                  <p>Including the first month of use</p>
-                </div>
-                <div className=' bg-primary w-[150px] flex items-center justify-center '>
-                  US$ {selectedPackage.price}
-                </div>
-              </div>
-            </div>
-            <hr className='border-gray-300 border-[1px] w-full' />
           </div>
           <div className='2xl:pl-[40px] py-[10px]'>
             <div className='flex justify-end'>

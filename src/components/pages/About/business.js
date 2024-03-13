@@ -5,10 +5,8 @@ export default function Business({ trans }) {
   return (
     <div className='md:space-y-[100px] space-y-[40px]'>
       <div className='text-center space-y-[10px]'>
-        <h2 className='mb-12 text-3xl font-bold'>
-          Meet the <u className='text-primary dark:text-primary-400'>team</u>
-        </h2>
-        <p className='text-p'>{trans.about.business.dsp}</p>
+        <h2 className='mb-12 text-3xl font-bold text-primary'>Our Team</h2>
+        <p className='text-p t'>{trans.about.business.dsp}</p>
       </div>
       <div className='container my-24 mx-auto md:px-6'>
         <section className='mb-32 text-center'>

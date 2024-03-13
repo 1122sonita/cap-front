@@ -111,12 +111,7 @@ export default function Payment({ selectedPackage, selectMonth }) {
                 </p>
                 <div className=' flex justify-center '>
                   <div className='w-[200px] sm:w-[303px] '>
-                    <Image
-                      src='/assets/main/telegram.png'
-                      alt='telegram'
-                      width={403}
-                      height={403}
-                    />
+                    <Image src='/assets/main/pay.png' alt='telegram' width={403} height={403} />
                   </div>
                 </div>
                 <div className='space-y-[22px]'>

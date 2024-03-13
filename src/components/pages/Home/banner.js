@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
@@ -9,14 +10,6 @@ import 'slick-carousel/slick/slick-theme.css';
 
 export default function Banner({ trans, apiData }) {
   const banners = apiData?.result.published_banners || [];
-  // const settings = {
-  //   dots: true,
-  //   infinite: true,
-  //   speed: 500,
-  //   slidesToShow: 1,
-  //   slidesToScroll: 1,
-  // };
-
   const handlePrevClick = () => {};
 
   const handleNextClick = () => {};
@@ -39,7 +32,7 @@ export default function Banner({ trans, apiData }) {
 
   return (
     <>
-      <div className='space-y-[40px] md:space-y-[24px] '>
+      <div className='space-y-[40px] md:space-y-[24px] cursor-pointer '>
         <Slider
           autoPlay
           autoPlayInterval={3000} // Set your desired interval in milliseconds
@@ -49,45 +42,59 @@ export default function Banner({ trans, apiData }) {
         >
           {banners.map((banner, index) => (
             // eslint-disable-next-line react/no-array-index-key
-            <div key={index} className='w-full md:p-[27px]'>
-              <div className='flex flex-col lg:flex-row gap-[50px] md:gap-[30px] items-center'>
-                <div className='w-full space-y-[19px]'>
-                  <h3 className='text-title font-bold text-secondary text-center md:text-left'>
-                    {banner.title || trans.home.banner.title}
-                  </h3>
-                  <p className='whitespace-pre-wrap text-li text-white text-p'>
-                    {banner.description || trans.home.banner.dsp}
-                  </p>
-                  <div className='flex justify-center md:justify-start'>
-                    <Link href='/service'>
-                      <a>
-                        <button
-                          type='button'
-                          className='bg-secondary text-subtitle py-[10px] px-[40px] hover:bg-primary hover:text-white hover:scale-110 transition-all text-primary font-semibold rounded-full'
-                        >
-                          {banner.btn || trans.home.banner.btn}
-                        </button>
-                      </a>
-                    </Link>
+            <Link href='/service'>
+              <div key={index} className='w-full md:p-[27px]'>
+                <div className='flex flex-col lg:flex-row gap-[50px] md:gap-[30px] items-center'>
+                  <div className='w-full space-y-[19px]'>
+                    <h3 className='text-title font-bold text-secondary text-center md:text-left'>
+                      {banner.title || trans.home.banner.title}
+                    </h3>
+                    <p className='whitespace-pre-wrap text-li text-white text-p'>
+                      {banner.description || trans.home.banner.dsp}
+                    </p>
+                    <div className='flex justify-center md:justify-start'>
+                      <Link href='/service'>
+                        <a>
+                          <button
+                            type='button'
+                            className='bg-red-600 text-subtitle py-[5px] px-[20px] text-li transition-all text-white  rounded-full'
+                          >
+                            Promotions {banner.promotion || trans.home.banner.dsp}%
+                          </button>
+                        </a>
+                      </Link>
+                    </div>
+                    <div className='flex justify-center md:justify-start'>
+                      <Link href='/service'>
+                        <a>
+                          <button
+                            type='button'
+                            className='bg-secondary text-subtitle py-[10px] px-[40px] hover:bg-primary hover:text-white hover:scale-110 transition-all text-white font-semibold rounded-full'
+                          >
+                            {banner.btn || trans.home.banner.btn}
+                          </button>
+                        </a>
+                      </Link>
+                    </div>
                   </div>
-                </div>
-                <div className='w-full lg:order-last order-first'>
-                  <div className='space-x-[10px]'>
-                    <div className='flex justify-center items-center'>
-                      <div className='lg:w-full lg:h-[500px] h-full md:w-[430px] w-[300px]'>
-                        <Image
-                          src={banner.banner_image}
-                          alt={`banner-${index + 1}`}
-                          layout='responsive'
-                          width={1317}
-                          height={1196}
-                        />
+                  <div className='w-full lg:order-last order-first'>
+                    <div className='space-x-[10px]'>
+                      <div className='flex justify-center items-center'>
+                        <div className='lg:w-full lg:h-[500px] h-full md:w-[430px] w-[300px]'>
+                          <Image
+                            src={banner.banner_image}
+                            alt={`banner-${index + 1}`}
+                            layout='responsive'
+                            width={1317}
+                            height={1196}
+                          />
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
+            </Link>
           ))}
         </Slider>
       </div>
