@@ -3,7 +3,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import CustomLayout from './layout';
 
-export default function OrderHistory() {
+export default function OrderHistory({ apiData }) {
+  console.log(apiData);
   return (
     <CustomLayout>
       <div className='container'>
