@@ -7,7 +7,7 @@ export default function LeftPanel({ trans }) {
   return (
     <div className='space-y-[57px] md:space-y-[150px] py-[40px]'>
       <div className='space-y-[39px] w-full max-w-[400px] mx-auto text-center'>
-        <h1 className='text-h1 font-bold text-secondary'>{trans.contact.leftPanel.title}</h1>
+        <h1 className='text-h1 font-bold text-primary'>{trans.contact.leftPanel.title}</h1>
 
         <ul className='space-y-[10px]'>
           <li>

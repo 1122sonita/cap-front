@@ -47,7 +47,7 @@ export default function Footer() {
               </ul>
               <div>
                 <ul className='flex flex-wrap justify-center lg:justify-start gap-[20px]'>
-                  <li className='text-secondary flex items-center gap-[5px]'>
+                  <li className='text-primary flex items-center gap-[5px]'>
                     <div>
                       <FaTelegram size={30} />
                     </div>

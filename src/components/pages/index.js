@@ -6,5 +6,6 @@ import About from './About';
 import Detail from './Detail';
 import SignUp from './SignUp';
 import Account from './Account';
+import Successful from './Success';
 
-export { Home, Service, Contact, Login, About, Detail, SignUp, Account };
+export { Home, Service, Contact, Login, About, Detail, SignUp, Account, Successful };
