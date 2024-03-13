@@ -44,6 +44,7 @@ export default function LoginForm({ trans }) {
           path: '/', // Set cookie path
         });
         document.cookie = cookie.serialize('token_exp', responseData.result.token_expired);
+        document.cookie = cookie.serialize('user_id', responseData.result.user_id);
         // router.push('/');
         setIsLoggedIn(true);
         window.location.href = '/';

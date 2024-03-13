@@ -47,14 +47,13 @@ const Account = ({ apiData, accessToken }) => {
     try {
       const userId = userData.id; // Assuming your user object has an id property
       const endpoint = `${process.env.NEXT_PUBLIC_UPDATE_USER_PROFILE_API}/${userId}`;
-      const end = process.env.GET_USER_PROFILE_API;
       console.log(endpoint);
       // Make an API call to update the profile
       const response = await fetch(endpoint, {
         method: 'POST', // or 'POST' if applicable
         headers: {
           'Content-Type': 'application/json',
-          Authorization: `Bearer ${cookie.parse(document.cookie).token}`, 
+          Authorization: `Bearer ${accessToken}`, 
           // Add any additional headers required, such as authorization token
         },
         body: JSON.stringify({

@@ -13,7 +13,7 @@ export default function Index({ locale, apiData, accessToken }) {
 export async function getServerSideProps(ctx) {
   try {
     const accessToken = ctx.req.cookies.token;
-    const apiEndpoint = process.env.GET_USER_PROFILE_API;
+    const apiEndpoint = process.env.NEXT_PUBLIC_GET_USER_PROFILE_API;
     const response = await fetch(apiEndpoint, {
       method: 'POST',
       headers: {

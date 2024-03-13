@@ -47,6 +47,7 @@ export default function ChangePassword() {
         // Handle successful password change (e.g., show success message)
         console.log('Password changed successfully!');
         setFormData({ old_password: '', new_password: '', new_password_confirmation: '' });
+        window.location.href = '/account';
         // You might want to redirect to a different page or reset the form
       } else {
         // Handle failed password change (e.g., show error message)
