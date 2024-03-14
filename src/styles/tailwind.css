@@ -12,3 +12,7 @@
     @apply px-[20px]  w-full 2xl:max-w-[1720px] xl:px-[100px] lg:px-[50px] mx-auto;
   }
 }
+
+.border-radius-full{
+  @apply rounded-full !important;
+}

@@ -99,12 +99,12 @@ export const MonthlyData = [
   {
     id: '1',
     trans: 'card1',
-    title: '1 ',
+    title: '1',
   },
   {
     id: '2',
     trans: 'card1',
-    title: '3 ',
+    title: '3',
   },
   {
     id: '3',
