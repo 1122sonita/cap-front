@@ -1,17 +1,27 @@
-import React, { useState } from 'react';
+/* eslint-disable eqeqeq */
+import React, { useEffect, useState } from 'react';
 import { AiFillCheckCircle } from 'react-icons/ai';
 import cx from 'classnames';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { containerVariants, childVariants } from '@constants/mocks/motion';
+import { useRouter } from 'next/router';
 
 export default function Available({ trans, apiData }) {
   const packages = apiData?.result.packages || [];
   const [selectedId, setSelectedId] = useState(null);
+  const [promotion, setPromotion] = useState();
   const [hoverId, setHoverId] = useState();
-  const isPromotionEligible = (packageId) => {
-    return packageId === 1; // Example: Promote every second package
-  };
+  // const isPromotionEligible = (packageId) => {
+  //   return packageId; // Example: Promote every second package
+  // };
+  const router = useRouter();
+  useEffect(() => {
+    const { id } = router.query;
+    const promotiondiscount = router.query.promotion;
+    setSelectedId(+id);
+    setPromotion(promotiondiscount);
+  }, []);
 
   return (
     <div className='md:py-[100px] py-[50px] md:space-y-[113px] space-y-[30px]'>
@@ -33,7 +43,7 @@ export default function Available({ trans, apiData }) {
         className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 justify-center gap-[20px] relative'
       >
         {packages.map((load) => (
-          <Link href='/detail' key={load.id}>
+          <Link href={`/detail?id=${load.id}`} key={load.id}>
             <motion.div
               variants={childVariants}
               key={load.id}
@@ -46,10 +56,10 @@ export default function Available({ trans, apiData }) {
                   : 'text-black bg-primary border-primary rounded-[20px]'
               } bg-gradient border-[2px]  gap-[10px] flex flex-col justify-between drop-shadow-md`}
             >
-              {isPromotionEligible(load.id) && (
+              {load.id == selectedId && promotion && (
                 <div className='absolute right-0 top-0 h-16 w-16'>
                   <div className='absolute transform rotate-45 bg-secondary text-center text-white font-semibold py-1 right-[-35px] top-[32px] w-[170px]'>
-                    20% off
+                    {promotion}% off
                   </div>
                 </div>
               )}

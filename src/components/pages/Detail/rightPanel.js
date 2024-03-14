@@ -1,11 +1,12 @@
 /* eslint-disable eqeqeq */
 // RightPanel.js
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ImageData, MonthlyData } from '@constants/mocks/others';
 import { AiFillCheckCircle, AiOutlineShoppingCart } from 'react-icons/ai';
 import cx from 'classnames';
 import { motion } from 'framer-motion';
 import { containerVariants, childVariants } from '@constants/mocks/motion';
+import { useRouter } from 'next/router';
 
 export default function RightPanel({ apiData, pacakgeFun, ImageFun, MonthFun }) {
   const packages = apiData?.result.packages || [];
@@ -25,6 +26,11 @@ export default function RightPanel({ apiData, pacakgeFun, ImageFun, MonthFun }) 
     MonthFun(item2);
     setSelectedId2(item2.id);
   };
+  const router = useRouter();
+  useEffect(() => {
+    const { id } = router.query;
+    setSelectedId(+id);
+  }, []);
 
   return (
     <>

@@ -1,8 +1,6 @@
 import { Account } from '@components/pages';
 import { seoDefualt } from '@constants';
 import { tran } from '@utilities/i18n';
-import cookie from 'cookie';
-import Cookies from 'js-cookie';
 
 export default function Index({ locale, apiData, accessToken }) {
   const { locale: trans } = tran(locale);
@@ -19,8 +17,8 @@ export async function getServerSideProps(ctx) {
       headers: {
         'Content-Type': 'application/json',
         Authorization: `Bearer ${accessToken}`,
-      },}
-    );
+      },
+    });
     const apiData = await response.json();
 
     return {
@@ -31,7 +29,7 @@ export async function getServerSideProps(ctx) {
           linkTo: '/account',
         },
         apiData,
-        accessToken
+        accessToken,
       },
     };
   } catch (error) {
@@ -46,5 +44,5 @@ export async function getServerSideProps(ctx) {
         apiData: null,
       },
     };
-  };
+  }
 }

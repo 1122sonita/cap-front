@@ -1,10 +1,8 @@
-import React from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
-import CustomLayout from './layout';
+/* eslint-disable jsx-a11y/label-has-associated-control */
+import React, { useState } from 'react';
 import { MdOutlinePassword } from 'react-icons/md';
-import { useState } from 'react';
 import cookie from 'cookie';
+import CustomLayout from './layout';
 
 export default function ChangePassword() {
   const [formData, setFormData] = useState({
@@ -24,28 +22,26 @@ export default function ChangePassword() {
 
   const handleSubmit = async (e) => {
     e.preventDefault(); // Prevent default form submission
-  
-    try{
+
+    try {
       const endpoint = process.env.NEXT_PUBLIC_CHANGE_PASSWORD_API;
 
-      console.log(endpoint);
       if (formData.new_password !== formData.new_password_confirmation) {
         throw new Error("Confirm password doesn't match");
       }
-  
+
       // Send form data to server (replace with your actual API call)
       const response = await fetch(endpoint, {
         method: 'POST',
         headers: {
-           'Content-Type': 'application/json',
-        Authorization: `Bearer ${cookie.parse(document.cookie).token}`, 
-      },
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${cookie.parse(document.cookie).token}`,
+        },
         body: JSON.stringify(formData),
       });
-  
+
       if (response.ok) {
         // Handle successful password change (e.g., show success message)
-        console.log('Password changed successfully!');
         setFormData({ old_password: '', new_password: '', new_password_confirmation: '' });
         window.location.href = '/account';
         // You might want to redirect to a different page or reset the form
@@ -53,7 +49,7 @@ export default function ChangePassword() {
         // Handle failed password change (e.g., show error message)
         console.error('Error changing password:', await response.text());
       }
-    }catch (error) {
+    } catch (error) {
       console.error('Error during sign up:', error.message);
     }
   };
@@ -103,20 +99,23 @@ export default function ChangePassword() {
                 />
               </div>
               <div className='mb-5'>
-                <label htmlFor='new_password_confirmation' className='block text-gray-700 font-semibold mb-2'>
+                <label
+                  htmlFor='new_password_confirmation'
+                  className='block text-gray-700 font-semibold mb-2'
+                >
                   Confirm New Password
                   <span className='text-red-600'>*</span>
                 </label>
                 <input
-                required
-                type='password'
-                placeholder='Re-enter new password'
-                className='border border-gray-300 rounded-md px-2 py-2 w-full'
-                id='new_password_confirmation'
-                name='new_password_confirmation'
-                value={formData.new_password_confirmation}
-                onChange={handleChange}
-              />
+                  required
+                  type='password'
+                  placeholder='Re-enter new password'
+                  className='border border-gray-300 rounded-md px-2 py-2 w-full'
+                  id='new_password_confirmation'
+                  name='new_password_confirmation'
+                  value={formData.new_password_confirmation}
+                  onChange={handleChange}
+                />
               </div>
               <div className='flex justify-between'>
                 <button

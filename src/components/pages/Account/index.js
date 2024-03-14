@@ -1,16 +1,12 @@
-import React from 'react';
-import CustomLayout from './layout';
-import { FaRegUser } from 'react-icons/fa';
+/* eslint-disable jsx-a11y/label-has-associated-control */
+import React, { useState } from 'react';
+import { FaRegUser, FaPhoneAlt } from 'react-icons/fa';
 import { MdOutlineMarkEmailRead } from 'react-icons/md';
-import { FaPhoneAlt } from 'react-icons/fa';
-import { CiEdit } from 'react-icons/ci';
-import { useState } from 'react';
-import cookie from 'cookie';
+import CustomLayout from './layout';
 
 const Account = ({ apiData, accessToken }) => {
-  console.log(apiData);
   const userData = apiData?.result.user || [];
-  
+
   const [isEditing, setIsEditing] = useState(false);
   const [editedUserData, setEditedUserData] = useState(userData);
   const [originalUserData, setOriginalUserData] = useState(userData);
@@ -24,7 +20,6 @@ const Account = ({ apiData, accessToken }) => {
     }
   };
 
-
   const handleChange = (e) => {
     const { name, value } = e.target;
     setEditedUserData({
@@ -37,7 +32,7 @@ const Account = ({ apiData, accessToken }) => {
     setEditedUserData(originalUserData);
   };
   // const handleSubmit = () => {
-    // Here you would typically send the edited data to the server or perform any necessary action
+  // Here you would typically send the edited data to the server or perform any necessary action
   //   console.log('Edited user data:', editedUserData);
   //   setIsEditing(false);
   // };
@@ -47,23 +42,21 @@ const Account = ({ apiData, accessToken }) => {
     try {
       const userId = userData.id; // Assuming your user object has an id property
       const endpoint = `${process.env.NEXT_PUBLIC_UPDATE_USER_PROFILE_API}/${userId}`;
-      console.log(endpoint);
       // Make an API call to update the profile
       const response = await fetch(endpoint, {
         method: 'POST', // or 'POST' if applicable
         headers: {
           'Content-Type': 'application/json',
-          Authorization: `Bearer ${accessToken}`, 
+          Authorization: `Bearer ${accessToken}`,
           // Add any additional headers required, such as authorization token
         },
         body: JSON.stringify({
-          'name': editedUserData.name,
-          'email': editedUserData.email,
-          'phone_number': editedUserData.phone_number
+          name: editedUserData.name,
+          email: editedUserData.email,
+          phone_number: editedUserData.phone_number,
         }),
       });
-      
-    
+
       if (!response.ok) {
         console.error('Error changing password:', await response.text());
         throw new Error('Failed to update profile11');
@@ -71,17 +64,14 @@ const Account = ({ apiData, accessToken }) => {
 
       const responseData = await response.json();
 
-      if (responseData.code === 200 ) {
-        
-        
-      // Handle successful response
-      console.log('Profile updated successfully');
-      setIsEditing(false);
+      if (responseData.code === 200) {
+        // Handle successful response
+        console.log('Profile updated successfully');
+        setIsEditing(false);
         window.location.href = '/account';
       } else {
         console.error('Error updating profile:');
       }
-
     } catch (error) {
       console.error('Error updating profile:', error.message);
       // Handle error
@@ -137,7 +127,10 @@ const Account = ({ apiData, accessToken }) => {
                     />
                   </div>
                   <div className='mb-5'>
-                    <label htmlFor='phone_number' className='block text-gray-700 font-semibold mb-2'>
+                    <label
+                      htmlFor='phone_number'
+                      className='block text-gray-700 font-semibold mb-2'
+                    >
                       Phone Number
                     </label>
                     <input
@@ -182,6 +175,7 @@ const Account = ({ apiData, accessToken }) => {
                 </div>
                 <div className='flex items-center justify-center mt-4'>
                   <button
+                    type='button'
                     onClick={handleEditToggle}
                     className='flex items-center bg-secondary text-white  py-1 px-4 rounded-md  hover:bg-[#F6AF3B]'
                   >

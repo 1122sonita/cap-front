@@ -42,7 +42,7 @@ export default function Banner({ trans, apiData }) {
         >
           {banners.map((banner, index) => (
             // eslint-disable-next-line react/no-array-index-key
-            <Link href='/service'>
+            <Link href={`/service?id=${banner.package_id}&promotion=${banner.promotion}`}>
               <div key={index} className='w-full md:p-[27px]'>
                 <div className='flex flex-col lg:flex-row gap-[50px] md:gap-[30px] items-center'>
                   <div className='w-full space-y-[19px]'>
