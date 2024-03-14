@@ -3,14 +3,13 @@ import Image from 'next/image';
 import cookie from 'cookie';
 import { useRouter } from 'next/router';
 
-export default function Payment({ selectedPackage, selectMonth, selectImage }) {
+export default function Payment({ selectedPackage, selectMonth }) {
   // eslint-disable-next-line no-unused-vars
   const [step, setStep] = useState(1);
   // eslint-disable-next-line no-unused-vars
   const [success, setSuccess] = useState(false);
   const [fileName, setFileName] = useState('');
   const router = useRouter();
-  const [image, setImage] = useState(null);
 
   const handleUpload = async (selectedFile) => {
     try {
@@ -46,24 +45,12 @@ export default function Payment({ selectedPackage, selectMonth, selectImage }) {
   };
 
   const handleFileChange = async (event) => {
-    // await handleUpload(event.target.files[0]);
+    await handleUpload(event.target.files[0]);
     setFileName(event.target.files?.[0]?.name);
-    setImage(event.target.files[0]);
   };
 
   const totalPrice = selectedPackage.price * selectMonth.title;
-  const data = [
-    {
-      package_id: selectedPackage.id,
-      package_name: selectedPackage.name,
-      unit_price: selectedPackage.price,
-      plan: selectMonth.title,
-      os: selectImage.title,
-    },
-  ];
-  console.log(selectedPackage);
-  console.log(selectMonth);
-  console.log(data);
+
   const handleCheckout = async () => {
     try {
       if (!fileName) {
@@ -78,7 +65,6 @@ export default function Payment({ selectedPackage, selectMonth, selectImage }) {
           'Content-Type': 'application/json',
           Authorization: `Bearer ${cookie.parse(document.cookie).token}`,
         },
-        body: JSON.stringify(data),
       });
 
       if (!response.ok) {
@@ -89,40 +75,16 @@ export default function Payment({ selectedPackage, selectMonth, selectImage }) {
 
       if (responseData.code === 200 && responseData.message === 'Checkout order successfully!') {
         setStep(2);
-        console.log(responseData);
-        
-        console.log(!image)
-        if (image) {
-          const apiEndpoint2 = process.env.NEXT_PUBLIC_INVOICE_URL;
-          const formData = new FormData();
-          formData.append('image', image);
+        router.push('/success');
+        const orderId = responseData.result.order.id;
+        const notificationEndpoint = `${process.env.NEXT_PUBLIC_NOTIFICATION_URL}?order_id=${orderId}`;
+        const notificationResponse = await fetch(notificationEndpoint);
 
-          const response2 = await fetch(apiEndpoint2, {
-            method: 'POST',
-            body: formData,
-          });;
-          if (!response2.ok) {
-            throw new Error('Failed to upload invoice. Please try again later.');
-          }
-
-          const responseData2 = await response2.json();
-
-          console.log(responseData2)
-          if (responseData2.code === 200) {
-            router.push('/success');
-            const orderId = responseData.result.order.id;
-            const notificationEndpoint = `${process.env.NEXT_PUBLIC_NOTIFICATION_URL}?order_id=${orderId}`;
-            const notificationResponse = await fetch(notificationEndpoint);
-
-            if (!notificationResponse.ok) {
-              throw new Error('Error sending push notification');
-            }
-
-            alert('Checkout successful!', responseData.message);
-          } else {
-            throw new Error('Error uploading invoice: ', responseData2.message);
-          }
+        if (!notificationResponse.ok) {
+          throw new Error('Error sending push notification');
         }
+
+        alert('Checkout successful!', responseData.message);
       } else {
         alert('Checkout failed: ', responseData.message);
       }
@@ -149,12 +111,7 @@ export default function Payment({ selectedPackage, selectMonth, selectImage }) {
                 </p>
                 <div className=' flex justify-center '>
                   <div className='w-[200px] sm:w-[303px] '>
-                    <Image
-                      src='/assets/main/telegram.png'
-                      alt='telegram'
-                      width={403}
-                      height={403}
-                    />
+                    <Image src='/assets/main/pay.png' alt='telegram' width={403} height={403} />
                   </div>
                 </div>
                 <div className='space-y-[22px]'>

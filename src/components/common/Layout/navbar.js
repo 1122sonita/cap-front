@@ -25,7 +25,7 @@ export default function Navbar() {
 
   // eslint-disable-next-line no-unused-vars
   const [active, setActive] = useState('');
-  const [showLocale, setShowLocale] = useState(false);
+  const [showLocale, setShowLocale] = useState(true);
   const [showMenu, setShowMenu] = useState(null);
 
   // eslint-disable-next-line no-unused-vars
@@ -132,7 +132,7 @@ export default function Navbar() {
           <a>
             <button
               type='button'
-              className='bg-gradient-to-t bg-primary rounded-full text-button px-[20px] py-[2px] border-[3px] border-primary flex items-center gap-2'
+              className='bg-gradient-to-t bg-primary rounded-full text-button px-[20px] py-[2px] border-[3px] border-primary hover:scale-110 transition-all flex items-center gap-2'
             >
               <span className='uppercase text-white text-p font-bold pb-[3px]'>Log In</span>
             </button>
@@ -145,7 +145,6 @@ export default function Navbar() {
     <>
       <nav className='sticky top-0 z-30 bg-white'>
         <Social />
-        <Support />
         <div className='container-full-px'>
           <div className='flex items-center justify-center lg:justify-between gap-x-[25px] py-2 md:py-0'>
             <div className='py-[10px] lg:py-[16px]'>

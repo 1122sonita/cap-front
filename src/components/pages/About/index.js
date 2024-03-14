@@ -3,8 +3,6 @@ import Banner from './banner';
 import Why from './why';
 import Channel from './channel';
 import Business from './business';
-import Provider from './provider';
-import SubProvider from './subProvider';
 
 export default function About({ trans }) {
   return (
@@ -27,16 +25,6 @@ export default function About({ trans }) {
 
       <section className='container-full-px md:py-[100px] py-[20px]'>
         <Business trans={trans} />
-      </section>
-
-      <section className=' bg-section-bg-3 bg-cover bg-no-repeat md:py-[100px] py-[40px] space-y-[100px]'>
-        <div className='container-full-px 2xl:px-[100px]'>
-          <Provider trans={trans} />
-        </div>
-
-        <div className='container-full-px'>
-          <SubProvider trans={trans} />
-        </div>
       </section>
     </main>
   );

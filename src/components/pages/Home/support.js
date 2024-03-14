@@ -29,7 +29,7 @@ export default function Support({ trans }) {
             <a>
               <button
                 type='button'
-                className='bg-secondary text-btn py-[10px] px-[40px] hover:bg-primary hover:text-secondary hover:scale-110 transition-all text-primary font-semibold rounded-full'
+                className='bg-secondary text-btn py-[10px] px-[40px] hover:bg-primary hover:text-white hover:scale-110 transition-all text-primary font-semibold rounded-full'
               >
                 {trans.home.support.btn}
               </button>

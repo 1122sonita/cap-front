@@ -54,7 +54,7 @@ export default function Provider({ trans }) {
                   <a>
                     <button
                       type='button'
-                      className='bg-secondary hover:bg-primary hover:text-secondary hover:scale-110 transition-all text-btn font-semibold text-center w-full rounded-full py-[5px] px-5 text-primary '
+                      className='bg-secondary hover:bg-primary hover:text-white hover:scale-110 transition-all text-btn font-semibold text-center w-full rounded-full py-[5px] px-5 text-white '
                     >
                       {trans.home.provider.btn}
                     </button>

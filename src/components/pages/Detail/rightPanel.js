@@ -1,17 +1,19 @@
 /* eslint-disable eqeqeq */
 // RightPanel.js
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ImageData, MonthlyData } from '@constants/mocks/others';
 import { AiFillCheckCircle, AiOutlineShoppingCart } from 'react-icons/ai';
 import cx from 'classnames';
 import { motion } from 'framer-motion';
 import { containerVariants, childVariants } from '@constants/mocks/motion';
+import { useRouter } from 'next/router';
 
 export default function RightPanel({ apiData, pacakgeFun, ImageFun, MonthFun }) {
   const packages = apiData?.result.packages || [];
   const [hoverId, setHoverId] = useState();
   const [selectedId, setSelectedId] = useState(null);
   const [selectedId1, setSelectedId1] = useState(null);
+  const [selectedId2, setSelectedId2] = useState(null);
   const handleSelectPackage = (item) => {
     pacakgeFun(item);
     setSelectedId(item.id);
@@ -22,7 +24,13 @@ export default function RightPanel({ apiData, pacakgeFun, ImageFun, MonthFun }) 
   };
   const handleSelectMonth = (item2) => {
     MonthFun(item2);
+    setSelectedId2(item2.id);
   };
+  const router = useRouter();
+  useEffect(() => {
+    const { id } = router.query;
+    setSelectedId(+id);
+  }, []);
 
   return (
     <>
@@ -56,7 +64,11 @@ export default function RightPanel({ apiData, pacakgeFun, ImageFun, MonthFun }) 
                   onClick={() => handleSelectMonth(load)}
                   onMouseOver={() => setHoverId(load.id)}
                   onMouseLeave={() => setHoverId(null)}
-                  className='bg-white border-[2px] border-primary hover:text-black rounded-[20px] gap-[10px] flex flex-col justify-between drop-shadow-md cursor-pointer'
+                  className={`${
+                    selectedId2 == load.id
+                      ? 'bg-white font-bold scale-100 text-gray-800 border-secondary rounded-[10px] '
+                      : 'text-black bg-primary border-primary rounded-[20px]'
+                  } bg-white border-[2px] border-primary hover:text-black rounded-[20px] gap-[10px] flex flex-col justify-between drop-shadow-md cursor-pointer`}
                 >
                   <div className='px-[20px] rounded-t-[16px] bg-purple'>
                     <div className='md:h-[70px] h-[100px] flex items-center justify-center'>
