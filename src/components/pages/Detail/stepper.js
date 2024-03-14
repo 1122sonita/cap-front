@@ -101,7 +101,7 @@ export default function Stepper({ trans, apiData }) {
         )}
         {activeStep === 3 && (
           <div className='grid grid-cols-1  gap-[40px]  md:py-[100px] '>
-            <Payment trans={trans} selectedPackage={selectedPackag} selectMonth={selectedMonth} />
+            <Payment trans={trans} selectedPackage={selectedPackag} selectMonth={selectedMonth} selectImage={selectedImage} />
           </div>
         )}
         {activeStep === 4 && (

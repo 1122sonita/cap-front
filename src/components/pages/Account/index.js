@@ -1,16 +1,18 @@
-import React from 'react';
 import CustomLayout from './layout';
 import { FaRegUser } from 'react-icons/fa';
 import { MdOutlineMarkEmailRead } from 'react-icons/md';
 import { FaPhoneAlt } from 'react-icons/fa';
 import { CiEdit } from 'react-icons/ci';
-import { useState } from 'react';
+import { useState, React } from 'react';
 import cookie from 'cookie';
+import { useRouter } from 'next/router';
+import Swal from 'sweetalert2';
 
 const Account = ({ apiData, accessToken }) => {
   console.log(apiData);
   const userData = apiData?.result.user || [];
-  
+  const router = useRouter();
+
   const [isEditing, setIsEditing] = useState(false);
   const [editedUserData, setEditedUserData] = useState(userData);
   const [originalUserData, setOriginalUserData] = useState(userData);
@@ -24,7 +26,6 @@ const Account = ({ apiData, accessToken }) => {
     }
   };
 
-
   const handleChange = (e) => {
     const { name, value } = e.target;
     setEditedUserData({
@@ -37,7 +38,7 @@ const Account = ({ apiData, accessToken }) => {
     setEditedUserData(originalUserData);
   };
   // const handleSubmit = () => {
-    // Here you would typically send the edited data to the server or perform any necessary action
+  // Here you would typically send the edited data to the server or perform any necessary action
   //   console.log('Edited user data:', editedUserData);
   //   setIsEditing(false);
   // };
@@ -45,6 +46,33 @@ const Account = ({ apiData, accessToken }) => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
+      // Display loading indicator using SweetAlert
+      const timeoutId = setTimeout(() => {
+        Swal.fire({
+          title: 'Success!',
+          text: 'Your Profile have been update successfully!',
+          icon: 'success',
+          iconColor: 'green',
+          width: '30%',
+          confirmButtonText: 'OK',
+          confirmButtonColor: '#3b82f6',
+          customClass: {
+            'confirmButton': 'text-white font-semibold w-20 py-1 border-radius-full'
+          }
+        });
+      }, 1500);
+      Swal.fire({
+        title: 'Loading...',
+        text: 'Please wait...',
+        width: '30%',
+        allowOutsideClick: false, // Prevent closing by clicking outside
+        didOpen: () => {
+          Swal.showLoading(); // Start loading animation
+        },
+        willClose: () => {
+          clearTimeout(timeoutId);
+        }
+      });
       const userId = userData.id; // Assuming your user object has an id property
       const endpoint = `${process.env.NEXT_PUBLIC_UPDATE_USER_PROFILE_API}/${userId}`;
       console.log(endpoint);
@@ -53,35 +81,36 @@ const Account = ({ apiData, accessToken }) => {
         method: 'POST', // or 'POST' if applicable
         headers: {
           'Content-Type': 'application/json',
-          Authorization: `Bearer ${accessToken}`, 
+          Authorization: `Bearer ${accessToken}`,
           // Add any additional headers required, such as authorization token
         },
         body: JSON.stringify({
-          'name': editedUserData.name,
-          'email': editedUserData.email,
-          'phone_number': editedUserData.phone_number
+          name: editedUserData.name,
+          email: editedUserData.email,
+          phone_number: editedUserData.phone_number,
         }),
       });
-      
-    
+
       if (!response.ok) {
         console.error('Error changing password:', await response.text());
         throw new Error('Failed to update profile11');
       }
 
       const responseData = await response.json();
-
-      if (responseData.code === 200 ) {
-        
-        
-      // Handle successful response
-      console.log('Profile updated successfully');
-      setIsEditing(false);
-        window.location.href = '/account';
+      if (responseData.code === 200) {
+        // Handle successful response
+        console.log('Profile updated successfully');
+        // setIsEditing(false);
+        // router.push('/account');
+        setTimeout(() => {
+          setIsEditing(false);
+          router.push('/account');
+          // Swal.close(); // Close the loading indicator
+        }, 1000);
+       
       } else {
         console.error('Error updating profile:');
       }
-
     } catch (error) {
       console.error('Error updating profile:', error.message);
       // Handle error
@@ -137,7 +166,10 @@ const Account = ({ apiData, accessToken }) => {
                     />
                   </div>
                   <div className='mb-5'>
-                    <label htmlFor='phone_number' className='block text-gray-700 font-semibold mb-2'>
+                    <label
+                      htmlFor='phone_number'
+                      className='block text-gray-700 font-semibold mb-2'
+                    >
                       Phone Number
                     </label>
                     <input
@@ -154,13 +186,13 @@ const Account = ({ apiData, accessToken }) => {
                     <button
                       type='button'
                       onClick={handleCancel}
-                      className='bg-gray-300 hover:bg-gray-400 text-gray-700 font-semibold px-4 py-2 rounded-md'
+                      className='bg-gray-300 hover:bg-gray-400 text-gray-700 font-semibold px-4 py-2 rounded-full'
                     >
                       Cancel
                     </button>
                     <button
                       type='submit'
-                      className='bg-secondary hover:bg-[#F6AF3B] text-white font-semibold px-4 py-2 rounded-md'
+                      className='bg-primary hover:bg-[#4b8bf3] text-white font-semibold px-4 py-2 rounded-full'
                     >
                       Save Changes
                     </button>
@@ -183,7 +215,7 @@ const Account = ({ apiData, accessToken }) => {
                 <div className='flex items-center justify-center mt-4'>
                   <button
                     onClick={handleEditToggle}
-                    className='flex items-center bg-secondary text-white  py-1 px-4 rounded-md  hover:bg-[#F6AF3B]'
+                    className='flex items-center bg-primary hover:bg-[#4b8bf3] text-white  py-1 px-4 rounded-full'
                   >
                     {/* <CiEdit className='w-5 h-5 mr-2' /> */}
                     Edit
