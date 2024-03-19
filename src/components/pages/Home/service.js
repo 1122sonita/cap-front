@@ -29,7 +29,7 @@ export default function Service({ trans }) {
               <a>
                 <button
                   type='button'
-                  className='bg-primary text-btn py-[10px] px-[40px] hover:bg-primary hover:text-white hover:scale-110 transition-all text-white rounded-full font-semibold'
+                  className='bg-primary text-btn py-[10px] px-[40px] hover:bg-primary hover:text-white hover:scale-110 transition-all text-white rounded-[10px] font-semibold'
                 >
                   {trans.home.service.btn}
                 </button>

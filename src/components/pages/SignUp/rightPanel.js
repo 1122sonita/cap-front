@@ -68,7 +68,7 @@ export default function RightPanel({ trans }) {
                 required
                 type='text'
                 placeholder='name'
-                className='w-full text-li placeholder:italic placeholder:font-extralight border-[1px] border-purple-300 rounded-md px-[10px] py-[9px]'
+                className='w-full text-li placeholder:italic placeholder:font-extralight border-[1px] border-blue-300 rounded-md px-[10px] py-[9px]'
                 id='name'
                 name='name'
                 value={formData.name}
@@ -86,28 +86,10 @@ export default function RightPanel({ trans }) {
                 required
                 type='email'
                 placeholder={trans.signup.form.email}
-                className='w-full text-li placeholder:italic placeholder:font-extralight border-[1px] border-purple-300 rounded-md px-[10px] py-[9px]'
+                className='w-full text-li placeholder:italic placeholder:font-extralight border-[1px] border-blue-300 rounded-md px-[10px] py-[9px]'
                 id='email'
                 name='email'
                 value={formData.email}
-                onChange={handleChange}
-              />
-            </label>
-          </div>
-          <div>
-            <label htmlFor='phoneNumber'>
-              <p className='text-p'>
-                PhoneNumber
-                <span className='text-red-600'>*</span>
-              </p>
-              <input
-                required
-                type='tel'
-                placeholder='phoneNumber'
-                className='w-full text-li placeholder:italic placeholder:font-extralight border-[1px] border-purple-300 rounded-md px-[10px] py-[9px]'
-                id='phoneNumber'
-                name='phoneNumber'
-                value={formData.phoneNumber}
                 onChange={handleChange}
               />
             </label>
@@ -122,7 +104,7 @@ export default function RightPanel({ trans }) {
                 required
                 type='password'
                 placeholder={trans.signup.form.password}
-                className='w-full text-li placeholder:italic placeholder:font-extralight border-[1px] border-purple-300 rounded-md px-[10px] py-[9px]'
+                className='w-[400px] text-li placeholder:italic placeholder:font-extralight border-[1px] border-blue-300 rounded-md px-[10px] py-[9px]'
                 id='password'
                 name='password'
                 value={formData.password}
@@ -140,7 +122,7 @@ export default function RightPanel({ trans }) {
                 required
                 type='password'
                 placeholder={trans.signup.form.confirm}
-                className='w-full text-li placeholder:italic placeholder:font-extralight border-[1px] border-purple-300 rounded-md px-[10px] py-[9px]'
+                className='w-full text-li placeholder:italic placeholder:font-extralight border-[1px] border-blue-300 rounded-md px-[10px] py-[9px]'
                 id='confirmPassword'
                 name='confirmPassword'
                 value={formData.confirmPassword}
@@ -153,7 +135,7 @@ export default function RightPanel({ trans }) {
             <button
               type='button'
               onClick={handleSubmit}
-              className='bg-secondary text-primary text-p font-semibold rounded-full hover:bg-primary hover:scale-110 transition-all hover:text-secondary px-[80px] py-[10px] justify-center items-center'
+              className='bg-primary text-white text-p font-semibold rounded-[10px] hover:bg-primary hover:scale-110 transition-all hover:text-secondary px-[80px] py-[10px] justify-center items-center'
             >
               {trans.contact.rightPanel.btn}
             </button>

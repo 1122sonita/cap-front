@@ -8,12 +8,12 @@ module.exports = {
     extend: {
       backgroundImage: {
         'home-bg': 'url(/assets/main/banner.jpg)',
-        gradient: 'linear-gradient(0deg, #3b82f6 0%, #FFF 96.25%)',
+        gradient: 'linear-gradient(0deg, #b8d0fc 0%, #FFF 96.25%)',
       },
       colors: {
         secondary: '#F9C34D', // red 2
         button: '#F08C18',
-        golden1: '#EF9D0E', // golden
+        promotion: '#f20d19', // golden
         golden2: '#D99A26', // golden
         footer: '	#188a8d',
         primary: '#3b82f6',

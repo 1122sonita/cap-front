@@ -6,7 +6,7 @@
   },
   "service": {
     "title": "Why Choose Our Services?",
-    "dsp": "Choosing CloudBloc for your web hosting needs ensures you benefit from a unique blend of affordability, innovation, and educational value. Unlike traditional hosting services, CloudBloc offers a tailored solution specifically designed for undergraduate students, providing them with the resources they need without the hefty price tag. Our platform not only delivers a seamless hosting experience but also serves as a practical learning tool, allowing students to explore web hosting intricacies and gain hands-on experience in website management. With CloudBloc, you can rest assured knowing that you're receiving top-notch service while also investing in your own technical growth. Join the CloudBloc community today and unlock the full potential of your web.",
+    "dsp": "Choosing CloudBloc for your web hosting needs ensures you benefit from a unique blend of affordability, innovation, and educational value. Unlike traditional hosting services, CloudBloc offers a tailored solution specifically designed for undergraduate students, providing them with the resources they need without the hefty price tag.",
     "btn": "View Pricing",
     "count-1": {
       "num": "980",
@@ -58,19 +58,24 @@
     "dsp": "At CloudBloc, we pride ourselves on offering comprehensive solutions tailored to the needs of undergraduate students seeking efficient and affordable web hosting services. Our platform transforms physical servers into Virtual Private Servers (VPS), providing you with the resources you need to host and manage your websites seamlessly.",
     "btn": "Learn More",
     "seo": {
-      "title": "Affordable Hosting Packages"
+      "title": "Affordable Hosting Packages",
+      "dsp": "Choose from a range of budget-friendly hosting packages designed to suit various needs and budgets. "
     },
     "sem": {
-      "title": "Educational Resources"
+      "title": "Educational Resources",
+      "dsp": "Gain valuable insights and hands-on experience through our educational resources. "
     },
     "b2b": {
-      "title": "User-Friendly Interface"
+      "title": "User-Friendly Interface",
+      "dsp": "Our intuitive platform ensures  user experience, making it easy for you to set up, straightforward controls. "
     },
     "account": {
-      "title": " Reliable Performance"
+      "title": " Reliable Performance",
+      "dsp": "Experience reliable performance and uptime with our state-of-the-art infrastructure."
     },
     "app": {
-      "title": "Customer Support"
+      "title": "Customer Support",
+      "dsp": "Have questions or need assistance? Our dedicated customer support team is here to help. "
     }
   },
   "support": {

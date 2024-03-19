@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
 import Image from 'next/image';
 import cookie from 'cookie';
@@ -90,8 +91,8 @@ export default function Payment({ selectedPackage, selectMonth, selectImage }) {
       if (responseData.code === 200 && responseData.message === 'Checkout order successfully!') {
         setStep(2);
         console.log(responseData);
-        
-        console.log(!image)
+
+        console.log(!image);
         if (image) {
           const apiEndpoint2 = process.env.NEXT_PUBLIC_INVOICE_URL;
           const formData = new FormData();
@@ -100,14 +101,14 @@ export default function Payment({ selectedPackage, selectMonth, selectImage }) {
           const response2 = await fetch(apiEndpoint2, {
             method: 'POST',
             body: formData,
-          });;
+          });
           if (!response2.ok) {
             throw new Error('Failed to upload invoice. Please try again later.');
           }
 
           const responseData2 = await response2.json();
 
-          console.log(responseData2)
+          console.log(responseData2);
           if (responseData2.code === 200) {
             router.push('/success');
             const orderId = responseData.result.order.id;

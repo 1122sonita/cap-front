@@ -35,7 +35,9 @@ export default function RightPanel({ apiData, pacakgeFun, ImageFun, MonthFun }) 
   return (
     <>
       <div className='gap-10'>
-        <h1 className='mt-4 text-subtitle'>Config your Virtual Private Server</h1>
+        <h1 className='mt-4 text-title py-4 text-primary font-bold'>
+          Config your Virtual Private Server
+        </h1>
         <div className='rounded-[10px] bg-white gap-10 p-4 '>
           {/* VPS Monthly */}
           <div className=''>
@@ -66,18 +68,13 @@ export default function RightPanel({ apiData, pacakgeFun, ImageFun, MonthFun }) 
                   onMouseLeave={() => setHoverId(null)}
                   className={`${
                     selectedId2 == load.id
-                      ? 'bg-white font-bold scale-100 text-gray-800 border-secondary rounded-[10px] '
-                      : 'text-black bg-primary border-primary rounded-[20px]'
-                  } bg-white border-[2px] border-primary hover:text-black rounded-[20px] gap-[10px] flex flex-col justify-between drop-shadow-md cursor-pointer`}
+                      ? ' font-bold scale-100 bg-primary text-white rounded-[10px] '
+                      : ' text-primary  bg-white border-[2px] rounded-[10px] border-primary  '
+                  } gap-[10px] flex flex-col justify-between drop-shadow-md cursor-pointer`}
                 >
                   <div className='px-[20px] rounded-t-[16px] bg-purple'>
                     <div className='md:h-[70px] h-[100px] flex items-center justify-center'>
-                      <h3
-                        className={cx(
-                          'font-bold text-subtitle text-center line-clamp-2',
-                          hoverId === load?.id ? 'text-primary' : 'text-primary'
-                        )}
-                      >
+                      <h3 className={cx('font-bold text-subtitle text-center line-clamp-2')}>
                         {load.title} month
                       </h3>
                     </div>
@@ -116,16 +113,28 @@ export default function RightPanel({ apiData, pacakgeFun, ImageFun, MonthFun }) 
                   key={load.id}
                   className={`${
                     selectedId == load.id
-                      ? 'bg-white font-bold scale-100 text-gray-800 border-secondary rounded-[10px] '
-                      : 'text-black bg-primary border-primary rounded-[20px]'
-                  } bg-gradient border-[2px]  gap-[10px] flex flex-col justify-between drop-shadow-md`}
+                      ? 'bg-primary font-bold scale-100 text-white border-primary rounded-[10px] '
+                      : 'text-black  border-primary rounded-[20px]'
+                  } border-[2px]  gap-[10px] flex flex-col justify-between drop-shadow-md`}
                 >
                   <div className='px-[20px] rounded-t-[16px] bg-purple'>
                     <div className='md:h-[70px] h-[100px] flex items-center justify-center'>
                       <h3
                         className={cx(
                           'font-bold text-subtitle text-center line-clamp-2',
-                          hoverId === load?.id ? 'text-primary' : 'text-primary'
+                          hoverId === load?.id ? 'text-black' : 'text-black'
+                        )}
+                      >
+                        {load.name}
+                      </h3>
+                    </div>
+                  </div>
+                  <div className='px-[20px] rounded-t-[16px] bg-purple'>
+                    <div className='md:h-[70px] h-[100px] flex items-center justify-center'>
+                      <h3
+                        className={cx(
+                          'font-bold text-subtitle text-center line-clamp-2',
+                          hoverId === load?.id ? 'text-black' : 'text-black'
                         )}
                       >
                         {load.price} $ /month
@@ -139,7 +148,7 @@ export default function RightPanel({ apiData, pacakgeFun, ImageFun, MonthFun }) 
                           <AiFillCheckCircle
                             className={cx(
                               'text-20px',
-                              hoverId === load?.id ? 'text-primary' : 'text-primary'
+                              selectedId === load?.id ? 'text-white' : 'text-primary'
                             )}
                           />
                         </div>
@@ -152,7 +161,7 @@ export default function RightPanel({ apiData, pacakgeFun, ImageFun, MonthFun }) 
                           <AiFillCheckCircle
                             className={cx(
                               'text-20px',
-                              hoverId === load?.id ? 'text-primary' : 'text-primary'
+                              selectedId === load?.id ? 'text-white' : 'text-primary'
                             )}
                           />
                         </div>
@@ -165,7 +174,7 @@ export default function RightPanel({ apiData, pacakgeFun, ImageFun, MonthFun }) 
                           <AiFillCheckCircle
                             className={cx(
                               'text-20px',
-                              hoverId === load?.id ? 'text-primary' : 'text-primary'
+                              selectedId === load?.id ? 'text-white' : 'text-primary'
                             )}
                           />
                         </div>
@@ -178,7 +187,7 @@ export default function RightPanel({ apiData, pacakgeFun, ImageFun, MonthFun }) 
                           <AiFillCheckCircle
                             className={cx(
                               'text-20px',
-                              hoverId === load?.id ? 'text-primary' : 'text-primary'
+                              selectedId === load?.id ? 'text-white' : 'text-primary'
                             )}
                           />
                         </div>
@@ -221,30 +230,21 @@ export default function RightPanel({ apiData, pacakgeFun, ImageFun, MonthFun }) 
                   onMouseLeave={() => setHoverId(null)}
                   className={`${
                     selectedId1 == load.id
-                      ? 'bg-white font-bold scale-100 text-gray-800 border-secondary rounded-[10px] '
-                      : 'text-black bg-primary border-primary rounded-[20px]'
-                  } bg-gradient border-[2px] border-primary hover:text-black rounded-[20px] gap-[10px] flex flex-col justify-between drop-shadow-md cursor-pointer`}
+                      ? ' font-bold scale-100 bg-primary text-white rounded-[10px] '
+                      : ' text-primary  bg-white border-[2px] rounded-[10px] border-primary  '
+                  } gap-[10px] flex flex-col justify-between drop-shadow-md cursor-pointer`}
                 >
                   <div className='px-[20px] rounded-t-[16px] bg-purple'>
                     <div className='md:h-[70px] h-[100px] flex items-center justify-center'>
                       <h3
                         className={cx(
                           'font-bold text-subtitle text-center line-clamp-2',
-                          hoverId === load?.id ? 'text-primary' : 'text-primary'
+                          selectedId1 === load?.id ? 'text-white' : 'text-primary'
                         )}
                       >
                         {load.title}
                       </h3>
                     </div>
-                  </div>
-
-                  <div className='bg-primary rounded-b-[16px] hover:bg-primary text-secondary hover:text-secondary flex justify-center'>
-                    <button
-                      type='button'
-                      className='text-btn hover:scale-110 transition-all px-[40px] py-[10px] rounded-full font-semibold'
-                    >
-                      Free
-                    </button>
                   </div>
                 </motion.div>
               ))}

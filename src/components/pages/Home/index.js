@@ -32,7 +32,7 @@ export default function Home({ trans, apiData, apiData1 }) {
         </div>
       </section>
 
-      <section className='container-fluid bg-primary bg-cover bg-no-repeat'>
+      <section className='container-fluid  bg-cover bg-no-repeat'>
         <div className='container-full-px'>
           <Support trans={trans} />
         </div>

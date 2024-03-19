@@ -3,6 +3,7 @@ import { useState } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
+import Swal from 'sweetalert2';
 import cookie from 'cookie'; // Import cookie library
 
 export default function LoginForm({ trans }) {
@@ -47,7 +48,25 @@ export default function LoginForm({ trans }) {
         document.cookie = cookie.serialize('user_id', responseData.result.user_id);
         // router.push('/');
         setIsLoggedIn(true);
-        window.location.href = '/';
+        Swal.fire({
+          title: 'Success!',
+          text: 'Your Login successfully!',
+          icon: 'success',
+          iconColor: 'green',
+          width: '30%',
+          confirmButtonText: 'OK',
+          confirmButtonColor: '#3b82f6',
+          customClass: {
+            confirmButton: 'text-white font-semibold w-20 py-1 border-radius-full',
+          },
+        }).then((result) => {
+          /* Read more about isConfirmed, isDenied below */
+          if (result.isConfirmed) {
+            window.location.href = '/';
+          } else if (result.isDenied) {
+            Swal.fire('Changes are not saved', '', 'info');
+          }
+        });
       } else {
         setErrorMessage(responseData.message || 'An error occurred during login.');
       }
@@ -56,7 +75,6 @@ export default function LoginForm({ trans }) {
       setErrorMessage('Username or Password is incorrect. Please try again.');
     }
   };
-
   return (
     <>
       <div className='h-full bg-white/90 rounded-[20px] px-[20px] md:px-[100px] py-[20px] space-y-[16px]'>
@@ -90,7 +108,7 @@ export default function LoginForm({ trans }) {
                 required
                 type='password'
                 placeholder={trans.login.form.username}
-                className='w-full text-li placeholder:italic placeholder:font-extralight border-[1px]  border-purple-300 rounded-md px-[10px] py-[9px]'
+                className='w-[400px] text-li placeholder:italic placeholder:font-extralight border-[1px]  border-purple-300 rounded-md px-[10px] py-[9px]'
                 id='password'
                 value={password}
                 onChange={handlePasswordChange}
@@ -112,7 +130,7 @@ export default function LoginForm({ trans }) {
               <button
                 type='button'
                 onClick={handleSubmit}
-                className='bg-secondary text-primary text-p font-semibold rounded-full hover:bg-primary hover:scale-110 transition-all hover:text-secondary px-[80px] py-[10px] justify-center items-center'
+                className='bg-primary text-white text-p font-semibold rounded-[10px] hover:bg-primary hover:scale-110 transition-all hover:text-secondary px-[80px] py-[10px] justify-center items-center'
               >
                 {trans.contact.rightPanel.btn}
               </button>

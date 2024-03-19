@@ -1,3 +1,4 @@
+/* eslint-disable react/self-closing-comp */
 import { navbarBtnsData } from '@constants';
 import { getContacts } from '@utilities/dev';
 import { tran } from '@utilities/i18n';
@@ -12,10 +13,10 @@ export default function Footer() {
   const { locale: trans } = tran(locale);
 
   return (
-    <footer className='bg-black'>
+    <footer className='bg-primary'>
       <div className='container-fluid bg-footer-bg bg-cover bg-no-repeat bg-right'>
-        <div className='container-full-px pt-[50px] lg:pt-[75px] pb-[50px]'>
-          <div className='flex justify-center lg:justify-start py-[20px] '>
+        <div className='container-full-px '>
+          {/* <div className='flex justify-center lg:justify-start py-[20px] '>
             <Link href='/'>
               <a>
                 <div className='w-[250px] lg:w-[300px]'>
@@ -29,7 +30,7 @@ export default function Footer() {
                 </div>
               </a>
             </Link>
-          </div>
+          </div> */}
 
           <div className=' flex justify-between pb-[40px] items-center'>
             <div className=' space-y-[20px]'>
@@ -47,7 +48,7 @@ export default function Footer() {
               </ul>
               <div>
                 <ul className='flex flex-wrap justify-center lg:justify-start gap-[20px]'>
-                  <li className='text-primary flex items-center gap-[5px]'>
+                  <li className='text-white flex items-center gap-[5px]'>
                     <div>
                       <FaTelegram size={30} />
                     </div>
@@ -56,7 +57,7 @@ export default function Footer() {
                 </ul>
               </div>
             </div>
-            <div className=' md:w-[200px] w-[150px]'>
+            <div className='py-[10px] md:w-[100px] w-[150px]'>
               <Image
                 src='/assets/main/telegram.png'
                 alt='telegram'
@@ -67,13 +68,15 @@ export default function Footer() {
             </div>
           </div>
         </div>
-        <div className='border-t-[1px] border-gray-600'>
+        <div className='border-t-[1px] border-black'>
           <div className='container-full-px py-[20px]'>
             <div className=' flex justify-between items-center'>
-              <p className='text-gray-600 text-16px text-center'>
+              <p className='text-black font-semibold text-16px text-center'>
                 2024 Cambodia Academy of Digital Technology
               </p>
-              <p className='text-gray-600 text-16px text-center'>Contact：+8616793674330</p>
+              <p className='text-black text-16px font-semibold text-center'>
+                Contact：+8616793674330
+              </p>
             </div>
           </div>
         </div>

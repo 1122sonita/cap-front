@@ -50,3 +50,15 @@ li:hover ul.drop-menu {
   opacity: 1;
   visibility: visible;
 }
+
+.white-mode {
+  text-decoration: none;
+  padding: 17px 40px;
+  background-color: yellow;
+  border-radius: 3px;
+  color: black;
+  transition: 0.35s ease-in-out;
+  position: absolute;
+  left: 15px;
+  bottom: 15px;
+}

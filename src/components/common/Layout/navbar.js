@@ -1,3 +1,4 @@
+/* eslint-disable react/self-closing-comp */
 /* eslint-disable no-unused-vars */
 import { navbarBtnsData } from '@constants';
 import { localesData } from '@constants/mocks/locales';
@@ -132,7 +133,7 @@ export default function Navbar() {
           <a>
             <button
               type='button'
-              className='bg-gradient-to-t bg-primary rounded-full text-button px-[20px] py-[2px] border-[3px] border-primary hover:scale-110 transition-all flex items-center gap-2'
+              className='bg-gradient-to-t bg-primary  rounded-[10px] text-button px-[20px] py-[2px] border-[3px] border-primary hover:scale-110 transition-all flex items-center gap-2'
             >
               <span className='uppercase text-white text-p font-bold pb-[3px]'>Log In</span>
             </button>
@@ -147,18 +148,19 @@ export default function Navbar() {
         <Social />
         <div className='container-full-px'>
           <div className='flex items-center justify-center lg:justify-between gap-x-[25px] py-2 md:py-0'>
-            <div className='py-[10px] lg:py-[16px]'>
+            <div>
               <Link href='/'>
-                <a>
+                <a className=' flex flex-row items-center'>
                   <div className='w-[140px] md:w-[100px]'>
                     <Image
                       src='/assets/main/logo.png'
                       alt='logo'
                       layout='responsive'
-                      width={100}
-                      height={100}
+                      width={0}
+                      height={0}
                     />
                   </div>
+                  <p className='text-primary text-title font-bold'>CloudBloc</p>
                 </a>
               </Link>
             </div>
@@ -330,6 +332,7 @@ export default function Navbar() {
             </ul>
           </div>
         </div>
+        <div className='border-t-[1px] border-primary shadow-2xl'></div>
       </nav>{' '}
     </>
   );

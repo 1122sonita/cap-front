@@ -1,9 +1,9 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import CustomLayout from './layout';
 import moment from 'moment';
 import { CgNotes } from 'react-icons/cg';
+import CustomLayout from './layout';
 
 export default function OrderHistory({ apiData }) {
   console.log(apiData);
@@ -15,57 +15,65 @@ export default function OrderHistory({ apiData }) {
   return (
     <CustomLayout>
       <div className='container'>
-        <div className='text-2xl text-gray-500'>All Products and Services</div>
+        <div className='text-2xl text-primary font-bold'>All Products and Services</div>
         {orderDetails ? (
           <div className='mt-5'>
             <div className='max-w-full mx-auto relative'>
               <div className='overflow-x-auto'>
-              <div className="shadow-xl rounded-lg overflow-hidden border border-gray-300">
-        <table className='min-w-full bg-white border-collapse'>
-                  <thead className='bg-gray-100'>
-                    <tr>
-                      <th className='py-2 px-4 border-b border-gray-300 uppercase'>Order No</th>
-                      <th className='py-2 px-4 border-b border-gray-300 uppercase'>Package Name</th>
-                      <th className='py-2 px-4 border-b border-gray-300 uppercase'>Plan (month)</th>
-                      <th className='py-2 px-4 border-b border-gray-300 uppercase'>
-                        Total Amount ($)
-                      </th>
-                      <th className='py-2 px-4 border-b border-gray-300 uppercase'>Expired Date</th>
-                      <th className='py-2 px-4 border-b border-gray-300 uppercase'>Status</th>
-                      <th className='py-2 px-4 border-b border-gray-300 uppercase'>View</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {orderDetails.map((order) => (
-                      <tr className='text-center'>
-                        <td className='py-2 px-4 border-b border-gray-300'>{order.id}</td>
-                        <td className='py-2 px-4 border-b border-gray-300'>
-                          {order.order_details[0].package_name}
-                        </td>
-                        <td className='py-2 px-4 border-b border-gray-300'>
-                          {order.order_details[0].plan}
-                        </td>
-                        <td className='py-2 px-4 border-b border-gray-300'>
-                          {parseFloat(order.order_details[0].total_amount).toFixed(2)}
-                        </td>
-                        <td className='py-2 px-4 border-b border-gray-300'>
-                          {moment(order.order_details[0].expired_date).format('DD/MM/YYYY')}
-                        </td>
-                        <td className='py-2 px-4 border-b border-gray-300'>
-                          {order.order_details[0].status}
-                        </td>
-                        <td className='py-2 px-4 border-b border-gray-300 align-middle'>
-                          <div className=' flex justify-center'>
-                            <Link href='/' className=''>
-                              <CgNotes className='hover:text-[#5f61d1] cursor-pointer'/>
-                            </Link>
-                          </div>
-                        </td>
+                <div className='shadow-xl rounded-lg overflow-hidden border border-gray-300'>
+                  <table className='min-w-full bg-white border-collapse'>
+                    <thead className='bg-gray-100'>
+                      <tr>
+                        <th className='py-2 px-4 border-b border-gray-300 uppercase'>Order No</th>
+                        <th className='py-2 px-4 border-b border-gray-300 uppercase'>
+                          Package Name
+                        </th>
+                        <th className='py-2 px-4 border-b border-gray-300 uppercase'>
+                          Plan (month)
+                        </th>
+                        <th className='py-2 px-4 border-b border-gray-300 uppercase'>
+                          Total Amount ($)
+                        </th>
+                        <th className='py-2 px-4 border-b border-gray-300 uppercase'>
+                          Expired Date
+                        </th>
+                        <th className='py-2 px-4 border-b border-gray-300 uppercase'>Status</th>
+                        <th className='py-2 px-4 border-b border-gray-300 uppercase'>View</th>
                       </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
+                    </thead>
+                    <tbody>
+                      {orderDetails.map((order) => (
+                        <tr className='text-center'>
+                          <td className='py-2 px-4 border-b border-gray-300 text-primary font-bold'>
+                            {order.id}
+                          </td>
+                          <td className='py-2 px-4 border-b border-gray-300'>
+                            {order.order_details[0].package_name}
+                          </td>
+                          <td className='py-2 px-4 border-b border-gray-300'>
+                            {order.order_details[0].plan}
+                          </td>
+                          <td className='py-2 px-4 border-b border-gray-300'>
+                            {parseFloat(order.order_details[0].total_amount).toFixed(2)} $
+                          </td>
+                          <td className='py-2 px-4 border-b border-gray-300'>
+                            {moment(order.order_details[0].expired_date).format('DD/MM/YYYY')}
+                          </td>
+                          <td className='py-2 px-4 border-b border-gray-300'>
+                            {order.order_details[0].status}
+                          </td>
+                          <td className='py-2 px-4 border-b border-gray-300 align-middle'>
+                            <div className=' flex justify-center'>
+                              <Link href='/' className=''>
+                                <CgNotes className='hover:text-[#5f61d1] cursor-pointer' />
+                              </Link>
+                            </div>
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
               </div>
             </div>
           </div>

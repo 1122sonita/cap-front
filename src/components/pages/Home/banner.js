@@ -32,7 +32,7 @@ export default function Banner({ trans, apiData }) {
 
   return (
     <>
-      <div className='space-y-[40px] md:space-y-[24px] cursor-pointer '>
+      <div className='space-y-[40px] md:space-y-[24px] cursor-pointer  '>
         <Slider
           autoPlay
           autoPlayInterval={3000} // Set your desired interval in milliseconds
@@ -43,33 +43,35 @@ export default function Banner({ trans, apiData }) {
           {banners.map((banner, index) => (
             // eslint-disable-next-line react/no-array-index-key
             <Link href={`/service?id=${banner.package_id}&promotion=${banner.promotion}`}>
-              <div key={index} className='w-full md:p-[27px]'>
+              <div key={index} className='w-full md:p-[27px] relative'>
                 <div className='flex flex-col lg:flex-row gap-[50px] md:gap-[30px] items-center'>
                   <div className='w-full space-y-[19px]'>
-                    <h3 className='text-title font-bold text-secondary text-center md:text-left'>
+                    <h3 className='text-h1 font-bold text-secondary text-center md:text-left'>
                       {banner.title || trans.home.banner.title}
                     </h3>
                     <p className='whitespace-pre-wrap text-li text-white text-p'>
                       {banner.description || trans.home.banner.dsp}
                     </p>
-                    <div className='flex justify-center md:justify-start'>
-                      <Link href='/service'>
-                        <a>
-                          <button
-                            type='button'
-                            className='bg-red-600 text-subtitle py-[5px] px-[20px] text-li transition-all text-white  rounded-full'
-                          >
-                            Promotions {banner.promotion || trans.home.banner.dsp}%
-                          </button>
-                        </a>
-                      </Link>
+                    <div className='top-[100px] right-[50px]   absolute'>
+                      <div className='rounded-full'>
+                        <Link href='/service'>
+                          <a>
+                            <p
+                              type='button'
+                              className=' bg-promotion rounded-full h-16 w-16 flex items-center justify-center text-white'
+                            >
+                              {banner.promotion || trans.home.banner.dsp}%
+                            </p>
+                          </a>
+                        </Link>
+                      </div>
                     </div>
                     <div className='flex justify-center md:justify-start'>
                       <Link href='/service'>
                         <a>
                           <button
                             type='button'
-                            className='bg-secondary text-subtitle py-[10px] px-[40px] hover:bg-primary hover:text-white hover:scale-110 transition-all text-white font-semibold rounded-full'
+                            className='bg-secondary text-subtitle py-[10px] px-[40px] hover:bg-primary hover:text-white hover:scale-110 transition-all text-white font-semibold rounded-[10px]'
                           >
                             {banner.btn || trans.home.banner.btn}
                           </button>

@@ -11,7 +11,7 @@ export default function Banner({ trans }) {
         transition={{ delay: 0.2, type: 'spring' }}
         className='space-y-[20px] md:py-[40px] py-[20px]'
       >
-        <h1 className='text-title font-bold text-secondary text-center md:text-left'>
+        <h1 className='text-banner font-bold text-secondary text-center md:text-left'>
           {trans.about.title}
         </h1>
         <p className='text-li text-white text-center md:text-left whitespace-pre-wrap'>

@@ -1,3 +1,4 @@
+/* eslint-disable prefer-destructuring */
 /* eslint-disable object-shorthand */
 /* eslint-disable camelcase */
 import OrderHistory from '@components/pages/Account/order_history';
@@ -10,7 +11,7 @@ export default function Index({ locale, apiData }) {
   return <OrderHistory locale={locale} trans={trans} apiData={apiData} />;
 }
 
-export async function getServerSideProps(ctx) { 
+export async function getServerSideProps(ctx) {
   try {
     const accessToken = ctx.req.cookies.token;
     const user_id = ctx.req.cookies.user_id;
@@ -21,8 +22,7 @@ export async function getServerSideProps(ctx) {
         'Content-Type': 'application/json',
         Authorization: `Bearer ${accessToken}`,
       },
-    }
-    );
+    });
     const apiData = await response.json();
     return {
       props: {

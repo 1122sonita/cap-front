@@ -1,12 +1,11 @@
-import CustomLayout from './layout';
-import { FaRegUser } from 'react-icons/fa';
+/* eslint-disable jsx-a11y/label-has-associated-control */
+
 import { MdOutlineMarkEmailRead } from 'react-icons/md';
-import { FaPhoneAlt } from 'react-icons/fa';
-import { CiEdit } from 'react-icons/ci';
+import { FaPhoneAlt, FaRegUser } from 'react-icons/fa';
 import { useState, React } from 'react';
-import cookie from 'cookie';
 import { useRouter } from 'next/router';
 import Swal from 'sweetalert2';
+import CustomLayout from './layout';
 
 const Account = ({ apiData, accessToken }) => {
   const userData = apiData?.result.user || [];
@@ -56,8 +55,8 @@ const Account = ({ apiData, accessToken }) => {
           confirmButtonText: 'OK',
           confirmButtonColor: '#3b82f6',
           customClass: {
-            'confirmButton': 'text-white font-semibold w-20 py-1 border-radius-full'
-          }
+            confirmButton: 'text-white font-semibold w-20 py-1 border-radius-full',
+          },
         });
       }, 1500);
       Swal.fire({
@@ -70,7 +69,7 @@ const Account = ({ apiData, accessToken }) => {
         },
         willClose: () => {
           clearTimeout(timeoutId);
-        }
+        },
       });
       const userId = userData.id; // Assuming your user object has an id property
       const endpoint = `${process.env.NEXT_PUBLIC_UPDATE_USER_PROFILE_API}/${userId}`;
@@ -105,7 +104,6 @@ const Account = ({ apiData, accessToken }) => {
           router.push('/account');
           // Swal.close(); // Close the loading indicator
         }, 1000);
-       
       } else {
         console.error('Error updating profile:');
       }

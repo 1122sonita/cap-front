@@ -13,6 +13,6 @@
   }
 }
 
-.border-radius-full{
+.border-radius-full {
   @apply rounded-full !important;
 }
