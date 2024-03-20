@@ -1,5 +1,6 @@
+/* eslint-disable eqeqeq */
 /* eslint-disable no-unused-vars */
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import cookie from 'cookie';
 import { useRouter } from 'next/router';
@@ -52,7 +53,9 @@ export default function Payment({ selectedPackage, selectMonth, selectImage }) {
     setImage(event.target.files[0]);
   };
 
-  const totalPrice = selectedPackage.price * selectMonth.title;
+  // let totalPrice = selectedPackage.price * selectMonth.title;
+  const [totalPrice, setTotalPrice] = useState(null);
+
   const data = [
     {
       package_id: selectedPackage.id,
@@ -62,9 +65,16 @@ export default function Payment({ selectedPackage, selectMonth, selectImage }) {
       os: selectImage.title,
     },
   ];
-  console.log(selectedPackage);
-  console.log(selectMonth);
-  console.log(data);
+  useEffect(() => {
+    if (router.query.id == selectedPackage.id && router.query.promotion) {
+      const discount =
+        selectedPackage.price - selectedPackage.price * (router.query.promotion / 100);
+
+      setTotalPrice(discount * selectMonth.title);
+    } else {
+      setTotalPrice(selectedPackage.price * selectMonth.title);
+    }
+  }, [selectedPackage]);
   const handleCheckout = async () => {
     try {
       if (!fileName) {

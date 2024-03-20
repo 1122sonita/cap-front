@@ -169,14 +169,14 @@ export default function RightPanel({ trans }) {
               <button
                 type='button'
                 onClick={() => sendMessage()}
-                className='bg-primary text-white text-p font-semibold rounded-full hover:bg-primary hover:scale-110 transition-all px-[80px] py-[10px]'
+                className='bg-primary text-white text-p font-semibold rounded-[10px] hover:bg-primary hover:scale-110 transition-all px-[80px] py-[10px]'
               >
                 {trans.contact.rightPanel.btn}
               </button>
             ) : (
               <button
                 type='button'
-                className='bg-primary rounded-full text-p text-white font-semibold px-[40px] py-[10px] flex justify-center items-center cursor-not-allowed'
+                className='bg-primary rounded-[10px] text-p text-white font-semibold px-[40px] py-[10px] flex justify-center items-center cursor-not-allowed'
                 disabled
               >
                 <svg

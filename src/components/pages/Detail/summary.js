@@ -2,15 +2,33 @@
 // import { MdOutlineCancel } from 'react-icons/md';
 // import Link from 'next/link';
 // import Image from 'next/image';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import cx from 'classnames';
 import { motion } from 'framer-motion';
 import { containerVariants, childVariants } from '@constants/mocks/motion';
+import { useRouter } from 'next/router';
 // import { SummaryData } from '@constants/mocks/others';
 
 export default function Summary({ selectedPackage, selectImage, selectMonth }) {
+  const [discount, setDiscount] = useState(null);
+
+  const calculateDiscount = () => {
+    return selectedPackage.price - selectedPackage.price * (discount / 100);
+  };
+
   // const [hoverId, setHoverId] = useState();
-  const totalPrice = selectedPackage.price * selectMonth.title;
+  const totalPrice = calculateDiscount() * selectMonth.title;
+  const router = useRouter();
+
+  useEffect(() => {
+    // eslint-disable-next-line eqeqeq
+    if (router.query.id == selectedPackage.id) {
+      setDiscount(router.query.promotion);
+    } else {
+      setDiscount(null);
+    }
+  }, [selectedPackage]);
+
   return (
     <>
       <div className='dark:bg-gray-900 gap-10'>
@@ -37,9 +55,17 @@ export default function Summary({ selectedPackage, selectImage, selectMonth }) {
                     -77% the first 12 months
                     <p className='text-[12px]'>(New customer, 10 max)</p>
                   </button>
-                  <div className='flex flex-col'>
-                    <p className='text-[13px]  line-through'>US$ 4.20</p>
-                    <p className='text-[13px] text-red-600'>US$ 0.97</p>
+                  <div className='flex flex-col justify-center'>
+                    {/* <p className={`text-[13px] ${discount? 'line-through':''}`}>US$ 4.20</p> */}
+                    <p className={`flex justify-center ${discount ? 'line-through' : ''}`}>
+                      ${selectedPackage.price}
+                    </p>
+                    {discount && (
+                      <p className='text-[16px] text-red-600 flex justify-center'>
+                        ${calculateDiscount()}
+                      </p>
+                    )}
+
                     <p className='text-[13px] ml-2'>{selectMonth.title}/month</p>
                   </div>
                 </div>

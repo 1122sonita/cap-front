@@ -5,7 +5,9 @@ export default function Business({ trans }) {
   return (
     <div className='md:space-y-[100px] space-y-[40px]'>
       <div className='text-center space-y-[10px]'>
-        <h1 className='mb-12 text-title font-bold text-primary'>Our Team</h1>
+        <h1 className='mb-12 text-3xl sm:text-4xl md:text-4xl font-semibold text-primary'>
+          Our Team
+        </h1>
         <p className='text-p t'>{trans.about.business.dsp}</p>
       </div>
       <div className='container my-24 mx-auto md:px-6 '>
@@ -21,7 +23,7 @@ export default function Business({ trans }) {
                   width={0}
                   height={0}
                 />
-                <h5 className='mb-4 text-lg font-bold'>Pich PuthSreyNeath</h5>
+                <h5 className='mb-4 text-lg font-bold text-primary mt-2'>Pich PuthSreyNeath</h5>
                 <p className='mb-6'>Team Leader</p>
               </div>
             </div>
@@ -34,7 +36,7 @@ export default function Business({ trans }) {
                 width={0}
                 height={0}
               />
-              <h5 className='mb-4 text-lg font-bold'>Ren Sonita</h5>
+              <h5 className='mb-4 text-lg font-bold text-primary mt-2'>Ren Sonita</h5>
               <p className='mb-6'>Frontend Developer</p>
             </div>
             <div className='mb-12 md:mb-0 '>
@@ -46,7 +48,7 @@ export default function Business({ trans }) {
                 width={0}
                 height={0}
               />
-              <h5 className='mb-4 text-lg font-bold'>Sieng Satya</h5>
+              <h5 className='mb-4 text-lg font-bold text-primary mt-2'>Sieng Satya</h5>
               <p className='mb-6'>API Deveoper</p>
             </div>
             <div className='mb-12 md:mb-0'>
@@ -58,7 +60,7 @@ export default function Business({ trans }) {
                 width={0}
                 height={0}
               />
-              <h5 className='mb-4 text-lg font-bold'>Theara Sreynit</h5>
+              <h5 className='mb-4 text-lg font-bold text-primary mt-2'>Theara Sreynit</h5>
               <p className='mb-6'>Backend Developer</p>
             </div>
             <div className='mb-12 md:mb-0'>
@@ -70,7 +72,7 @@ export default function Business({ trans }) {
                 width={0}
                 height={0}
               />
-              <h5 className='mb-4 text-lg font-bold'>Sot Tinong</h5>
+              <h5 className='mb-4 text-lg font-bold text-primary mt-2'>Sot Tinong</h5>
               <p className='mb-6'>Cloud Engineer</p>
             </div>
           </div>

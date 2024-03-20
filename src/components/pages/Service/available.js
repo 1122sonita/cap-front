@@ -28,154 +28,17 @@ export default function Available({ trans, apiData }) {
     return price - price * (discount / 100);
   };
 
+  const isDiscounted = (load) => {
+    return load.id == selectedId && promotion;
+  };
+
   return (
-    // <section>
-    //   <Card />
-    //   <div className='md:py-[100px] py-[50px] md:space-y-[113px] space-y-[30px]'>
-    //     <motion.div
-    //       initial={{ opacity: 0, y: 100 }}
-    //       whileInView={{ opacity: 1, y: 0 }}
-    //       viewport={{ once: true }}
-    //       className='space-y-[11px]'
-    //     >
-    //       <h2 className='text-title font-bold text-primary text-center'>
-    //         {trans.other.main.title}
-    //       </h2>
-    //       <p className='text-p text-center whitespace-pre-wrap'>{trans.other.main.dsp}</p>
-    //     </motion.div>
-
-    //     <motion.div
-    //       variants={containerVariants}
-    //       initial='hidden'
-    //       viewport={{ once: true }}
-    //       whileInView='show'
-    //       className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 justify-center gap-[20px] relative'
-    //     >
-    //       {packages.map((load) => (
-    //         <Link href={`/detail?id=${load.id}`} key={load.id}>
-    //           <motion.div
-    //             variants={childVariants}
-    //             key={load.id}
-    //             onMouseOver={() => setHoverId(load.id)}
-    //             onMouseLeave={() => setHoverId(null)}
-    //             onClick={() => setSelectedId(load.id)}
-    //             className={`${
-    //               selectedId === load.id
-    //                 ? 'bg-white font-bold scale-100 text-gray-800 border-secondary rounded-[10px] '
-    //                 : 'text-black  border-primary rounded-[20px]'
-    //             }  border-[2px]  gap-[10px] flex flex-col justify-between drop-shadow-md`}
-    //           >
-    //             {load.id == selectedId && promotion && (
-    //               <div className='absolute right-0 top-0 h-16 w-16'>
-    //                 <div className='absolute transform rotate-45 bg-secondary text-center text-white font-semibold py-1 right-[-35px] top-[32px] w-[170px]'>
-    //                   {promotion}% off
-    //                 </div>
-    //               </div>
-    //             )}
-    //             <div className='px-[20px] rounded-t-[16px] bg-purple '>
-    //               <div className='md:h-[70px] h-[100px] flex items-center justify-center'>
-    //                 <h3
-    //                   className={cx(
-    //                     'font-bold text-subtitle text-center line-clamp-2',
-    //                     hoverId === load?.id ? 'text-primary' : 'text-primary'
-    //                   )}
-    //                 >
-    //                   {load.name}
-    //                 </h3>
-    //               </div>
-    //             </div>
-    //             <div className='px-[20px] rounded-t-[16px] bg-purple '>
-    //               <div className='md:h-[70px] h-[100px] flex items-center justify-center'>
-    //                 <h3
-    //                   className={cx(
-    //                     'font-bold text-[50px] text-center line-clamp-2',
-    //                     hoverId === load?.id ? 'text-primary' : 'text-primary'
-    //                   )}
-    //                 >
-    //                   {load.price} $
-    //                 </h3>
-    //               </div>
-    //             </div>
-
-    //             <div className='px-[20px] py-[10px] h-full'>
-    //               <ul className='space-y-[10px]'>
-    //                 <li className='flex gap-[10px]'>
-    //                   <div className='flex-none pt-[6px]'>
-    //                     <AiFillCheckCircle
-    //                       className={cx(
-    //                         'text-20px',
-    //                         hoverId === load?.id ? 'text-primary' : 'text-primary'
-    //                       )}
-    //                     />
-    //                   </div>
-    //                   <div>
-    //                     <p className='text-li'>{load.cpu} vCPU </p>
-    //                   </div>
-    //                 </li>
-    //                 <li className='flex gap-[10px]'>
-    //                   <div className='flex-none pt-[6px]'>
-    //                     <AiFillCheckCircle
-    //                       className={cx(
-    //                         'text-20px',
-    //                         hoverId === load?.id ? 'text-primary' : 'text-primary'
-    //                       )}
-    //                     />
-    //                   </div>
-    //                   <div>
-    //                     <p className='text-li'>{load.memory} GB RAM</p>
-    //                   </div>
-    //                 </li>
-    //                 <li className='flex gap-[10px]'>
-    //                   <div className='flex-none pt-[6px]'>
-    //                     <AiFillCheckCircle
-    //                       className={cx(
-    //                         'text-20px',
-    //                         hoverId === load?.id ? 'text-primary' : 'text-primary'
-    //                       )}
-    //                     />
-    //                   </div>
-    //                   <div>
-    //                     <p className='text-li'>{load.storage} GB SSD</p>
-    //                   </div>
-    //                 </li>
-    //                 <li className='flex gap-[10px]'>
-    //                   <div className='flex-none pt-[6px]'>
-    //                     <AiFillCheckCircle
-    //                       className={cx(
-    //                         'text-20px',
-    //                         hoverId === load?.id ? 'text-primary' : 'text-primary'
-    //                       )}
-    //                     />
-    //                   </div>
-    //                   <div>
-    //                     <p className='text-li'>{load.description}</p>
-    //                   </div>
-    //                 </li>
-    //               </ul>
-    //             </div>
-
-    //             <div className='bg-primary hover:scale-100  rounded-b-[16px] hover:bg-primary text-white hover:text-secondary flex justify-center cursor-pointer '>
-    //               <Link href='/detail'>
-    //                 <button
-    //                   type='button'
-    //                   className=' text-btn  hover:scale-110 transition-all  px-[40px] py-[10px] rounded-full font-semibold'
-    //                 >
-    //                   {trans.other.main.btn}
-    //                 </button>
-    //               </Link>
-    //             </div>
-    //           </motion.div>
-    //         </Link>
-    //       ))}
-    //     </motion.div>
-    //   </div>
-    // </section>
     <section className='py-6 leading-7 text-gray-900 bg-white sm:py-12 md:py-16 cursor-pointer'>
       <div className=' px-4 mx-auto border-solid sm:px-6 md:px-6 lg:px-0 max-w-7xl'>
         <div className='flex flex-col items-center leading-7 text-center text-gray-900 border-0 border-gray-200'>
           <h2
             id='pricing'
-            className='box-border m-0 text-3xl font-semibold leading-tight tracking-tight text-black border-solid sm:text-4xl md:text-4xl text'
+            className='box-border m-0 text-3xl font-semibold leading-tight tracking-tight text-primary border-solid sm:text-4xl md:text-4xl text'
           >
             {trans.other.main.title}
           </h2>
@@ -187,7 +50,7 @@ export default function Available({ trans, apiData }) {
         >
           {/* Price 1 */}
           {packages.map((load) => (
-            <Link href={`/detail?id=${load.id}`} key={load.id}>
+            <Link href={`/detail?id=${load.id} &promotion=${promotion}`} key={load.id}>
               <motion.div
                 variants={childVariants}
                 key={load.id}
@@ -212,12 +75,42 @@ export default function Available({ trans, apiData }) {
                     {load.name}
                   </h3>
                   <div className='flex items-end mt-6 leading-7 text-gray-900 border-0 border-gray-200'>
-                    <p className='box-border m-0 text-6xl font-semibold leading-none border-solid text-primary '>
-                      ${load.price}
-                    </p>
-                    <p className='box-border m-0 border-solid' style={{ borderImage: 'initial' }}>
-                      / month
-                    </p>
+                    {isDiscounted(load) ? (
+                      <div className='inline-block flex-col justify-center align-middle'>
+                        <div className='flex justify-end align-bottom'>
+                          <p className='box-border m-0 self-end text-6xl font-semibold leading-none border-solid text-primary line-through'>
+                            ${load.price}
+                          </p>
+                          <p
+                            className='box-border m-0 self-end border-solid'
+                            style={{ borderImage: 'initial' }}
+                          >
+                            / month
+                          </p>
+                        </div>
+
+                        <p className='flex justify-center box-border m-0 text-2xl font-semibold leading-none border-solid text-red-700'>
+                          $ {calculateDiscountedPrice(load.price, promotion)}
+                        </p>
+                      </div>
+                    ) : (
+                      <div className='inline-block flex-col justify-center align-middle'>
+                        <div className='flex justify-end align-bottom'>
+                          <p className='box-border m-0 text-6xl font-semibold leading-none border-solid text-primary '>
+                            ${load.price}
+                          </p>
+                          <p
+                            className='box-border self-end m-0 border-solid'
+                            style={{ borderImage: 'initial' }}
+                          >
+                            / month
+                          </p>
+                        </div>
+                        <p className='flex justify-center box-border m-0 text-2xl font-semibold leading-none border-solid opacity-0'>
+                          $ {calculateDiscountedPrice(load.price, promotion)}
+                        </p>
+                      </div>
+                    )}
                   </div>
                   <ul className='flex-1 p-0 mt-4 ml-5 leading-7 text-gray-900 border-0 border-gray-200'>
                     <li className='inline-flex items-center block w-full mb-2 ml-5 font-semibold text-left border-solid'>

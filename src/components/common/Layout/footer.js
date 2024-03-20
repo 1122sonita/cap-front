@@ -71,12 +71,10 @@ export default function Footer() {
         <div className='border-t-[1px] border-black'>
           <div className='container-full-px py-[20px]'>
             <div className=' flex justify-between items-center'>
-              <p className='text-black font-semibold text-16px text-center'>
+              <p className='text-black  text-16px text-center'>
                 2024 Cambodia Academy of Digital Technology
               </p>
-              <p className='text-black text-16px font-semibold text-center'>
-                Contact：+8616793674330
-              </p>
+              <p className='text-black text-16px  text-center'>Contact：+8616793674330</p>
             </div>
           </div>
         </div>

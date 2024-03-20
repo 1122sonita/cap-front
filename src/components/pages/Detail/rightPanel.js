@@ -29,7 +29,11 @@ export default function RightPanel({ apiData, pacakgeFun, ImageFun, MonthFun }) 
   const router = useRouter();
   useEffect(() => {
     const { id } = router.query;
-    setSelectedId(+id);
+    const index = packages.findIndex((e) => +e.id == +id);
+    if (index >= 0) {
+      pacakgeFun(packages[index]);
+      setSelectedId(+id);
+    }
   }, []);
 
   return (
