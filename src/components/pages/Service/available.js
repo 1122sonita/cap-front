@@ -8,12 +8,9 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { containerVariants, childVariants } from '@constants/mocks/motion';
 import { useRouter } from 'next/router';
-import { useRouter } from 'next/router';
 
 export default function Available({ trans, apiData }) {
   const packages = apiData?.result.packages || [];
-  const [selectedId, setSelectedId] = useState(null);
-  const [promotion, setPromotion] = useState();
   const [selectedId, setSelectedId] = useState(null);
   const [promotion, setPromotion] = useState();
   const [hoverId, setHoverId] = useState();

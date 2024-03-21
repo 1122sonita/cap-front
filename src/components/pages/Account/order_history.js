@@ -142,7 +142,7 @@ export default function OrderHistory({ apiData }) {
               </div>
             </div>
           </div>
-        </div>
+        </div>)}
       </div>
     </CustomLayout>
   );

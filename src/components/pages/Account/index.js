@@ -211,7 +211,6 @@ const Account = ({ apiData, accessToken }) => {
                 <div className='flex items-center justify-center mt-4'>
                   <button
                     type='button'
-                    type='button'
                     onClick={handleEditToggle}
                     className='flex items-center bg-secondary text-white  py-1 px-4 rounded-md  hover:bg-[#F6AF3B]'
                   >
