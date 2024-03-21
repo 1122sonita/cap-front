@@ -7,11 +7,6 @@ import CustomLayout from './layout';
 
 export default function OrderHistory({ apiData }) {
   console.log(apiData);
-  let orderDetails = '';
-  if (apiData.code === 200) {
-    orderDetails = apiData.result.Orders;
-  }
-  console.log(orderDetails);
   return (
     <CustomLayout>
       <div className='container'>
@@ -122,33 +117,32 @@ export default function OrderHistory({ apiData }) {
                 <span className='sr-only'>Loading...</span>
               </div>
 
-              <div className='absolute top-0 left-0 right-0 bottom-0 flex items-center justify-center'>
-                <div className='text-center'>
-                  <div className='w-16 h-16 mx-auto'>
-                    <Image
-                      src='/assets/main/icons/not_found.png'
-                      alt='not_found'
-                      layout='responsive'
-                      width={50}
-                      height={50}
-                    />
-                  </div>
-                  <h2 className='text-xl font-bold mb-2'>You do not have any products yet.</h2>
-                  <Link href='/service'>
-                    <a>
-                      <button
-                        type='button'
-                        className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-2'
-                      >
-                        Go to Purchase
-                      </button>
-                    </a>
-                  </Link>
+            <div className='absolute top-0 left-0 right-0 bottom-0 flex items-center justify-center'>
+              <div className='text-center'>
+                <div className='w-16 h-16 mx-auto'>
+                  <Image
+                    src='/assets/main/icons/not_found.png'
+                    alt='not_found'
+                    layout='responsive'
+                    width={50}
+                    height={50}
+                  />
                 </div>
+                <h2 className='text-xl font-bold mb-2'>You do not have any products yet.</h2>
+                <Link href='/service'>
+                  <a>
+                    <button
+                      type='button'
+                      className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-2'
+                    >
+                      Go to Purchase
+                    </button>
+                  </a>
+                </Link>
               </div>
             </div>
           </div>
-        )}
+        </div>
       </div>
     </CustomLayout>
   );

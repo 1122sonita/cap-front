@@ -1,4 +1,5 @@
 /* eslint-disable react/no-array-index-key */
+/* eslint-disable react/no-array-index-key */
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';

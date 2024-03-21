@@ -9,7 +9,6 @@ import CustomLayout from './layout';
 
 const Account = ({ apiData, accessToken }) => {
   const userData = apiData?.result.user || [];
-  const router = useRouter();
 
   const [isEditing, setIsEditing] = useState(false);
   const [editedUserData, setEditedUserData] = useState(userData);
@@ -94,6 +93,7 @@ const Account = ({ apiData, accessToken }) => {
       }
 
       const responseData = await response.json();
+
       if (responseData.code === 200) {
         // Handle successful response
         console.log('Profile updated successfully');
@@ -182,13 +182,13 @@ const Account = ({ apiData, accessToken }) => {
                     <button
                       type='button'
                       onClick={handleCancel}
-                      className='bg-gray-300 hover:bg-gray-400 text-gray-700 font-semibold px-4 py-2 rounded-full'
+                      className='bg-gray-300 hover:bg-gray-400 text-gray-700 font-semibold px-4 py-2 rounded-md'
                     >
                       Cancel
                     </button>
                     <button
                       type='submit'
-                      className='bg-primary hover:bg-[#4b8bf3] text-white font-semibold px-4 py-2 rounded-full'
+                      className='bg-secondary hover:bg-[#F6AF3B] text-white font-semibold px-4 py-2 rounded-md'
                     >
                       Save Changes
                     </button>
@@ -211,8 +211,9 @@ const Account = ({ apiData, accessToken }) => {
                 <div className='flex items-center justify-center mt-4'>
                   <button
                     type='button'
+                    type='button'
                     onClick={handleEditToggle}
-                    className='flex items-center bg-primary hover:bg-[#4b8bf3] text-white  py-1 px-4 rounded-full'
+                    className='flex items-center bg-secondary text-white  py-1 px-4 rounded-md  hover:bg-[#F6AF3B]'
                   >
                     {/* <CiEdit className='w-5 h-5 mr-2' /> */}
                     Edit

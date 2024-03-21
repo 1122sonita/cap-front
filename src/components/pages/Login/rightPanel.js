@@ -73,6 +73,7 @@ export default function LoginForm({ trans }) {
     } catch (error) {
       console.error('Error during login:', error.message);
       setErrorMessage('Username or Password is incorrect. Please try again.');
+      setErrorMessage('Username or Password is incorrect. Please try again.');
     }
   };
   return (
@@ -142,6 +143,7 @@ export default function LoginForm({ trans }) {
             </div>
           </div>
 
+          {errorMessage && <p className='text-red-600'>{errorMessage}</p>}
           {errorMessage && <p className='text-red-600'>{errorMessage}</p>}
         </div>
       </div>

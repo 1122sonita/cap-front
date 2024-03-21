@@ -5,14 +5,13 @@ import Image from 'next/image';
 import cookie from 'cookie';
 import { useRouter } from 'next/router';
 
-export default function Payment({ selectedPackage, selectMonth, selectImage }) {
+export default function Payment({ selectedPackage, selectMonth }) {
   // eslint-disable-next-line no-unused-vars
   const [step, setStep] = useState(1);
   // eslint-disable-next-line no-unused-vars
   const [success, setSuccess] = useState(false);
   const [fileName, setFileName] = useState('');
   const router = useRouter();
-  const [image, setImage] = useState(null);
 
   const handleUpload = async (selectedFile) => {
     try {
@@ -48,9 +47,8 @@ export default function Payment({ selectedPackage, selectMonth, selectImage }) {
   };
 
   const handleFileChange = async (event) => {
-    // await handleUpload(event.target.files[0]);
+    await handleUpload(event.target.files[0]);
     setFileName(event.target.files?.[0]?.name);
-    setImage(event.target.files[0]);
   };
 
   // let totalPrice = selectedPackage.price * selectMonth.title;
@@ -89,7 +87,6 @@ export default function Payment({ selectedPackage, selectMonth, selectImage }) {
           'Content-Type': 'application/json',
           Authorization: `Bearer ${cookie.parse(document.cookie).token}`,
         },
-        body: JSON.stringify(data),
       });
 
       if (!response.ok) {
@@ -125,15 +122,11 @@ export default function Payment({ selectedPackage, selectMonth, selectImage }) {
             const notificationEndpoint = `${process.env.NEXT_PUBLIC_NOTIFICATION_URL}?order_id=${orderId}`;
             const notificationResponse = await fetch(notificationEndpoint);
 
-            if (!notificationResponse.ok) {
-              throw new Error('Error sending push notification');
-            }
-
-            alert('Checkout successful!', responseData.message);
-          } else {
-            throw new Error('Error uploading invoice: ', responseData2.message);
-          }
+        if (!notificationResponse.ok) {
+          throw new Error('Error sending push notification');
         }
+
+        alert('Checkout successful!', responseData.message);
       } else {
         alert('Checkout failed: ', responseData.message);
       }
@@ -160,6 +153,7 @@ export default function Payment({ selectedPackage, selectMonth, selectImage }) {
                 </p>
                 <div className=' flex justify-center '>
                   <div className='w-[200px] sm:w-[303px] '>
+                    <Image src='/assets/main/pay.png' alt='telegram' width={403} height={403} />
                     <Image src='/assets/main/pay.png' alt='telegram' width={403} height={403} />
                   </div>
                 </div>

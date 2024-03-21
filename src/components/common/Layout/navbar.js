@@ -26,7 +26,7 @@ export default function Navbar() {
 
   // eslint-disable-next-line no-unused-vars
   const [active, setActive] = useState('');
-  const [showLocale, setShowLocale] = useState(false);
+  const [showLocale, setShowLocale] = useState(true);
   const [showMenu, setShowMenu] = useState(null);
 
   // eslint-disable-next-line no-unused-vars
