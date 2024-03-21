@@ -7,17 +7,25 @@ import cx from 'classnames';
 import { motion } from 'framer-motion';
 import { containerVariants, childVariants } from '@constants/mocks/motion';
 import { useRouter } from 'next/router';
+import BigNumber from 'bignumber.js';
 // import { SummaryData } from '@constants/mocks/others';
 
 export default function Summary({ selectedPackage, selectImage, selectMonth }) {
   const [discount, setDiscount] = useState(null);
 
   const calculateDiscount = () => {
-    return selectedPackage.price - selectedPackage.price * (discount / 100);
+    const price = new BigNumber(selectedPackage.price);
+    const myDiscount = new BigNumber(discount);
+
+    return price.minus(price.times(myDiscount.dividedBy(100))).toNumber();
   };
 
   // const [hoverId, setHoverId] = useState();
-  const totalPrice = calculateDiscount() * selectMonth.title;
+  const totalPrice = () => {
+    const myDiscount = new BigNumber(calculateDiscount());
+
+    return myDiscount.times(selectMonth.title).toNumber();
+  };
   const router = useRouter();
 
   useEffect(() => {
@@ -169,7 +177,7 @@ export default function Summary({ selectedPackage, selectImage, selectMonth }) {
                 <div className='flex flex-col justify-end'>
                   <h1>Total ex. GST</h1>
                 </div>
-                <div className='  w-[100px] text-center '>US$ {totalPrice}</div>
+                <div className='  w-[100px] text-center '>US${totalPrice()}</div>
               </div>
             </div>
           </div>

@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import cookie from 'cookie';
 import { useRouter } from 'next/router';
+import BigNumber from 'bignumber.js';
 
 export default function Payment({ selectedPackage, selectMonth, selectImage }) {
   // eslint-disable-next-line no-unused-vars
@@ -67,12 +68,14 @@ export default function Payment({ selectedPackage, selectMonth, selectImage }) {
   ];
   useEffect(() => {
     if (router.query.id == selectedPackage.id && router.query.promotion) {
-      const discount =
-        selectedPackage.price - selectedPackage.price * (router.query.promotion / 100);
+      const packagePrice = new BigNumber(selectedPackage.price);
+      const promotion = new BigNumber(router.query.promotion).dividedBy(100);
+      const discount = packagePrice.minus(packagePrice.times(promotion));
 
-      setTotalPrice(discount * selectMonth.title);
+      setTotalPrice(discount.times(selectMonth.title).toNumber());
     } else {
-      setTotalPrice(selectedPackage.price * selectMonth.title);
+      const packagePrice = new BigNumber(selectedPackage.price);
+      setTotalPrice(packagePrice.times(selectMonth.title).toNumber());
     }
   }, [selectedPackage]);
   const handleCheckout = async () => {
