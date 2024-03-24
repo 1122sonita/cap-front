@@ -11,11 +11,9 @@ import React, { useState, useEffect } from 'react';
 import { FaCheck, FaEarthAsia } from 'react-icons/fa6';
 import { HiOutlineMenu } from 'react-icons/hi';
 import cookie from 'cookie';
-import jwt from 'jsonwebtoken';
 import { CgProfile } from 'react-icons/cg';
 import { useAtom } from 'jotai';
 import { loginState } from '@constants/jotai';
-import Support from '../Main/Support';
 import Social from './social';
 
 export default function Navbar() {
@@ -26,7 +24,7 @@ export default function Navbar() {
 
   // eslint-disable-next-line no-unused-vars
   const [active, setActive] = useState('');
-  const [showLocale, setShowLocale] = useState(true);
+  const [showLocale, setShowLocale] = useState(false);
   const [showMenu, setShowMenu] = useState(null);
 
   // eslint-disable-next-line no-unused-vars
@@ -91,27 +89,7 @@ export default function Navbar() {
             <div className='rounded-full w-20 h-20 relative overflow-hidden flex justify-center items-center'>
               <CgProfile style={{ color: '#3b82f6', width: '40px', height: '40px' }} />
             </div>
-            {/* <label htmlFor='upload' className='absolute bottom-0 right-0 cursor-pointer'>
-              <input
-                type='file'
-                id='upload'
-                className='hidden'
-                onChange={(e) => handleUpload(e.target.files[0])}
-              />
-              <svg
-                xmlns='http://www.w3.org/2000/svg'
-                className='h-5 w-5 text-white bg-gray-600 rounded-full p-1'
-                viewBox='0 0 20 20'
-                fill='currentColor'
-              >
-                <path
-                  fillRule='evenodd'
-                  d='M10 2C5.03 2 1 6.03 1 11s4.03 9 9 9 9-4.03 9-9-4.03-9-9-9zm0 15c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7zm3-8H7v1h6V9z'
-                  clipRule='evenodd'
-                />
-              </svg>
-            </label> */}
-            <ul className=' drop-menu hover:bg-slate-100 hover:text-primary hover:font-bold mt-4 '>
+            <ul className='drop-menu hover:bg-slate-100 hover:text-primary hover:font-bold mt-4 '>
               <li>
                 <Link href='/account'>
                   <button type='button'>Profile</button>
@@ -133,9 +111,9 @@ export default function Navbar() {
           <a>
             <button
               type='button'
-              className='bg-gradient-to-t bg-primary  rounded-[10px] text-button px-[20px] py-[2px] border-[3px] border-primary hover:scale-110 transition-all flex items-center gap-2'
+              className='bg-primary  rounded-[10px] px-5 py-2 hover:scale-110 transition-all'
             >
-              <span className='uppercase text-white text-p font-bold pb-[3px]'>Log In</span>
+              <span className='uppercase text-white text-base font-bold'>Log In</span>
             </button>
           </a>
         </Link>
@@ -144,29 +122,33 @@ export default function Navbar() {
   };
   return (
     <>
-      <nav className='sticky top-0 z-30 bg-white'>
+    {/* NavBar */}
+      <nav className='sticky top-0 z-30  bg-white shadow-md shadow-[#0000001a]'>
+        {/* Three social media on the left corner */}
         <Social />
         <div className='container-full-px'>
-          <div className='flex items-center justify-center lg:justify-between gap-x-[25px] py-2 md:py-0'>
-            <div>
+          <div className='flex items-center h-16 justify-center lg:justify-between gap-x-[25px] py-2 md:py-0'>
+            {/* Logo */}
+            <div className=''>
               <Link href='/'>
-                <a className=' flex flex-row items-center'>
-                  <div className='w-[140px] md:w-[100px]'>
+                <a className='flex flex-row items-center '>
+                  <div className='w-24 h-24'>
                     <Image
-                      src='/assets/main/logo.png'
+                      src='/assets/main/logo1.png'
                       alt='logo'
                       layout='responsive'
                       width={0}
                       height={0}
                     />
                   </div>
-                  <p className='text-primary text-title font-bold'>CloudBloc</p>
+                  <p className='text-primary text-2xl font-bold'>CloudBloc</p>
                 </a>
               </Link>
             </div>
 
             <div className='hidden lg:block'>
               <ul className='flex items-center gap-[30px] relative'>
+                {/* Navbar menu */}
                 {navbarBtnsData?.map(
                   (load) =>
                     load.show && (
@@ -178,7 +160,7 @@ export default function Navbar() {
                         >
                           <Link href={load.linkTo} locale={locale}>
                             <a
-                              className={`text-20px hover:text-primary ${
+                              className={`text-lg hover:text-primary ${
                                 load.linkTo === asPath ? 'text-primary font-bold' : 'text-gray1'
                               }`}
                             >
@@ -189,10 +171,11 @@ export default function Navbar() {
                       </li>
                     )
                 )}
+                {/* Log in button */}
                 <li>
                   <BlogBtn />
                 </li>
-
+                {/* Change Language */}
                 <li className='flex items-center gap-[18px]'>
                   <div className='flex items-center'>
                     <p>{localesData.find((ele) => ele.locale === locale).display}</p>
@@ -332,8 +315,7 @@ export default function Navbar() {
             </ul>
           </div>
         </div>
-        <div className='border-t-[1px] border-primary shadow-2xl'></div>
-      </nav>{' '}
+      </nav>
     </>
   );
 }
