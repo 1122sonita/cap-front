@@ -159,7 +159,7 @@ export default function Payment({ selectedPackage, selectMonth, selectImage }) {
                   {totalPrice} $
                 </h1>
                 <p className='text-li  text-primary flex justify-center items-center'>
-                  Please Scan to Pay your Bill
+                  Please Scan the QR Code below to Pay
                 </p>
                 <div className=' flex justify-center '>
                   <div className='w-[200px] sm:w-[303px] '>
@@ -167,6 +167,9 @@ export default function Payment({ selectedPackage, selectMonth, selectImage }) {
                   </div>
                 </div>
                 <div className='space-y-[22px]'>
+                <p className='text-li  text-primary flex justify-center items-center'>
+                  Please Uplolad the receipt After your payment is successful
+                </p>
                   <div>
                     <label
                       htmlFor='file-upload'
@@ -185,7 +188,7 @@ export default function Payment({ selectedPackage, selectMonth, selectImage }) {
                 </div>
                 <div className='flex justify-center items-center'>
                   {' '}
-                  <div className='bg-primary mt-[30px] rounded-[16px] hover:bg-primary text-secondary hover:text-secondary flex justify-center'>
+                  <div className='bg-primary mt-[30px] rounded-[10px] text-white hover:scale-110 flex justify-center'>
                     <button
                       type='button'
                       className='text-btn hover:scale-110 transition-all px-[40px] py-[10px] rounded-full font-semibold'
