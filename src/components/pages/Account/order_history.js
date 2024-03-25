@@ -4,6 +4,7 @@ import Link from 'next/link';
 import moment from 'moment';
 import { CgNotes } from 'react-icons/cg';
 import CustomLayout from './layout';
+import cookie from 'cookie';
 
 export default function OrderHistory({ apiData }) {
   console.log(apiData);
@@ -26,7 +27,7 @@ export default function OrderHistory({ apiData }) {
     }
 };
   return (
-    <CustomLayout >
+    <CustomLayout userData={cookie.parse(document.cookie).username}>
       <div className='container'>
         <div className='text-2xl text-primary font-bold'>All Products and Services</div>
         {orderDetails ? (
@@ -58,7 +59,7 @@ export default function OrderHistory({ apiData }) {
                       {orderDetails.map((order, index) => {
                         const isLastOrder = index === orderDetails.length - 1;
                         const rowClassName = isLastOrder ? '' : 'border-b border-gray-200';
-                        // const statusColorClass = getStatusColor(order.order_details[0].status);
+                        const statusColorClass = getStatusColor(order.order_details[0].status);
                         return (
                         <tr className='text-center'>
                           <td className={`px-5 py-5 bg-white text-sm ${rowClassName}`}>
@@ -80,7 +81,7 @@ export default function OrderHistory({ apiData }) {
                             {moment(order.order_details[0].expired_date).format('DD/MM/YYYY')}
                           </td>
                           <td className={`px-5 py-5 bg-white text-sm ${rowClassName}`}>
-                          <div class={`p-1 text-xs border-2 rounded font-bold capitalize `}>{order.order_details[0].status}</div>
+                          <div class={`p-1 text-xs border-2 rounded font-bold capitalize ${statusColorClass}`}>{order.order_details[0].status}</div>
                             
                           </td>
                           <td className={`px-5 py-5 bg-white text-sm align-middle ${rowClassName}`}>

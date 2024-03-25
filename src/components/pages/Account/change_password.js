@@ -55,7 +55,7 @@ export default function ChangePassword() {
   };
 
   return (
-    <CustomLayout>
+    <CustomLayout userData={cookie.parse(document.cookie).username}>
       <div className='flex items-center justify-center'>
         <div className='w-1/3'>
           <div className='bg-white p-4 rounded-lg shadow-lg mt-8 '>

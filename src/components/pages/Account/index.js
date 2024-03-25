@@ -3,9 +3,9 @@
 import { MdOutlineMarkEmailRead } from 'react-icons/md';
 import { FaPhoneAlt, FaRegUser } from 'react-icons/fa';
 import { useState, React } from 'react';
-import { useRouter } from 'next/router';
 import Swal from 'sweetalert2';
 import CustomLayout from './layout';
+import cookie from 'cookie';
 
 const Account = ({ apiData, accessToken }) => {
   const userData = apiData?.result.user || [];
@@ -22,7 +22,7 @@ const Account = ({ apiData, accessToken }) => {
       setEditedUserData(originalUserData);
     }
   };
-
+  document.cookie = cookie.serialize('username', userData.name);
   const handleChange = (e) => {
     const { name, value } = e.target;
     setEditedUserData({
@@ -113,7 +113,7 @@ const Account = ({ apiData, accessToken }) => {
     }
   };
   return (
-    <CustomLayout userName={userData.name}>
+    <CustomLayout userData={userData.name}>
       <div>
         <h3 className='font-bold'>Profile</h3>
       </div>
