@@ -22,7 +22,7 @@ export default function Summary({ selectedPackage, selectImage, selectMonth }) {
 
   // const [hoverId, setHoverId] = useState();
   const totalPrice = () => {
-    const myDiscount = new BigNumber(calculateDiscount());
+    const myDiscount = new BigNumber(calculateDiscount() || selectedPackage.price);
 
     return myDiscount.times(selectMonth.title).toNumber();
   };
@@ -30,7 +30,7 @@ export default function Summary({ selectedPackage, selectImage, selectMonth }) {
 
   useEffect(() => {
     // eslint-disable-next-line eqeqeq
-    if (router.query.id == selectedPackage.id) {
+    if (router.query.id == selectedPackage.id && !!parseInt(router.query.promotion, 10)) {
       setDiscount(router.query.promotion);
     } else {
       setDiscount(null);

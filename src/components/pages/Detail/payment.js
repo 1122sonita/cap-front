@@ -67,7 +67,7 @@ export default function Payment({ selectedPackage, selectMonth, selectImage }) {
     },
   ];
   useEffect(() => {
-    if (router.query.id == selectedPackage.id && router.query.promotion) {
+    if (router.query.id == selectedPackage.id && !!parseInt(router.query.promotion, 10)) {
       const packagePrice = new BigNumber(selectedPackage.price);
       const promotion = new BigNumber(router.query.promotion).dividedBy(100);
       const discount = packagePrice.minus(packagePrice.times(promotion));
@@ -120,8 +120,6 @@ export default function Payment({ selectedPackage, selectMonth, selectImage }) {
           }
 
           const responseData2 = await response2.json();
-
-          console.log(responseData2);
           if (responseData2.code === 200) {
             router.push('/success');
             const orderId = responseData.result.order.id;
@@ -132,7 +130,7 @@ export default function Payment({ selectedPackage, selectMonth, selectImage }) {
               throw new Error('Error sending push notification');
             }
 
-            alert('Checkout successful!', responseData.message);
+            alert('Checkout successful!', responseData2.message);
           } else {
             throw new Error('Error uploading invoice: ', responseData2.message);
           }
