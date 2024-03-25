@@ -2,10 +2,10 @@ import NavbarLogin from '@components/common/Layout/nav_login';
 import Sidebar from '@components/common/Layout/sidebar';
 // import Layout from '@layout';
 
-export default function CustomLayout({ children }) {
+export default function CustomLayout({ children, userName }) {
   return (
     <div className='min-h-screen bg-gray-101 dark:bg-gray-900'>
-      <NavbarLogin />
+      <NavbarLogin userName={userName}/>
       <main className='flex'>
         <div className='w-1/6'>
           <Sidebar />

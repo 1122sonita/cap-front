@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 
-export default function NavbarLogin() {
+export default function NavbarLogin({ userName }) {
   return (
     <nav className='bg-white  shadow-md border-b-2 border-gray-200 top-0 z-10'>
       <div className='max-w-[90rem] mx-auto px-2 sm:px-4 lg:px-8'>
@@ -41,7 +41,7 @@ export default function NavbarLogin() {
           <div className='hidden sm:block'>
             <div className='ml-4 flex items-center space-x-4'>
               <Link href='/account'>
-                <a className=' px-3 py-2 rounded-md text-sm font-medium'>Thida</a>
+                <a className=' px-3 py-2 rounded-md text-sm font-medium'>{ userName }</a>
               </Link>
               <Link href='/'>
                 <button

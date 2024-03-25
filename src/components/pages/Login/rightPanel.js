@@ -131,7 +131,7 @@ export default function LoginForm({ trans }) {
               <button
                 type='button'
                 onClick={handleSubmit}
-                className='bg-primary text-white text-p font-semibold rounded-[10px] hover:bg-primary hover:scale-110 transition-all hover:text-secondary px-[80px] py-[10px] justify-center items-center'
+                className='bg-primary text-white text-p font-semibold rounded-[10px]  hover:scale-110 transition-all  px-5 py-2 justify-center items-center'
               >
                 {trans.contact.rightPanel.btn}
               </button>

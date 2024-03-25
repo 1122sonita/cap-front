@@ -113,7 +113,7 @@ const Account = ({ apiData, accessToken }) => {
     }
   };
   return (
-    <CustomLayout>
+    <CustomLayout userName={userData.name}>
       <div>
         <h3 className='font-bold'>Profile</h3>
       </div>

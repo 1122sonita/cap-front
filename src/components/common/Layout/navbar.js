@@ -89,13 +89,13 @@ export default function Navbar() {
             <div className='rounded-full w-20 h-20 relative overflow-hidden flex justify-center items-center'>
               <CgProfile style={{ color: '#3b82f6', width: '40px', height: '40px' }} />
             </div>
-            <ul className='drop-menu hover:bg-slate-100 hover:text-primary hover:font-bold mt-4 '>
-              <li>
+            <ul className='drop-menu mt-4 divide-y-2'>
+              <li className='hover:bg-slate-100 hover:text-primary hover:font-bold'>
                 <Link href='/account'>
                   <button type='button'>Profile</button>
                 </Link>
               </li>
-              <li>
+              <li className='hover:bg-slate-100 hover:text-primary hover:font-bold'> 
                 <button type='button' onClick={handleLogout}>
                   Logout
                 </button>

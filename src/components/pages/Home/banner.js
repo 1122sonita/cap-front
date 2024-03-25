@@ -72,7 +72,7 @@ export default function Banner({ trans, apiData }) {
                         <a>
                           <button
                             type='button'
-                            className='bg-secondary text-subtitle py-[10px] px-[40px] hover:bg-primary hover:text-white hover:scale-110 transition-all text-white font-semibold rounded-[10px]'
+                            className='bg-white text-subtitle py-2 px-5 hover:scale-110 transition-all text-primary font-semibold rounded-[10px]'
                           >
                             {banner.btn || trans.home.banner.btn}
                           </button>
